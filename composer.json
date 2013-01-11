@@ -1,0 +1,24 @@
+{
+	"name": "fuelphp/fieldset",
+	"type": "library",
+	"description": "Form generation and building.",
+	"keywords": ["Fieldset", "Form"],
+	"homepage": "https://github.com/fuelphp/fieldset",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "FuelPHP Development Team",
+			"email": "team@fuelphp.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"mockery/mockery": "0.7.*"
+	},
+	"autoload": {
+		"psr-0": { "FuelPHP\\Fieldset": "src/" }
+	},
+	"minimum-stability": "dev"
+}
