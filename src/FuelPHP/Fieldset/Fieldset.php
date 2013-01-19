@@ -11,10 +11,6 @@
 
 namespace FuelPHP\Fieldset;
 
-use IteratorAggregate;
-use ArrayAccess;
-use Countable;
-
 /**
  * Allows for the programtic construction of html forms.
  * 
@@ -22,50 +18,26 @@ use Countable;
  * @since   2.0.0
  * @author  Steve "uru" West <uruwolf@gmail.com>
  */
-class Fieldset implements
-	IteratorAggregate,
-	ArrayAccess,
-	Countable
+class Fieldset extends \FuelPHP\Common\DataContainer
 {
 	
 	/**
-	 * @var array
+	 * Override the DataContainer's set function to enable type checking.
+	 * 
+	 * @param string $key
+	 * @param Input|Fieldset $value
+	 * @throws \InvalidArgumentException
 	 */
-	protected $_elements = array();
-	
-	public function add(Input $element)
+	public function set($key, $value)
 	{
+		var_dump($value);
 		
-	}
-	
-	public function getIterator()
-	{
-        return new ArrayIterator($this);
-    }
-
-	public function count()
-	{
-		return count($this->_elements);
-	}
-
-	public function offsetExists($offset)
-	{
+		if( ! ($value instanceof Input) && ! ($value instanceof Fieldset) )
+		{
+			throw new \InvalidArgumentException('Only Inputs or Fieldsets can be added to a Fieldset.');
+		}
 		
-	}
-
-	public function offsetGet($offset)
-	{
-		
-	}
-
-	public function offsetSet($offset, $value)
-	{
-		
-	}
-
-	public function offsetUnset($offset)
-	{
-		
+		parent::set($key, $value);
 	}
 	
 }

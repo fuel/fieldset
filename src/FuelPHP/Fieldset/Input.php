@@ -55,7 +55,7 @@ class Input
 	 */
 	public function setName($name)
 	{
-		if ( !is_string($name))
+		if ( ! is_string($name) )
 		{
 			throw new \InvalidArgumentException('The name must be a string');
 		}

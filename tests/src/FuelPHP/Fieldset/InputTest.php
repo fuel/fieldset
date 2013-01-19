@@ -30,6 +30,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers FuelPHP\Fieldset\Input::setName
+	 * @group Fieldset
      */
     public function testSetName()
     {
@@ -39,6 +40,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers FuelPHP\Fieldset\Input::getName
+	 * @group Fieldset
      */
     public function testGetName()
     {
@@ -47,6 +49,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers FuelPHP\Fieldset\Input::getValue
+	 * @group Fieldset
      */
     public function testGetValue()
     {
@@ -55,6 +58,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers FuelPHP\Fieldset\Input::setValue
+	 * @group Fieldset
      */
     public function testSetValue()
     {
@@ -65,10 +69,11 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @covers FuelPHP\Fieldset\Input::getName
 	 * @expectedException InvalidArgumentException
+	 * @group Fieldset
 	 */
 	public function testInvalidName()
 	{
-		$this->object->setName(123);
+		$this->object->setName(new Input);
 	}
 	
 }
