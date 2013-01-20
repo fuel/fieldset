@@ -14,7 +14,7 @@ namespace FuelPHP\Fieldset\Input;
 /**
  * 
  *
- * @package FuelPHP\Fieldset
+ * @package FuelPHP\Fieldset\Input
  * @since   2.0.0
  * @author  Steve "uru" West <uruwolf@gmail.com>
  */

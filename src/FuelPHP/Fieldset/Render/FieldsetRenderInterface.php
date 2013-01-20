@@ -9,16 +9,16 @@
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset\Input;
+namespace FuelPHP\Fieldset\Render;
 
 /**
  * 
  *
- * @package FuelPHP\Fieldset\Input
+ * @package FuelPHP\Fieldset\Render
  * @since   2.0.0
  * @author  Steve "uru" West <uruwolf@gmail.com>
  */
-class Submit extends Input
+interface FieldsetRenderInterface
 {
 	
 }

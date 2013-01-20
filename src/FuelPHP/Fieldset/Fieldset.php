@@ -30,8 +30,6 @@ class Fieldset extends \FuelPHP\Common\DataContainer
 	 */
 	public function set($key, $value)
 	{
-		var_dump($value);
-		
 		if( ! ($value instanceof Input) && ! ($value instanceof Fieldset) )
 		{
 			throw new \InvalidArgumentException('Only Inputs or Fieldsets can be added to a Fieldset.');
