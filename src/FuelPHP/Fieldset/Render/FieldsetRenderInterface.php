@@ -12,7 +12,7 @@
 namespace FuelPHP\Fieldset\Render;
 
 /**
- * 
+ * Defines a common interface for rendering fieldsets, forms and input attributes
  *
  * @package FuelPHP\Fieldset\Render
  * @since   2.0.0
@@ -20,5 +20,17 @@ namespace FuelPHP\Fieldset\Render;
  */
 interface FieldsetRenderInterface
 {
+	
+	//Render form with content
+	public function form($fieldsets, $attributes = array());
+	
+	//render fieldset with content
+	public function fieldset($fields, $attributes = array());
+	
+	//render individual attributes
+	public function input($attributes);
+	
+	//Render block of HTML
+	public function html($html);
 	
 }

@@ -34,8 +34,6 @@ class RenderTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Generated from @assert ($fieldset = new Fieldset) == $fieldset.
-	 *
 	 * @group Fieldset
 	 * @covers FuelPHP\Fieldset\Render\Render::setFieldset
 	 * @covers FuelPHP\Fieldset\Render\Render::getFieldset
@@ -45,6 +43,19 @@ class RenderTest extends \PHPUnit_Framework_TestCase
 		$this->object->setFieldset($fieldset = new Fieldset);
 		$this->assertEquals(
 				$fieldset, $this->object->getFieldset()
+		);
+	}
+	
+	/**
+	 * @group Fieldset
+	 * @covers FuelPHP\Fieldset\Render\Render::setInterface
+	 * @covers FuelPHP\Fieldset\Render\Render::getInterface
+	 */
+	public function testSetInterface()
+	{
+		$this->object->setInterface($interface = new BasicRender);
+		$this->assertEquals(
+				$interface, $this->object->getInterface()
 		);
 	}
 
