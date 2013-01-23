@@ -67,7 +67,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input::getName
+	 * @covers FuelPHP\Fieldset\Input::setName
 	 * @expectedException InvalidArgumentException
 	 * @group Fieldset
 	 */
