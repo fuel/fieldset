@@ -16,7 +16,7 @@ namespace FuelPHP\Fieldset;
  * 
  * @package FuelPHP\Fieldset
  * @since   2.0.0
- * @author  Steve "uru" West <uruwolf@gmail.com>
+ * @author  Fuel Development Team
  */
 class Fieldset extends \FuelPHP\Common\DataContainer
 {

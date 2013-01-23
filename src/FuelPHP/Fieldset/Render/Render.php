@@ -19,7 +19,7 @@ use FuelPHP\Fieldset\Render\FieldsetRenderInterface;
  *
  * @package FuelPHP\Fieldset\Render
  * @since   2.0.0
- * @author  Steve "uru" West <uruwolf@gmail.com>
+ * @author  Fuel Development Team
  */
 class Render
 {

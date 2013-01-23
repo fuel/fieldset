@@ -16,7 +16,7 @@ namespace FuelPHP\Fieldset\Input;
  *
  * @package FuelPHP\Fieldset\Input
  * @since   2.0.0
- * @author  Steve "uru" West <uruwolf@gmail.com>
+ * @author  Fuel Development Team
  */
 class Checkbox extends Input
 {
