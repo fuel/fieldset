@@ -12,13 +12,13 @@
 namespace FuelPHP\Fieldset;
 
 /**
- * Defines a fieldset that can be added to a Form
+ * Allows for the programtic construction of html forms.
  * 
  * @package FuelPHP\Fieldset
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Fieldset extends \FuelPHP\Common\DataContainer
+class Form
 {
 	
 	/**
