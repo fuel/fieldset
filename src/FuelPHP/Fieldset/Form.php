@@ -18,7 +18,7 @@ namespace FuelPHP\Fieldset;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Form
+class Form extends \FuelPHP\Common\DataContainer
 {
 	
 	/**

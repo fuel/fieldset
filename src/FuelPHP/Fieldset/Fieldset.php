@@ -21,6 +21,20 @@ namespace FuelPHP\Fieldset;
 class Fieldset extends \FuelPHP\Common\DataContainer
 {
 	
+	protected $_legend = null;
+	
+	public function getlegend()
+	{
+		return $this->_legend;
+	}
+	
+	public function setLegend($legend)
+	{
+		$this->_legend = $legend;
+		
+		return $this;
+	}
+	
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
