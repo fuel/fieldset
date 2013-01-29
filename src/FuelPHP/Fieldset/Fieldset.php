@@ -23,11 +23,22 @@ class Fieldset extends \FuelPHP\Common\DataContainer
 	
 	protected $_legend = null;
 	
+	/**
+	 * Gets the legend for the Fieldset
+	 * 
+	 * @return string
+	 */
 	public function getlegend()
 	{
 		return $this->_legend;
 	}
 	
+	/**
+	 * Sets the legend for the Fieldset.
+	 * 
+	 * @param string|null $legend Set to null (the default) to not display a legend
+	 * @return \FuelPHP\Fieldset\Fieldset
+	 */
 	public function setLegend($legend)
 	{
 		$this->_legend = $legend;

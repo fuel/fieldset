@@ -29,6 +29,14 @@ class BasicRender extends \FuelPHP\Fieldset\Render
 	
 	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset, array $elements)
 	{
+		if ( ! is_null($fieldset->getlegend()))
+		{
+			$legendTag = \FuelPHP\Common\Html::forge()
+				->tag('legend', array(), $fieldset->getlegend());
+			
+			array_unshift($elements, $legendTag);
+		}
+		
 		return \FuelPHP\Common\Html::forge()
 			->tag('fieldset', array(), implode("\n", $elements));
 	}

@@ -56,6 +56,7 @@ class BasicRenderTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
+	 * @covers FuelPHP\Fieldset\Render\BasicRender::fieldset
 	 * @group Fieldset
 	 */
 	public function testRenderFieldset()
@@ -68,6 +69,20 @@ class BasicRenderTest extends \PHPUnit_Framework_TestCase
 		$expected = '<fieldset><input/>
 <input/>
 <input/></fieldset>';
+		
+		$this->assertEquals($expected, $this->object->renderFieldset($fieldset));
+	}
+	
+	/**
+	 * @covers FuelPHP\Fieldset\Render\BasicRender::fieldset
+	 * @group Fieldset
+	 */
+	public function testRenderFieldsetWithLegend()
+	{
+		$fieldset = new \FuelPHP\Fieldset\Fieldset();
+		$fieldset->setLegend('Test Legend');
+		
+		$expected = '<fieldset><legend>Test Legend</legend></fieldset>';
 		
 		$this->assertEquals($expected, $this->object->renderFieldset($fieldset));
 	}
