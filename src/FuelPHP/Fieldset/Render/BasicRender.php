@@ -18,27 +18,21 @@ namespace FuelPHP\Fieldset\Render;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class BasicRender implements FieldsetRenderInterface
+class BasicRender extends Render
 {
 	
-	public function fieldset($fields, $attributes = array())
+	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
 	{
 		
 	}
 
-	public function form($fieldsets, $attributes = array())
+	public function form(\FuelPHP\Fieldset\Form $form)
 	{
 		
 	}
 
-	public function html($html)
+	public function input(\FuelPHP\Fieldset\Input $input)
 	{
 		
-	}
-
-	public function input($attributes)
-	{
-		
-	}
-	
+	}	
 }
