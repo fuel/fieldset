@@ -35,6 +35,18 @@ class Input
 	 */
 	protected $_value = null;
 	
+	protected $_attributes = array();
+	
+	public function __construct(
+		$name = null,
+		array $attributes = array(), 
+		$value = null)
+	{
+		$this->_name = $name;
+		$this->_attributes = $attributes;
+		$this->_value = $value;
+	}
+	
 	/**
 	 * Gets the name of this Input.
 	 * 
@@ -86,5 +98,27 @@ class Input
 	{
 		$this->_value = $value;
 		return $this;
+	}
+	
+	/**
+	 * Sets the attributes for the Input
+	 * 
+	 * @param array $attributes
+	 * @return \FuelPHP\Fieldset\Input
+	 */
+	public function setAttributes(array $attributes)
+	{
+		$this->_attributes = $attributes;
+		return $this;
+	}
+	
+	/**
+	 * Gets the attributes for the Input
+	 * 
+	 * @return array
+	 */
+	public function getAttributes()
+	{
+		return $this->_attributes;
 	}
 }

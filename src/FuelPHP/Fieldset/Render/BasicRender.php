@@ -18,21 +18,23 @@ namespace FuelPHP\Fieldset\Render;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class BasicRender extends Render
+class BasicRender extends \FuelPHP\Fieldset\Render
 {
+
+	public function form(\FuelPHP\Fieldset\Form $form, array $elements)
+	{
+		return \FuelPHP\Common\Html::forge()
+			->tag('form', array(), implode("\n", $elements));
+	}
 	
 	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
 	{
 		
 	}
 
-	public function form(\FuelPHP\Fieldset\Form $form)
-	{
-		
-	}
-
 	public function input(\FuelPHP\Fieldset\Input $input)
 	{
-		
-	}	
+		return \FuelPHP\Common\Html::forge()
+			->tag('input', $input->getAttributes());
+	}
 }
