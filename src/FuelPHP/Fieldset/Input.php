@@ -43,8 +43,8 @@ class Input
 		$value = null)
 	{
 		$this->setName($name);
-		$this->setAttributes($attributes);
 		$this->setValue($value);
+		$this->setAttributes($attributes);
 	}
 	
 	/**
@@ -55,7 +55,7 @@ class Input
 	 */
 	public function getName()
 	{
-		return $this->_name;
+		return $this->_attributes['name'];
 	}
 	
 	/**
@@ -72,7 +72,7 @@ class Input
 			throw new \InvalidArgumentException('The name must be a string');
 		}
 		
-		$this->_name = $name;
+		$this->_attributes['name'] = $name;
 		return $this;
 	}
 	
