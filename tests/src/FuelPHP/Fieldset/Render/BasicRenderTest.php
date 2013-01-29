@@ -55,4 +55,21 @@ class BasicRenderTest extends \PHPUnit_Framework_TestCase
 		);
 	}
 	
+	/**
+	 * @group Fieldset
+	 */
+	public function testRenderFieldset()
+	{
+		$fieldset = new \FuelPHP\Fieldset\Fieldset();
+		$fieldset[] = new \FuelPHP\Fieldset\Input();
+		$fieldset[] = new \FuelPHP\Fieldset\Input();
+		$fieldset[] = new \FuelPHP\Fieldset\Input();
+		
+		$expected = '<fieldset><input/>
+<input/>
+<input/></fieldset>';
+		
+		$this->assertEquals($expected, $this->object->renderFieldset($fieldset));
+	}
+	
 }

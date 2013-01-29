@@ -27,9 +27,10 @@ class BasicRender extends \FuelPHP\Fieldset\Render
 			->tag('form', array(), implode("\n", $elements));
 	}
 	
-	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
+	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset, array $elements)
 	{
-		
+		return \FuelPHP\Common\Html::forge()
+			->tag('fieldset', array(), implode("\n", $elements));
 	}
 
 	public function input(\FuelPHP\Fieldset\Input $input)

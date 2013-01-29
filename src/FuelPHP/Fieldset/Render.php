@@ -25,6 +25,7 @@ abstract class Render
 	 * Renders a full form
 	 * 
 	 * @param Form $form The Form to render
+	 * @return string
 	 */
 	public function renderForm(\FuelPHP\Fieldset\Form $form)
 	{
@@ -32,14 +33,7 @@ abstract class Render
 		
 		foreach($form as $element)
 		{
-			if ($element instanceof \FuelPHP\Fieldset\Fieldset)
-			{
-				$elements[] = $this->renderFieldset($element);
-			}
-			else if ($element instanceof \FuelPHP\Fieldset\Input)
-			{
-				$elements[] = $this->input($element);
-			}
+			$elements[] = $this->renderElement($element);
 		}
 		
 		$html = $this->form($form, $elements);
@@ -47,18 +41,71 @@ abstract class Render
 		return $html;
 	}
 	
-	public function renderFieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
+	/**
+	 * Renders a single form element. Usually a Fieldset or Input but could be
+	 * expanded.
+	 * 
+	 * @param mixed $element
+	 * @return string
+	 */
+	public function renderElement($element)
 	{
+		$html = '';
 		
+		if ($element instanceof \FuelPHP\Fieldset\Fieldset)
+		{
+			$html = $this->renderFieldset($element);
+		}
+		else if ($element instanceof \FuelPHP\Fieldset\Input)
+		{
+			$html = $this->input($element);
+		}
+		
+		return $html;
 	}
 	
-	//Render form with content
+	/**
+	 * Renders a fieldset element
+	 * 
+	 * @param \FuelPHP\Fieldset\Fieldset $fieldset
+	 * @return string
+	 */
+	public function renderFieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
+	{
+		$elements = array();
+		
+		foreach($fieldset as $element)
+		{
+			$elements[] = $this->renderElement($element);
+		}
+		
+		return $this->fieldset($fieldset, $elements);
+	}
+	
+	/**
+	 * Renders the container form
+	 * 
+	 * @param Form $form The form to render
+	 * @param array $elements The rendered version of elements that the form contains
+	 * @return string
+	 */
 	public abstract function form(\FuelPHP\Fieldset\Form $form, array $elements);
 	
-	//render fieldset with content
-	public abstract function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset);
+	/**
+	 * Renders a fieldset element and content
+	 * 
+	 * @param Fieldset $fieldset The fieldset to render
+	 * @param array $elements The already rendered elements of the fieldset
+	 * @return string
+	 */
+	public abstract function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset, array $elements);
 	
-	//render individual attributes
+	/**
+	 * Renders a single Input
+	 * 
+	 * @param Input $input The Input to render
+	 * @return string
+	 */
 	public abstract function input(\FuelPHP\Fieldset\Input $input);
 	
 }
