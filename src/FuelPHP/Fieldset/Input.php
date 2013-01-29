@@ -26,7 +26,7 @@ class Input
 	 * 
 	 * @var string 
 	 */
-	protected $_name = null;
+	protected $_name = '';
 	
 	/**
 	 * Contains the value of the Input
@@ -38,13 +38,13 @@ class Input
 	protected $_attributes = array();
 	
 	public function __construct(
-		$name = null,
+		$name = '',
 		array $attributes = array(), 
 		$value = null)
 	{
-		$this->_name = $name;
-		$this->_attributes = $attributes;
-		$this->_value = $value;
+		$this->setName($name);
+		$this->setAttributes($attributes);
+		$this->setValue($value);
 	}
 	
 	/**

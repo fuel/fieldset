@@ -44,7 +44,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetName()
     {
-        $this->assertNull($this->object->getName());
+        $this->assertEquals('', $this->object->getName());
     }
 
     /**
@@ -74,6 +74,37 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	public function testInvalidName()
 	{
 		$this->object->setName(new Input);
+	}
+	
+	/**
+	 * @covers FuelPHP\Fieldset\Input::setAttributes
+	 * @covers FuelPHP\Fieldset\Input::getAttributes
+	 * @group Fieldset
+	 */
+	public function testGetSetAttributes()
+	{
+		$attributes = array('name' => 'foobar');
+		
+		$this->object->setAttributes($attributes);
+		
+		$this->assertEquals($attributes, $this->object->getAttributes());
+	}
+	
+	/**
+	 * @covers FuelPHP\Fieldset\Input::__construct
+	 * @group Fieldset
+	 */
+	public function testConstructor()
+	{
+		$name = 'foorbar';
+		$attributes = array('id' => 'input-foobar');
+		$value = '12345';
+		
+		$input = new Input($name, $attributes, $value);
+		
+		$this->assertEquals($name, $input->getName());
+		$this->assertEquals($attributes, $input->getAttributes());
+		$this->assertEquals($value, $input->getValue());
 	}
 	
 }
