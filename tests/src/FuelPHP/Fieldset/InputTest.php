@@ -103,7 +103,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 		$input = new Input($name, $attributes, $value);
 		
 		$this->assertEquals($name, $input->getName());
-		$this->assertEquals($attributes, $input->getAttributes());
+		$this->assertEquals($attributes+array('name' => $name), $input->getAttributes());
 		$this->assertEquals($value, $input->getValue());
 	}
 	

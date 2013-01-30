@@ -55,7 +55,7 @@ class Input
 	 */
 	public function getName()
 	{
-		return $this->_attributes['name'];
+		return \FuelPHP\Common\Arr::get($this->_attributes, 'name', null);
 	}
 	
 	/**
@@ -108,7 +108,7 @@ class Input
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = $attributes;
+		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
 		return $this;
 	}
 	
