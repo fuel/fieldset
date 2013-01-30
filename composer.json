@@ -1,5 +1,5 @@
 {
-	"name": "fuel/fieldset",
+	"name": "fuelphp/fieldset",
 	"type": "library",
 	"description": "Form generation and building.",
 	"keywords": ["Fieldset", "Form"],
