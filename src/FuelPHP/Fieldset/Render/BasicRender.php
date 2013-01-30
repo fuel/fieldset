@@ -23,27 +23,23 @@ class BasicRender extends \FuelPHP\Fieldset\Render
 
 	public function form(\FuelPHP\Fieldset\Form $form, array $elements)
 	{
-		return \FuelPHP\Common\Html::forge()
-			->tag('form', array(), implode("\n", $elements));
+		return \FuelPHP\Common\Html::tag('form', array(), implode("\n", $elements));
 	}
 	
 	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset, array $elements)
 	{
 		if ( ! is_null($fieldset->getlegend()))
 		{
-			$legendTag = \FuelPHP\Common\Html::forge()
-				->tag('legend', array(), $fieldset->getlegend());
+			$legendTag = \FuelPHP\Common\Html::tag('legend', array(), $fieldset->getlegend());
 			
 			array_unshift($elements, $legendTag);
 		}
 		
-		return \FuelPHP\Common\Html::forge()
-			->tag('fieldset', array(), implode("\n", $elements));
+		return \FuelPHP\Common\Html::tag('fieldset', array(), implode("\n", $elements));
 	}
 
 	public function input(\FuelPHP\Fieldset\Input $input)
 	{
-		return \FuelPHP\Common\Html::forge()
-			->tag('input', $input->getAttributes());
+		return \FuelPHP\Common\Html::tag('input', $input->getAttributes());
 	}
 }
