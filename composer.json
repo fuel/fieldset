@@ -1,8 +1,8 @@
 {
-	"name": "fuel/fieldset",
+	"name": "fuelphp/fieldset",
 	"type": "library",
 	"description": "Form generation and building.",
-	"keywords": ["Fieldset", "Form"],
+	"keywords": ["Fieldset", "Form", "Form builder"],
 	"homepage": "https://github.com/fuelphp/fieldset",
 	"license": "MIT",
 	"authors": [
@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": ">=5.3.3",
-		"fuelphp/common": "dev-develop"
+		"fuelphp/common": "*"
 	},
 	"require-dev": {
 		"mockery/mockery": "0.7.*"
