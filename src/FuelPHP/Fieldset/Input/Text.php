@@ -18,7 +18,13 @@ namespace FuelPHP\Fieldset\Input;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Text extends Input
+class Text extends \FuelPHP\Fieldset\Input
 {
-
+	
+	public function __construct($name = '', array $attributes = array(), $value = null)
+	{
+		$attributes['type'] = 'text';
+		parent::__construct($name, $attributes, $value);
+	}
+	
 }
