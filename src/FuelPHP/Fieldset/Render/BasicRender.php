@@ -117,4 +117,13 @@ class BasicRender extends \FuelPHP\Fieldset\Render
 			$option->getContent()
 		);
 	}
+	
+	public function renderTextarea($area)
+	{
+		return \FuelPHP\Common\Html::tag(
+			'textarea',
+			$area->getAttributes(),
+			$area->getContent()
+		);
+	}
 }
