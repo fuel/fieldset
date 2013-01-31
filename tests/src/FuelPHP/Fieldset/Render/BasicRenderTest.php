@@ -44,10 +44,10 @@ class BasicRenderTest extends \PHPUnit_Framework_TestCase
 		$form[] = new \FuelPHP\Fieldset\Input();
 		$form[] = new \FuelPHP\Fieldset\Input('submit', array('type' => 'submit'));
 		
-		$expected = '<form><input/>
-<input/>
-<input/>
-<input type="submit"/></form>';
+		$expected = '<form><input name=""/>
+<input name=""/>
+<input name=""/>
+<input name="submit" type="submit"/></form>';
 		
 		$this->assertXmlStringEqualsXmlString(
 			$expected,
@@ -66,9 +66,9 @@ class BasicRenderTest extends \PHPUnit_Framework_TestCase
 		$fieldset[] = new \FuelPHP\Fieldset\Input();
 		$fieldset[] = new \FuelPHP\Fieldset\Input();
 		
-		$expected = '<fieldset><input/>
-<input/>
-<input/></fieldset>';
+		$expected = '<fieldset><input name=""/>
+<input name=""/>
+<input name=""/></fieldset>';
 		
 		$this->assertEquals($expected, $this->object->renderFieldset($fieldset));
 	}
