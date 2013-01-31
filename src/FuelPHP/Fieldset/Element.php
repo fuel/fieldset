@@ -18,7 +18,7 @@ namespace FuelPHP\Fieldset;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Element
+class Element implements Render\Renderable
 {
 	
 	protected $_attributes = array();

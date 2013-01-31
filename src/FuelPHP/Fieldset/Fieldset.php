@@ -18,7 +18,7 @@ namespace FuelPHP\Fieldset;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Fieldset extends \FuelPHP\Common\DataContainer
+class Fieldset extends \FuelPHP\Common\DataContainer implements Render\Renderable
 {
 	
 	protected $_legend = null;
@@ -61,6 +61,32 @@ class Fieldset extends \FuelPHP\Common\DataContainer
 		}
 		
 		return parent::set($key, $value);
+	}
+	
+	//TODO: Use traits for this when able
+	
+	protected $_attributes = array();
+	
+	/**
+	 * Sets the attributes for the Input
+	 * 
+	 * @param array $attributes
+	 * @return \FuelPHP\Fieldset\Input
+	 */
+	public function setAttributes(array $attributes)
+	{
+		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
+		return $this;
+	}
+	
+	/**
+	 * Gets the attributes for the Input
+	 * 
+	 * @return array
+	 */
+	public function getAttributes()
+	{
+		return $this->_attributes;
 	}
 	
 }

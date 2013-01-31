@@ -21,91 +21,80 @@ namespace FuelPHP\Fieldset;
 abstract class Render
 {
 
+	protected static $_methodPrefix = 'render';
+	
 	/**
-	 * Renders a full form
+	 * This is the main render function that will work what function from the 
+	 * subclass to call to render the given object.
 	 * 
-	 * @param Form $form The Form to render
-	 * @return string
+	 * Works out if there is a function that matches the element class name
+	 * to be able to magically add extra rendering functions.
+	 * 
+	 * @param \FuelPHP\Fieldset\Element $element
+	 * @return type
 	 */
-	public function renderForm(\FuelPHP\Fieldset\Form $form)
+	public function render(Render\Renderable $element)
 	{
-		$elements = array();
+		//First get the name of the class
+		$className = $this->getClassName($element);
 		
-		foreach($form as $element)
+		//Work out the function name to look for
+		$functioName = static::$_methodPrefix . $className;
+		
+		//Something to store the callable name in for later
+		$callName = '';
+		
+		//build the array to pass to is_callable
+		$methodVariable = array($this, $functioName);
+		
+		//Make sure we can store a return value and have a default
+		$result = '';
+		
+		//Check to see if our method is callable
+		if ( is_callable($methodVariable, false, $callName))
 		{
-			$elements[] = $this->renderElement($element);
+			$result = call_user_func($callName, $element);
+		}
+		//If not callable then use the default function
+		else
+		{
+			$result = $this->renderInput($element);
 		}
 		
-		$html = $this->form($form, $elements);
-		
-		return $html;
+		return $result;
 	}
 	
 	/**
-	 * Renders a single form element. Usually a Fieldset or Input but could be
-	 * expanded.
+	 * Gets the base class name.
 	 * 
-	 * @param mixed $element
+	 * If a value of 'FuelPHP\Fieldset\Element' is passed then 'Element'.
+	 * If an object is passed rather than a string get_class() will be used
+	 * to get the class name first.
+	 * 
+	 * This really should be moved to common
+	 * 
+	 * @param mixed $object
 	 * @return string
 	 */
-	public function renderElement($element)
+	protected function getClassName($object)
 	{
-		$html = '';
-		
-		if ($element instanceof \FuelPHP\Fieldset\Fieldset)
+		if ( is_object($object) )
 		{
-			$html = $this->renderFieldset($element);
-		}
-		else if ($element instanceof \FuelPHP\Fieldset\Input)
-		{
-			$html = $this->input($element);
+			$object = get_class($object);
 		}
 		
-		return $html;
+		$nameArray = explode('\\', $object);
+		
+		return array_pop($nameArray);
 	}
 	
 	/**
-	 * Renders a fieldset element
-	 * 
-	 * @param \FuelPHP\Fieldset\Fieldset $fieldset
-	 * @return string
-	 */
-	public function renderFieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
-	{
-		$elements = array();
-		
-		foreach($fieldset as $element)
-		{
-			$elements[] = $this->renderElement($element);
-		}
-		
-		return $this->fieldset($fieldset, $elements);
-	}
-	
-	/**
-	 * Renders the container form
-	 * 
-	 * @param Form $form The form to render
-	 * @param array $elements The rendered version of elements that the form contains
-	 * @return string
-	 */
-	public abstract function form(\FuelPHP\Fieldset\Form $form, array $elements);
-	
-	/**
-	 * Renders a fieldset element and content
-	 * 
-	 * @param Fieldset $fieldset The fieldset to render
-	 * @param array $elements The already rendered elements of the fieldset
-	 * @return string
-	 */
-	public abstract function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset, array $elements);
-	
-	/**
-	 * Renders a single Input
+	 * Renders a single Input. This will be used as the generic fallback if no
+	 * magic rendering method is found and therefore should always be implemented
 	 * 
 	 * @param Input $input The Input to render
 	 * @return string
 	 */
-	public abstract function input(\FuelPHP\Fieldset\Input $input);
+	public abstract function renderInput($input);
 	
 }

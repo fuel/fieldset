@@ -20,37 +20,59 @@ namespace FuelPHP\Fieldset\Render;
  */
 class BasicRender extends \FuelPHP\Fieldset\Render
 {
-
-	public function form(\FuelPHP\Fieldset\Form $form, array $elements)
+	
+	public function renderForm(\FuelPHP\Fieldset\Form $form)
 	{
-		return \FuelPHP\Common\Html::tag('form', array(), implode("\n", $elements));
+		$elements = '';
+		
+		foreach($form as $element)
+		{
+			$elements .= "\n" . $this->render($element);
+		}
+		
+		return \FuelPHP\Common\Html::tag(
+			'form',
+			$form->getAttributes(),
+			$elements
+		);
 	}
 	
-	public function fieldset(\FuelPHP\Fieldset\Fieldset $fieldset, array $elements)
+	public function renderFieldset(\FuelPHP\Fieldset\Fieldset $fieldset)
 	{
+		$legend = '';
+		
+		//Make sure the legend is added if needed
 		if ( ! is_null($fieldset->getlegend()))
 		{
-			$legendTag = \FuelPHP\Common\Html::tag('legend', array(), $fieldset->getlegend());
-			
-			array_unshift($elements, $legendTag);
+			$legend = \FuelPHP\Common\Html::tag(
+				'legend',
+				array(),
+				$fieldset->getlegend()
+			);
 		}
 		
-		return \FuelPHP\Common\Html::tag('fieldset', array(), implode("\n", $elements));
+		//Makes sure the legend is added if one exists
+		$elements = $legend;
+		
+		//Render all the elements
+		foreach($fieldset as $element)
+		{
+			$elements .= "\n" . $this->render($element);
+		}
+		
+		return \FuelPHP\Common\Html::tag(
+			'fieldset',
+			$fieldset->getAttributes(),
+			$elements
+		);
 	}
 
-	public function input(\FuelPHP\Fieldset\Input $input)
+	public function renderInput($input)
 	{
-		$inputClass = get_class($input);
-		
-		$result = '';
-		
-		switch($inputClass)
-		{
-			default:
-				$result = \FuelPHP\Common\Html::tag('input', $input->getAttributes());
-				break;
-		}
-		
-		return $result;
+		return \FuelPHP\Common\Html::tag(
+			'input',
+			$input->getAttributes(),
+			$input->getValue()
+		);
 	}
 }
