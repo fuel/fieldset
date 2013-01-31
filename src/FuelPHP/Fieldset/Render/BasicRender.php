@@ -40,6 +40,17 @@ class BasicRender extends \FuelPHP\Fieldset\Render
 
 	public function input(\FuelPHP\Fieldset\Input $input)
 	{
-		return \FuelPHP\Common\Html::tag('input', $input->getAttributes());
+		$inputClass = get_class($input);
+		
+		$result = '';
+		
+		switch($inputClass)
+		{
+			default:
+				$result = \FuelPHP\Common\Html::tag('input', $input->getAttributes());
+				break;
+		}
+		
+		return $result;
 	}
 }
