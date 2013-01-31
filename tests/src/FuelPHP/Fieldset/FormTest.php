@@ -28,29 +28,4 @@ class FormTest extends \PHPUnit_Framework_TestCase
     {
     }
 	
-	/**
-	 * @covers FuelPHP\Fieldset\Form::set
-	 * @group Fieldset
-     */
-    public function testArrayAddInput()
-    {
-		$input = new Input;
-		
-		$this->object[] = $input;
-		
-		$this->assertEquals(count($this->object), 1);
-    }
-	
-	/**
-	 * @covers FuelPHP\Fieldset\Form::set
-	 * @group Fieldset
-	 * @expectedException InvalidArgumentException
-     */
-    public function testArrayAddInvalid()
-    {
-		$input = 'This should fail';
-		
-		$this->object[] = $input;
-    }
-	
 }

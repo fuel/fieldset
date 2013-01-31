@@ -29,31 +29,6 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Fieldset::set
-	 * @group Fieldset
-     */
-    public function testArrayAddInput()
-    {
-		$input = new Input;
-		
-		$this->object[] = $input;
-		
-		$this->assertEquals(count($this->object), 1);
-    }
-	
-	/**
-	 * @covers FuelPHP\Fieldset\Fieldset::set
-	 * @group Fieldset
-	 * @expectedException InvalidArgumentException
-     */
-    public function testArrayAddInvalid()
-    {
-		$input = 'This should fail';
-		
-		$this->object[] = $input;
-    }
-	
-	/**
 	 * @covers FuelPHP\Fieldset\Fieldset::setLegend
 	 * @covers FuelPHP\Fieldset\Fieldset::getLegend
 	 * @group Fieldset

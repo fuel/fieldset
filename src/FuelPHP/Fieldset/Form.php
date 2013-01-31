@@ -21,23 +21,6 @@ namespace FuelPHP\Fieldset;
 class Form extends \FuelPHP\Common\DataContainer implements Render\Renderable
 {
 	
-	/**
-	 * Override the DataContainer's set function to enable type checking.
-	 * 
-	 * @param string $key
-	 * @param Input|Fieldset $value
-	 * @throws \InvalidArgumentException
-	 */
-	public function set($key, $value)
-	{
-		if( ! ($value instanceof Input) && ! ($value instanceof Fieldset) )
-		{
-			throw new \InvalidArgumentException('Only Inputs or Fieldsets can be added to a Fieldset.');
-		}
-		
-		return parent::set($key, $value);
-	}
-	
 	//TODO: Use traits for this when able
 	
 	protected $_attributes = array();

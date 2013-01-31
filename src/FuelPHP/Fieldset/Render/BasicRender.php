@@ -75,4 +75,46 @@ class BasicRender extends \FuelPHP\Fieldset\Render
 			$input->getValue()
 		);
 	}
+	
+	//Enable rendering for select elements
+	public function renderSelect($select)
+	{
+		$content = '';
+		
+		foreach($select as $option)
+		{
+			$content .= "\n" . $this->render($option);
+		}
+		
+		return \FuelPHP\Common\Html::tag(
+			'select',
+			$select->getAttributes(),
+			$content
+		);
+	}
+	
+	public function renderOptgroup($group)
+	{
+		$content = '';
+		
+		foreach($group as $option)
+		{
+			$content .= "\n" . $this->render($option);
+		}
+		
+		return \FuelPHP\Common\Html::tag(
+			'optgroup',
+			$group->getAttributes(),
+			$content
+		);
+	}
+	
+	public function renderOption($option)
+	{
+		return \FuelPHP\Common\Html::tag(
+			'option',
+			$option->getAttributes(),
+			$option->getContent()
+		);
+	}
 }
