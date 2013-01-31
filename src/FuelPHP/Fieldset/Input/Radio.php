@@ -18,12 +18,12 @@ namespace FuelPHP\Fieldset\Input;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Checkbox extends Toggle
+class Radio extends Toggle
 {
 	
 	public function __construct($name = '', array $attributes = array(), $value = null)
 	{
-		$attributes['type'] = 'checkbox';
+		$attributes['type'] = 'radio';
 		parent::__construct($name, $attributes, $value);
 	}
 	

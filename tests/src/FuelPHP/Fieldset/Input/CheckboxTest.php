@@ -39,7 +39,7 @@ class CheckboxTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\CheckBox::isChecked
+	 * @covers FuelPHP\Fieldset\Input\Toggle::isChecked
 	 * @group Fieldset
 	 */
 	public function testDefaultChecked()
@@ -48,8 +48,8 @@ class CheckboxTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\CheckBox::isChecked
-	 * @covers FuelPHP\Fieldset\Input\CheckBox::setChecked
+	 * @covers FuelPHP\Fieldset\Input\Toggle::isChecked
+	 * @covers FuelPHP\Fieldset\Input\Toggle::setChecked
 	 * @group Fieldset
 	 */
 	public function testGetSetChecked()
@@ -60,7 +60,7 @@ class CheckboxTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\CheckBox::setChecked
+	 * @covers FuelPHP\Fieldset\Input\Toggle::setChecked
 	 * @expectedException \InvalidArgumentException
 	 * @group Fieldset
 	 */
