@@ -18,7 +18,31 @@ namespace FuelPHP\Fieldset\Input;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Checkbox extends Input
+class Checkbox extends \FuelPHP\Fieldset\Input
 {
+	
+	protected $_checked = false;
+	
+	public function __construct($name = '', array $attributes = array(), $value = null)
+	{
+		$attributes['type'] = 'checkbox';
+		parent::__construct($name, $attributes, $value);
+	}
+	
+	public function isChecked()
+	{
+		return $this->_checked;
+	}
+	
+	public function setChecked($status)
+	{
+		if ( !is_bool($status) )
+		{
+			throw new \InvalidArgumentException('The status must be a boolean');
+		}
+		
+		$this->_checked = $status;
+		return $this;
+	}
 	
 }
