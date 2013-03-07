@@ -24,4 +24,9 @@ use FuelPHP\Fieldset\Render\Renderable;
 abstract class InputContainer extends DataContainer implements Renderable
 {
 	
+	public function populate()
+	{
+		//Load the input data
+	}
+	
 }
