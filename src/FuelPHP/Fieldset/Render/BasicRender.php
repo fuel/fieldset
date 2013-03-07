@@ -35,7 +35,7 @@ class BasicRender extends Render
 			$elements .= "\n" . $this->render($element);
 		}
 
-		return \FuelPHP\Common\Html::tag('form', $form->getAttributes(), $elements);
+		return Html::tag('form', $form->getAttributes(), $elements);
 	}
 
 	public function renderFieldset(Fieldset $fieldset)

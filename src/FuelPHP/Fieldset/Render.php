@@ -11,7 +11,7 @@
 
 namespace FuelPHP\Fieldset;
 
-use Render\Renderable;
+use FuelPHP\Fieldset\Render\Renderable;
 
 /**
  * Defines a common interface for rendering fieldsets, forms and input attributes
