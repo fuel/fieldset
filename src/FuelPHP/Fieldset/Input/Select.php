@@ -11,6 +11,12 @@
 
 namespace FuelPHP\Fieldset\Input;
 
+use FuelPHP\Common\DataContainer;
+use FuelPHP\Fieldset\Render\Renderable;
+use FuelPHP\Common\Arr;
+use FuelPHP\Fieldset\Input\Select\Optgroup;
+use FuelPHP\Fieldset\Input\Select\Option;
+
 /**
  * 
  *
@@ -18,9 +24,7 @@ namespace FuelPHP\Fieldset\Input;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Select
-	extends \FuelPHP\Common\DataContainer
-	implements \FuelPHP\Fieldset\Render\Renderable
+class Select extends DataContainer implements Renderable
 {
 
 	/**
@@ -32,19 +36,19 @@ class Select
 	 */
 	public function set($key, $value)
 	{
-		if( ! ($value instanceof Select\Option) &&
-			! ($value instanceof Select\Optgroup) )
+		if ( !($value instanceof Option) &&
+			!($value instanceof Optgroup) )
 		{
 			throw new \InvalidArgumentException('Only Options or Optgroups can be added to a Select.');
 		}
-		
+
 		return parent::set($key, $value);
 	}
-	
+
 	//TODO: Use traits for this when able
-	
+
 	protected $_attributes = array();
-	
+
 	/**
 	 * Sets the attributes for the Input
 	 * 
@@ -53,10 +57,10 @@ class Select
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
+		$this->_attributes = Arr::merge($this->_attributes, $attributes);
 		return $this;
 	}
-	
+
 	/**
 	 * Gets the attributes for the Input
 	 * 
@@ -66,5 +70,5 @@ class Select
 	{
 		return $this->_attributes;
 	}
-	
+
 }

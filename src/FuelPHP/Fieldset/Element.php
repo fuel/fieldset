@@ -11,6 +11,9 @@
 
 namespace FuelPHP\Fieldset;
 
+use FuelPHP\Common\Arr;
+use FuelPHP\Fieldset\Render\Renderable;
+
 /**
  * Defines common properties and functionality for input elements
  *
@@ -18,25 +21,24 @@ namespace FuelPHP\Fieldset;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Element implements Render\Renderable
+class Element implements Renderable
 {
-	
-	protected $_attributes = array();
-	
-	protected $_content = null;
-	
+
+	protected $attributes = array();
+	protected $content = null;
+
 	/**
 	 * Sets the attributes for the Element
 	 * 
-	 * @param array $attributes
+	 * @param  array $attributes
 	 * @return \FuelPHP\Fieldset\Element
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
+		$this->attributes = Arr::merge($this->attributes, $attributes);
 		return $this;
 	}
-	
+
 	/**
 	 * Gets the attributes for the Element
 	 * 
@@ -44,9 +46,9 @@ class Element implements Render\Renderable
 	 */
 	public function getAttributes()
 	{
-		return $this->_attributes;
+		return $this->attributes;
 	}
-	
+
 	/**
 	 * Gets the content of the Element
 	 * 
@@ -54,18 +56,19 @@ class Element implements Render\Renderable
 	 */
 	public function getContent()
 	{
-		return $this->_content;
+		return $this->content;
 	}
-	
+
 	/**
 	 * Sets the content for this Element
 	 * 
-	 * @param mixed $content
+	 * @param  mixed $content
 	 * @return \FuelPHP\Fieldset\Element
 	 */
 	public function setContent($content)
 	{
-		$this->_content = $content;
+		$this->content = $content;
 		return $this;
 	}
+
 }

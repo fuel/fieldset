@@ -11,6 +11,8 @@
 
 namespace FuelPHP\Fieldset\Input;
 
+use FuelPHP\Fieldset\Input;
+
 /**
  * 
  *
@@ -18,13 +20,14 @@ namespace FuelPHP\Fieldset\Input;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Password extends \FuelPHP\Fieldset\Input
+class Password extends Input
 {
-	
-	public function __construct($name = '', array $attributes = array(), $value = null)
+
+	public function __construct($name = '', array $attributes = array(),
+		$value = null)
 	{
 		$attributes['type'] = 'password';
 		parent::__construct($name, $attributes, $value);
 	}
-	
+
 }

@@ -11,6 +11,8 @@
 
 namespace FuelPHP\Fieldset;
 
+use Render\Renderable;
+
 /**
  * Defines a common interface for rendering fieldsets, forms and input attributes
  *
@@ -33,7 +35,7 @@ abstract class Render
 	 * @param \FuelPHP\Fieldset\Element $element
 	 * @return type
 	 */
-	public function render(Render\Renderable $element)
+	public function render(Renderable $element)
 	{
 		//First get the name of the class
 		$className = $this->getClassName($element);

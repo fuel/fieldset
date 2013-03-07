@@ -11,6 +11,8 @@
 
 namespace FuelPHP\Fieldset\Input;
 
+use FuelPHP\Fieldset\Input;
+
 /**
  * 
  *
@@ -18,13 +20,14 @@ namespace FuelPHP\Fieldset\Input;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class File extends \FuelPHP\Fieldset\Input
+class File extends Input
 {
-	
-	public function __construct($name = '', array $attributes = array(), $value = null)
+
+	public function __construct($name = '', array $attributes = array(),
+		$value = null)
 	{
 		$attributes['type'] = 'file';
 		parent::__construct($name, $attributes, $value);
 	}
-	
+
 }

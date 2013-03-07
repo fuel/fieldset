@@ -53,7 +53,7 @@ class Input extends Element
 	 */
 	public function getName()
 	{
-		return \FuelPHP\Common\Arr::get($this->_attributes, 'name', null);
+		return \FuelPHP\Common\Arr::get($this->attributes, 'name', null);
 	}
 	
 	/**
@@ -70,7 +70,7 @@ class Input extends Element
 			throw new \InvalidArgumentException('The name must be a string');
 		}
 		
-		$this->_attributes['name'] = $name;
+		$this->attributes['name'] = $name;
 		return $this;
 	}
 	

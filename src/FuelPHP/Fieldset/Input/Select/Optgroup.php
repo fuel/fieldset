@@ -11,6 +11,10 @@
 
 namespace FuelPHP\Fieldset\Input\Select;
 
+use FuelPHP\Common\DataContainer;
+use FuelPHP\Fieldset\Render\Renderable;
+use FuelPHP\Common\Arr;
+
 /**
  * 
  *
@@ -18,11 +22,9 @@ namespace FuelPHP\Fieldset\Input\Select;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Optgroup
-	extends \FuelPHP\Common\DataContainer
-	implements \FuelPHP\Fieldset\Render\Renderable
+class Optgroup extends DataContainer implements Renderable
 {
-	
+
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
@@ -32,18 +34,18 @@ class Optgroup
 	 */
 	public function set($key, $value)
 	{
-		if( ! ($value instanceof Option) )
+		if ( !($value instanceof Option) )
 		{
 			throw new \InvalidArgumentException('Only Options can be added to an Optgroup.');
 		}
-		
+
 		return parent::set($key, $value);
 	}
-	
+
 	//TODO: Use traits for this when able
-	
+
 	protected $_attributes = array();
-	
+
 	/**
 	 * Sets the attributes for the Input
 	 * 
@@ -52,10 +54,11 @@ class Optgroup
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
+		$this->_attributes = Arr::merge($this->_attributes,
+				$attributes);
 		return $this;
 	}
-	
+
 	/**
 	 * Gets the attributes for the Input
 	 * 
@@ -65,4 +68,5 @@ class Optgroup
 	{
 		return $this->_attributes;
 	}
+
 }

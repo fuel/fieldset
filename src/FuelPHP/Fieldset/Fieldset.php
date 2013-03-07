@@ -18,7 +18,7 @@ namespace FuelPHP\Fieldset;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Fieldset extends \FuelPHP\Common\DataContainer implements Render\Renderable
+class Fieldset extends InputContainer
 {
 	
 	protected $_legend = null;

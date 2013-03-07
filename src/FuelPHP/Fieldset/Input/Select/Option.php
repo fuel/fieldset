@@ -11,6 +11,8 @@
 
 namespace FuelPHP\Fieldset\Input\Select;
 
+use FuelPHP\Fieldset\Element;
+
 /**
  * 
  *
@@ -18,7 +20,7 @@ namespace FuelPHP\Fieldset\Input\Select;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Option extends \FuelPHP\Fieldset\Element
+class Option extends Element
 {
 	
 }

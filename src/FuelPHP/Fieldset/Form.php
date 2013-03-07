@@ -18,12 +18,12 @@ namespace FuelPHP\Fieldset;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Form extends \FuelPHP\Common\DataContainer implements Render\Renderable
+class Form extends InputContainer
 {
 	
 	//TODO: Use traits for this when able
 	
-	protected $_attributes = array();
+	protected $attributes = array();
 	
 	/**
 	 * Sets the attributes for the Input
@@ -33,7 +33,7 @@ class Form extends \FuelPHP\Common\DataContainer implements Render\Renderable
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
+		$this->attributes = \FuelPHP\Common\Arr::merge($this->attributes, $attributes);
 		return $this;
 	}
 	
@@ -44,7 +44,7 @@ class Form extends \FuelPHP\Common\DataContainer implements Render\Renderable
 	 */
 	public function getAttributes()
 	{
-		return $this->_attributes;
+		return $this->attributes;
 	}
 	
 }
