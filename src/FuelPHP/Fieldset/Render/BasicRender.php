@@ -62,7 +62,7 @@ class BasicRender extends Render
 
 	public function renderInput($input)
 	{
-		return Html::tag('input', $input->getAttributes(), $input->getValue());
+		return Html::tag('input', $input->getAttributes(), $input->getContent());
 	}
 
 	//Enable rendering for select elements

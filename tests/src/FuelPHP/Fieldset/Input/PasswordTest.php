@@ -30,7 +30,7 @@ class PasswordTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-		$attributes = array('type' => 'password', 'name' => '');
+		$attributes = array('type' => 'password', 'name' => '', 'value' => null);
 		
 		$instance = new Password();
 		

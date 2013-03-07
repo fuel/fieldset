@@ -28,21 +28,14 @@ class Input extends Element
 	 */
 	protected $_name = '';
 	
-	/**
-	 * Contains the value of the Input
-	 * 
-	 * @var string|null
-	 */
-	protected $_value = null;
-	
 	public function __construct(
 		$name = '',
 		array $attributes = array(), 
 		$value = null)
 	{
 		$this->setName($name);
-		$this->setValue($value);
 		$this->setAttributes($attributes);
+		$this->setValue($value);
 	}
 	
 	/**
@@ -82,7 +75,7 @@ class Input extends Element
 	 */
 	public function getValue()
 	{
-		return $this->_value;
+		return $this->attributes['value'];
 	}
 	
 	/**
@@ -94,7 +87,7 @@ class Input extends Element
 	 */
 	public function setValue($value)
 	{
-		$this->_value = $value;
+		$this->attributes['value'] = $value;
 		return $this;
 	}
 

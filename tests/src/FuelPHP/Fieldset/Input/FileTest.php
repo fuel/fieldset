@@ -30,7 +30,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-		$attributes = array('type' => 'file', 'name' => '');
+		$attributes = array('type' => 'file', 'name' => '', 'value' => null);
 		
 		$instance = new File();
 		

@@ -83,7 +83,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetSetAttributes()
 	{
-		$attributes = array('name' => 'foobar');
+		$attributes = array('name' => 'foobar', 'value' => null);
 		
 		$this->object->setAttributes($attributes);
 		
@@ -97,8 +97,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	public function testConstructor()
 	{
 		$name = 'foorbar';
-		$attributes = array('id' => 'input-foobar');
 		$value = '12345';
+		$attributes = array('id' => 'input-foobar', 'value' => $value);
 		
 		$input = new Input($name, $attributes, $value);
 		

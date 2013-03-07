@@ -30,7 +30,7 @@ class RadioTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-		$attributes = array('type' => 'radio', 'name' => '');
+		$attributes = array('type' => 'radio', 'name' => '', 'value' => null);
 		
 		$instance = new Radio();
 		
