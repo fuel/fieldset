@@ -38,7 +38,11 @@ abstract class InputContainer extends DataContainer implements Renderable
 		{
 			//Convert the name to a dot notation for better searching
 			$key = $this->inputNameToKey($item->getName());
-			$item->setValue($data->input($key));
+			$value = $data->input($key);
+			if ( !is_null($value) )
+			{
+				$item->setValue();
+			}
 		}
 	}
 

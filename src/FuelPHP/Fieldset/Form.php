@@ -23,7 +23,10 @@ class Form extends InputContainer
 	
 	//TODO: Use traits for this when able
 	
-	protected $attributes = array();
+	protected $attributes = array(
+		//Set the default action to post
+		'method' => 'POST',
+	);
 	
 	/**
 	 * Sets the attributes for the Input
