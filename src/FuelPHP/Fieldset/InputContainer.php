@@ -41,7 +41,7 @@ abstract class InputContainer extends DataContainer implements Renderable
 			$value = $data->input($key);
 			if ( !is_null($value) )
 			{
-				$item->setValue();
+				$item->setValue($value);
 			}
 		}
 	}
