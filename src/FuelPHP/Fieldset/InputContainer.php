@@ -13,6 +13,8 @@ namespace FuelPHP\Fieldset;
 
 use FuelPHP\Common\DataContainer;
 use FuelPHP\Fieldset\Render\Renderable;
+use FuelPHP\Fieldset\Data\Input;
+use FuelPHP\Common\Arr;
 
 /**
  * Defines a common interface for objects that can handle input data
@@ -23,10 +25,27 @@ use FuelPHP\Fieldset\Render\Renderable;
  */
 abstract class InputContainer extends DataContainer implements Renderable
 {
-	
-	public function populate()
+
+	public function repopulate(Input $data = null)
 	{
-		//Load the input data
+		if ( is_null($data) )
+		{
+			$data = new Input;
+		}
+
+		//Loop through all the elements assigned and attempt to assign a value
+		//to them.
+		foreach ( $this->all() as $item )
+		{
+			//Convert the name to a dot notation for better searching
+			$key = $this->inputNameToKey($item->getName());
+			$item->setValue($data->input($key));
+		}
 	}
-	
+
+	protected function inputNameToKey($name)
+	{
+		return $name;
+	}
+
 }
