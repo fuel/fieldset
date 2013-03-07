@@ -14,7 +14,6 @@ namespace FuelPHP\Fieldset;
 use FuelPHP\Common\DataContainer;
 use FuelPHP\Fieldset\Render\Renderable;
 use FuelPHP\Fieldset\Data\Input;
-use FuelPHP\Common\Arr;
 
 /**
  * Defines a common interface for objects that can handle input data
