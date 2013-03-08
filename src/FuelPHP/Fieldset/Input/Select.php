@@ -27,6 +27,9 @@ use FuelPHP\Fieldset\Input\Select\Option;
 class Select extends DataContainer implements Renderable
 {
 
+	protected $name = null;
+	protected $value = null;
+	
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
@@ -45,6 +48,28 @@ class Select extends DataContainer implements Renderable
 		return parent::set($key, $value);
 	}
 
+	public function setName($name)
+	{
+		$this->name = $name;
+		return $this;
+	}
+	
+	public function getName()
+	{
+		return $this->name;
+	}
+	
+	public function setValue($name)
+	{
+		$this->name = $name;
+		return $this;
+	}
+	
+	public function getValue()
+	{
+		return $this->name;
+	}
+	
 	//TODO: Use traits for this when able
 
 	protected $_attributes = array();
