@@ -60,4 +60,18 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(1, count($this->object));
 	}
 	
+	/**
+	 * @group Fieldset
+	 */
+	public function testSetValue()
+	{
+		$option = new Select\Option('test');
+		$this->object[] = $option;
+		$this->object->setValue('test');
+		
+		$this->assertEquals(
+			array('selected', 'value' => 'test'),
+			$option->getAttributes()
+		);
+	}
 }
