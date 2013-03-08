@@ -27,7 +27,6 @@ use FuelPHP\Fieldset\Input\Select\Option;
 class Select extends DataContainer implements Renderable
 {
 
-	protected $name = null;
 	protected $value = null;
 	
 	/**
@@ -50,13 +49,13 @@ class Select extends DataContainer implements Renderable
 
 	public function setName($name)
 	{
-		$this->name = $name;
+		$this->attributes['name'] = $name;
 		return $this;
 	}
 	
 	public function getName()
 	{
-		return $this->name;
+		return $this->attributes['name'];
 	}
 	
 	public function setValue($name)
@@ -72,7 +71,9 @@ class Select extends DataContainer implements Renderable
 	
 	//TODO: Use traits for this when able
 
-	protected $_attributes = array();
+	protected $attrbiutes = array(
+		'name' => null,
+	);
 
 	/**
 	 * Sets the attributes for the Input
@@ -82,7 +83,7 @@ class Select extends DataContainer implements Renderable
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = Arr::merge($this->_attributes, $attributes);
+		$this->attributes = Arr::merge($this->attributes, $attributes);
 		return $this;
 	}
 
@@ -93,7 +94,7 @@ class Select extends DataContainer implements Renderable
 	 */
 	public function getAttributes()
 	{
-		return $this->_attributes;
+		return $this->attributes;
 	}
 
 }
