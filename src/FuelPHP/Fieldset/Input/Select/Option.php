@@ -22,5 +22,10 @@ use FuelPHP\Fieldset\Element;
  */
 class Option extends Element
 {
-	
+
+	public function __construct($content = null)
+	{
+		$this->setContent($content);
+	}
+
 }
