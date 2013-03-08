@@ -26,6 +26,12 @@ use FuelPHP\Fieldset\Data\Input;
 abstract class InputContainer extends DataContainer implements Renderable
 {
 
+	/**
+	 * Repopulates the fields using input data. By default uses a combination
+	 * of get and post but other data can be used by passing a child of Input
+	 * 
+	 * @param \FuelPHP\Fieldset\Data\Input $data
+	 */
 	public function repopulate(Input $data = null)
 	{
 		if ( is_null($data) )
@@ -34,8 +40,16 @@ abstract class InputContainer extends DataContainer implements Renderable
 		}
 
 		$this->populate($data->input());
+		
+		return $this;
 	}
 
+	/**
+	 * Populates the fields using the array passed.
+	 * 
+	 * @param array $data The data to use for population.
+	 * @return \FuelPHP\Fieldset\InputContainer
+	 */
 	public function populate($data)
 	{
 		//Loop through all the elements assigned and attempt to assign a value
@@ -50,9 +64,18 @@ abstract class InputContainer extends DataContainer implements Renderable
 				$item->setValue($value);
 			}
 		}
+		
+		return $this;
 	}
 
-	protected function inputNameToKey($name)
+	/**
+	 * Helper function to convert html array'd input names into dot notation for
+	 * easy access.
+	 * 
+	 * @param type $name
+	 * @return type
+	 */
+	public function inputNameToKey($name)
 	{
 		$key = str_replace(array('[', ']'), array('.', ''), $name);
 		return $key;
