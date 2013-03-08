@@ -25,6 +25,8 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @covers FuelPHP\Fieldset\InputContainer::repopulate
+	 * @covers FuelPHP\Fieldset\InputContainer::populate
+	 * @covers FuelPHP\Fieldset\InputContainer::inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulate()
@@ -36,6 +38,30 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 		$value = 'foobar';
 		
 		$_POST[$name] = $value;
+		
+		$this->object->repopulate();
+		
+		// Remove the following lines when you implement this test.
+		$this->assertEquals($value, $input->getValue());
+	}
+	
+	/**
+	 * @covers FuelPHP\Fieldset\InputContainer::repopulate
+	 * @covers FuelPHP\Fieldset\InputContainer::populate
+	 * @covers FuelPHP\Fieldset\InputContainer::inputNameToKey
+	 * @group  Fieldset
+	 */
+	public function testRepopulateArray()
+	{
+		$name = 'name[nested]';
+		$input = new Input\Text($name);
+		$this->object[] = $input;
+		
+		$value = 'foobar';
+		
+		$data = array('name' => array('nested' => $value));
+		
+		$_POST = $data;
 		
 		$this->object->repopulate();
 		
