@@ -28,7 +28,7 @@ class Select extends DataContainer implements Renderable
 {
 
 	protected $value = null;
-	
+
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
@@ -52,23 +52,52 @@ class Select extends DataContainer implements Renderable
 		$this->attributes['name'] = $name;
 		return $this;
 	}
-	
+
 	public function getName()
 	{
 		return $this->attributes['name'];
 	}
-	
-	public function setValue($name)
+
+	public function setValue($value)
 	{
-		$this->name = $name;
+		$this->value = $value;
+
+		$this->recursiveAssignValue($value, $this->all());
+
 		return $this;
 	}
-	
+
+	protected function recursiveAssignValue($value, $list)
+	{
+		//Loop through all the children and find out if one matches our value
+		foreach ( $list as $item )
+		{
+			//Check if this is an option or group
+			if ( $item instanceof Optgroup )
+			{
+				$this->recursiveAssignValue($value, $item->all());
+			}
+
+			//We have an option so check its value
+			else if ( $item->getValue() === $value )
+			{
+				$this->assignSelected($item);
+			}
+		}
+	}
+
+	protected function assignSelected($option)
+	{
+		$attributes = $option->getAttributes();
+		$attributes[] = 'selected';
+		$option->setAttributes($attributes);
+	}
+
 	public function getValue()
 	{
-		return $this->name;
+		return $this->value;
 	}
-	
+
 	//TODO: Use traits for this when able
 
 	protected $attrbiutes = array(

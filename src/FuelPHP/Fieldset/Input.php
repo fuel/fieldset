@@ -33,6 +33,8 @@ class Input extends Element
 		array $attributes = array(), 
 		$value = null)
 	{
+		$this->attributes['value'] = '';
+		
 		$this->setName($name);
 		$this->setAttributes($attributes);
 		$this->setValue($value);

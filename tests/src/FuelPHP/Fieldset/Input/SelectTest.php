@@ -49,10 +49,15 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 		$this->object[] = '';
 	}
 	
+	/**
+	 * @covers FuelPHP\Fieldset\Input\Select::set
+	 * @group Fieldset
+	 */
 	public function testSetOptgroup()
 	{
 		$this->object[] = new Select\Optgroup;
 		
 		$this->assertEquals(1, count($this->object));
 	}
+	
 }
