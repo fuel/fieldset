@@ -29,7 +29,7 @@ class Fieldset extends InputContainer
 	 * 
 	 * @return string
 	 */
-	public function getlegend()
+	public function getLegend()
 	{
 		return $this->_legend;
 	}

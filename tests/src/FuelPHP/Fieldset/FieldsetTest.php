@@ -41,7 +41,7 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
 		
 		$this->assertEquals(
 			$legend,
-			$this->object->getlegend()
+			$this->object->getLegend()
 		);
 	}
 	
