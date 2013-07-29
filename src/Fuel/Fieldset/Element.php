@@ -31,7 +31,7 @@ class Element implements Renderable
 	 * Sets the attributes for the Element
 	 * 
 	 * @param  array $attributes
-	 * @return \FuelPHP\Fieldset\Element
+	 * @return \Fuel\Fieldset\Element
 	 */
 	public function setAttributes(array $attributes)
 	{
@@ -63,7 +63,7 @@ class Element implements Renderable
 	 * Sets the content for this Element
 	 * 
 	 * @param  mixed $content
-	 * @return \FuelPHP\Fieldset\Element
+	 * @return \Fuel\Fieldset\Element
 	 */
 	public function setContent($content)
 	{

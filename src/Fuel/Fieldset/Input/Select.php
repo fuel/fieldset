@@ -12,8 +12,8 @@
 namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\DataContainer;
+use Fuel\Fieldset\AttributeTrait;
 use Fuel\Fieldset\Render\Renderable;
-use Fuel\Common\Arr;
 use Fuel\Fieldset\Input\Select\Optgroup;
 use Fuel\Fieldset\Input\Select\Option;
 
@@ -26,6 +26,7 @@ use Fuel\Fieldset\Input\Select\Option;
  */
 class Select extends DataContainer implements Renderable
 {
+	use AttributeTrait;
 
 	protected $value = null;
 
@@ -62,7 +63,7 @@ class Select extends DataContainer implements Renderable
 	{
 		$this->value = $value;
 
-		$this->recursiveAssignValue($value, $this->all());
+		$this->recursiveAssignValue($value, $this->getContents());
 
 		return $this;
 	}
@@ -75,7 +76,7 @@ class Select extends DataContainer implements Renderable
 			//Check if this is an option or group
 			if ( $item instanceof Optgroup )
 			{
-				$this->recursiveAssignValue($value, $item->all());
+				$this->recursiveAssignValue($value, $item->getContents());
 			}
 
 			//We have an option so check its value
@@ -96,34 +97,6 @@ class Select extends DataContainer implements Renderable
 	public function getValue()
 	{
 		return $this->value;
-	}
-
-	//TODO: Use traits for this when able
-
-	protected $attrbiutes = array(
-		'name' => null,
-	);
-
-	/**
-	 * Sets the attributes for the Input
-	 * 
-	 * @param array $attributes
-	 * @return \FuelPHP\Fieldset\Input
-	 */
-	public function setAttributes(array $attributes)
-	{
-		$this->attributes = Arr::merge($this->attributes, $attributes);
-		return $this;
-	}
-
-	/**
-	 * Gets the attributes for the Input
-	 * 
-	 * @return array
-	 */
-	public function getAttributes()
-	{
-		return $this->attributes;
 	}
 
 }

@@ -12,8 +12,8 @@
 namespace Fuel\Fieldset\Input\Select;
 
 use Fuel\Common\DataContainer;
+use Fuel\Fieldset\AttributeTrait;
 use Fuel\Fieldset\Render\Renderable;
-use Fuel\Common\Arr;
 
 /**
  * 
@@ -24,12 +24,13 @@ use Fuel\Common\Arr;
  */
 class Optgroup extends DataContainer implements Renderable
 {
+	use AttributeTrait;
 
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
 	 * @param string $key
-	 * @param Select\Option $value
+	 * @param Option $value
 	 * @throws \InvalidArgumentException
 	 */
 	public function set($key, $value)
@@ -40,33 +41,6 @@ class Optgroup extends DataContainer implements Renderable
 		}
 
 		return parent::set($key, $value);
-	}
-
-	//TODO: Use traits for this when able
-
-	protected $_attributes = array();
-
-	/**
-	 * Sets the attributes for the Input
-	 * 
-	 * @param array $attributes
-	 * @return \FuelPHP\Fieldset\Input
-	 */
-	public function setAttributes(array $attributes)
-	{
-		$this->_attributes = Arr::merge($this->_attributes,
-				$attributes);
-		return $this;
-	}
-
-	/**
-	 * Gets the attributes for the Input
-	 * 
-	 * @return array
-	 */
-	public function getAttributes()
-	{
-		return $this->_attributes;
 	}
 
 }

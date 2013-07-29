@@ -21,8 +21,7 @@ namespace Fuel\Fieldset\Input;
 class Radio extends Toggle
 {
 
-	public function __construct($name = '', array $attributes = array(),
-		$value = null)
+	public function __construct($name = '', array $attributes = array(), $value = null)
 	{
 		$attributes['type'] = 'radio';
 		parent::__construct($name, $attributes, $value);

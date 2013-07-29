@@ -20,6 +20,7 @@ namespace Fuel\Fieldset;
  */
 class Fieldset extends InputContainer
 {
+	use AttributeTrait;
 	
 	protected $_legend = null;
 	
@@ -37,39 +38,13 @@ class Fieldset extends InputContainer
 	 * Sets the legend for the Fieldset.
 	 * 
 	 * @param string|null $legend Set to null (the default) to not display a legend
-	 * @return \FuelPHP\Fieldset\Fieldset
+	 * @return \Fuel\Fieldset\Fieldset
 	 */
 	public function setLegend($legend)
 	{
 		$this->_legend = $legend;
 		
 		return $this;
-	}
-	
-	//TODO: Use traits for this when able
-	
-	protected $_attributes = array();
-	
-	/**
-	 * Sets the attributes for the Input
-	 * 
-	 * @param array $attributes
-	 * @return \FuelPHP\Fieldset\Input
-	 */
-	public function setAttributes(array $attributes)
-	{
-		$this->_attributes = \FuelPHP\Common\Arr::merge($this->_attributes, $attributes);
-		return $this;
-	}
-	
-	/**
-	 * Gets the attributes for the Input
-	 * 
-	 * @return array
-	 */
-	public function getAttributes()
-	{
-		return $this->_attributes;
 	}
 	
 }

@@ -30,7 +30,7 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * Repopulates the fields using input data. By default uses a combination
 	 * of get and post but other data can be used by passing a child of Input
 	 * 
-	 * @param \FuelPHP\Fieldset\Data\Input $data
+	 * @param \Fuel\Fieldset\Data\Input $data
 	 */
 	public function repopulate(Input $data = null)
 	{
@@ -48,13 +48,13 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * Populates the fields using the array passed.
 	 * 
 	 * @param array $data The data to use for population.
-	 * @return \FuelPHP\Fieldset\InputContainer
+	 * @return \Fuel\Fieldset\InputContainer
 	 */
 	public function populate($data)
 	{
 		//Loop through all the elements assigned and attempt to assign a value
 		//to them.
-		foreach ( $this->all() as $item )
+		foreach ( $this->getContents() as $item )
 		{
 			//Convert the name to a dot notation for better searching
 			$key = $this->inputNameToKey($item->getName());

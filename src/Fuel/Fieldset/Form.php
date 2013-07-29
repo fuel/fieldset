@@ -20,34 +20,5 @@ namespace Fuel\Fieldset;
  */
 class Form extends InputContainer
 {
-	
-	//TODO: Use traits for this when able
-	
-	protected $attributes = array(
-		//Set the default action to post
-		'method' => 'POST',
-	);
-	
-	/**
-	 * Sets the attributes for the Input
-	 * 
-	 * @param array $attributes
-	 * @return \FuelPHP\Fieldset\Input
-	 */
-	public function setAttributes(array $attributes)
-	{
-		$this->attributes = \FuelPHP\Common\Arr::merge($this->attributes, $attributes);
-		return $this;
-	}
-	
-	/**
-	 * Gets the attributes for the Input
-	 * 
-	 * @return array
-	 */
-	public function getAttributes()
-	{
-		return $this->attributes;
-	}
-	
+	use AttributeTrait;
 }

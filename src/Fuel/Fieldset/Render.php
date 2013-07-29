@@ -32,7 +32,7 @@ abstract class Render
 	 * Works out if there is a function that matches the element class name
 	 * to be able to magically add extra rendering functions.
 	 * 
-	 * @param \FuelPHP\Fieldset\Element $element
+	 * @param \Fuel\Fieldset\Element $element
 	 * @return type
 	 */
 	public function render(Renderable $element)
