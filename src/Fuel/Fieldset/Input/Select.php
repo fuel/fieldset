@@ -3,24 +3,24 @@
 /**
  * Part of the FuelPHP framework.
  *
- * @package   FuelPHP\Fieldset\Input
+ * @package   Fuel\Fieldset\Input
  * @version   2.0
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset\Input;
+namespace Fuel\Fieldset\Input;
 
-use FuelPHP\Common\DataContainer;
-use FuelPHP\Fieldset\Render\Renderable;
-use FuelPHP\Common\Arr;
-use FuelPHP\Fieldset\Input\Select\Optgroup;
-use FuelPHP\Fieldset\Input\Select\Option;
+use Fuel\Common\DataContainer;
+use Fuel\Fieldset\Render\Renderable;
+use Fuel\Common\Arr;
+use Fuel\Fieldset\Input\Select\Optgroup;
+use Fuel\Fieldset\Input\Select\Option;
 
 /**
  * 
  *
- * @package FuelPHP\Fieldset\Input
+ * @package Fuel\Fieldset\Input
  * @since   2.0.0
  * @author  Fuel Development Team
  */

@@ -3,23 +3,23 @@
 /**
  * Part of the FuelPHP framework.
  *
- * @package   FuelPHP\Fieldset
+ * @package   Fuel\Fieldset
  * @version   2.0
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset;
+namespace Fuel\Fieldset;
 
-use FuelPHP\Common\DataContainer;
-use FuelPHP\Common\Arr;
-use FuelPHP\Fieldset\Render\Renderable;
-use FuelPHP\Fieldset\Data\Input;
+use Fuel\Common\DataContainer;
+use Fuel\Common\Arr;
+use Fuel\Fieldset\Render\Renderable;
+use Fuel\Fieldset\Data\Input;
 
 /**
  * Defines a common interface for objects that can handle input data
  * 
- * @package FuelPHP\Fieldset
+ * @package Fuel\Fieldset
  * @since   2.0.0
  * @author  Fuel Development Team
  */

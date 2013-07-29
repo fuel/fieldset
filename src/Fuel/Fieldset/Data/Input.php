@@ -3,21 +3,21 @@
 /**
  * Part of the FuelPHP framework.
  *
- * @package   FuelPHP\Fieldset
+ * @package   Fuel\Fieldset
  * @version   2.0
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset\Data;
+namespace Fuel\Fieldset\Data;
 
-use FuelPHP\Common\Arr;
+use Fuel\Common\Arr;
 
 /**
  * Handles fetching input data. This allows the fetching to be switched out 
  * later on.
  * 
- * @package FuelPHP\Fieldset
+ * @package Fuel\Fieldset
  * @since   2.0.0
  * @author  Fuel Development Team
  */

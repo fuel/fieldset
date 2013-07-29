@@ -3,20 +3,20 @@
 /**
  * Part of the FuelPHP framework.
  *
- * @package   FuelPHP\Fieldset
+ * @package   Fuel\Fieldset
  * @version   2.0
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset;
+namespace Fuel\Fieldset;
 
-use FuelPHP\Fieldset\Render\Renderable;
+use Fuel\Fieldset\Render\Renderable;
 
 /**
  * Defines a common interface for rendering fieldsets, forms and input attributes
  *
- * @package FuelPHP\Fieldset
+ * @package Fuel\Fieldset
  * @since   2.0.0
  * @author  Fuel Development Team
  */
@@ -69,7 +69,7 @@ abstract class Render
 	/**
 	 * Gets the base class name.
 	 * 
-	 * If a value of 'FuelPHP\Fieldset\Element' is passed then 'Element'.
+	 * If a value of 'Fuel\Fieldset\Element' is passed then 'Element'.
 	 * If an object is passed rather than a string get_class() will be used
 	 * to get the class name first.
 	 * 

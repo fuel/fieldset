@@ -3,22 +3,22 @@
 /**
  * Part of the FuelPHP framework.
  *
- * @package   FuelPHP\Fieldset\Input\Select
+ * @package   Fuel\Fieldset\Input\Select
  * @version   2.0
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset\Input\Select;
+namespace Fuel\Fieldset\Input\Select;
 
-use FuelPHP\Common\DataContainer;
-use FuelPHP\Fieldset\Render\Renderable;
-use FuelPHP\Common\Arr;
+use Fuel\Common\DataContainer;
+use Fuel\Fieldset\Render\Renderable;
+use Fuel\Common\Arr;
 
 /**
  * 
  *
- * @package FuelPHP\Fieldset\Input\Select
+ * @package Fuel\Fieldset\Input\Select
  * @since   2.0.0
  * @author  Fuel Development Team
  */

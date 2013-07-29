@@ -3,23 +3,23 @@
 /**
  * Part of the FuelPHP framework.
  *
- * @package   FuelPHP\Fieldset\Render
+ * @package   Fuel\Fieldset\Render
  * @version   2.0
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace FuelPHP\Fieldset\Render;
+namespace Fuel\Fieldset\Render;
 
-use FuelPHP\Fieldset\Render;
-use FuelPHP\Fieldset\Form;
-use FuelPHP\Fieldset;
-use FuelPHP\Common\Html;
+use Fuel\Fieldset\Render;
+use Fuel\Fieldset\Form;
+use Fuel\Fieldset;
+use Fuel\Common\Html;
 
 /**
  * Basic implementation of a fieldset renderer
  *
- * @package FuelPHP\Fieldset\Render
+ * @package Fuel\Fieldset\Render
  * @since   2.0.0
  * @author  Fuel Development Team
  */

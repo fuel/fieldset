@@ -19,4 +19,4 @@ Autoloader::add_classes(array(
 /**
  * v2.0 style classes. They are PSR-0, so we only need to define the path.
  */
-Autoloader::add_namespace('FuelPHP\\Fieldset', __DIR__.'/src/FuelPHP/Fieldset/', true);
+Autoloader::add_namespace('Fuel\\Fieldset', __DIR__.'/src/Fuel/Fieldset/', true);
