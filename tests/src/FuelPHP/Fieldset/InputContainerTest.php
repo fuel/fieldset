@@ -24,9 +24,9 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\InputContainer::repopulate
-	 * @covers FuelPHP\Fieldset\InputContainer::populate
-	 * @covers FuelPHP\Fieldset\InputContainer::inputNameToKey
+	 * @covers Fuel\Fieldset\InputContainer::repopulate
+	 * @covers Fuel\Fieldset\InputContainer::populate
+	 * @covers Fuel\Fieldset\InputContainer::inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulate()
@@ -46,9 +46,9 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\InputContainer::repopulate
-	 * @covers FuelPHP\Fieldset\InputContainer::populate
-	 * @covers FuelPHP\Fieldset\InputContainer::inputNameToKey
+	 * @covers Fuel\Fieldset\InputContainer::repopulate
+	 * @covers Fuel\Fieldset\InputContainer::populate
+	 * @covers Fuel\Fieldset\InputContainer::inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulateArray()

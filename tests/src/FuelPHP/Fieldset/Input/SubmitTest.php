@@ -25,7 +25,7 @@ class SubmitTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Submit::__construct
+	 * @covers Fuel\Fieldset\Input\Submit::__construct
 	 * @group Fieldset
      */
     public function testConstruct()

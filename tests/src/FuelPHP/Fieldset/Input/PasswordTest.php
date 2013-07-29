@@ -25,7 +25,7 @@ class PasswordTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Password::__construct
+	 * @covers Fuel\Fieldset\Input\Password::__construct
 	 * @group Fieldset
      */
     public function testConstruct()

@@ -25,7 +25,7 @@ class RadioTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Radio::__construct
+	 * @covers Fuel\Fieldset\Input\Radio::__construct
 	 * @group Fieldset
      */
     public function testConstruct()

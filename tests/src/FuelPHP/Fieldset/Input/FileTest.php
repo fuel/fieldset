@@ -25,7 +25,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\File::__construct
+	 * @covers Fuel\Fieldset\Input\File::__construct
 	 * @group Fieldset
      */
     public function testConstruct()

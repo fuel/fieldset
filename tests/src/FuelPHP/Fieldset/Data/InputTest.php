@@ -15,7 +15,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::get
+	 * @covers Fuel\Fieldset\Data\Input::get
 	 * @group  Fieldset
 	 */
 	public function testGet()
@@ -28,7 +28,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::get
+	 * @covers Fuel\Fieldset\Data\Input::get
 	 * @group  Fieldset
 	 */
 	public function testGetNested()
@@ -41,7 +41,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::get
+	 * @covers Fuel\Fieldset\Data\Input::get
 	 * @group  Fieldset
 	 */
 	public function testGetAll()
@@ -54,7 +54,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::post
+	 * @covers Fuel\Fieldset\Data\Input::post
 	 * @group  Fieldset
 	 */
 	public function testPost()
@@ -67,7 +67,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::post
+	 * @covers Fuel\Fieldset\Data\Input::post
 	 * @group  Fieldset
 	 */
 	public function testPostNested()
@@ -80,7 +80,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::post
+	 * @covers Fuel\Fieldset\Data\Input::post
 	 * @group  Fieldset
 	 */
 	public function testPostAll()
@@ -93,7 +93,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::input
+	 * @covers Fuel\Fieldset\Data\Input::input
 	 * $group  Fieldset
 	 */
 	public function testInput()
@@ -106,7 +106,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::input
+	 * @covers Fuel\Fieldset\Data\Input::input
 	 * @group  Fieldset
 	 */
 	public function testInputNested()
@@ -119,7 +119,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::input
+	 * @covers Fuel\Fieldset\Data\Input::input
 	 * @group  Fieldset
 	 */
 	public function testInputAll()
@@ -141,8 +141,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::__construct
-	 * @covers FuelPHP\Fieldset\Data\Input::config
+	 * @covers Fuel\Fieldset\Data\Input::__construct
+	 * @covers Fuel\Fieldset\Data\Input::config
 	 * @group Fieldset
 	 */
 	public function testConfig()
@@ -153,8 +153,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Data\Input::__construct
-	 * @covers FuelPHP\Fieldset\Data\Input::config
+	 * @covers Fuel\Fieldset\Data\Input::__construct
+	 * @covers Fuel\Fieldset\Data\Input::config
 	 * @group Fieldset
 	 */
 	public function testConfigAll()

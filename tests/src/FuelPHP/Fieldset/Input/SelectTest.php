@@ -31,7 +31,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Select::set
+	 * @covers Fuel\Fieldset\Input\Select::set
 	 * @group Fieldset
      */
     public function testSet()
@@ -46,7 +46,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	
 	/**
 	 * @expectedException \InvalidArgumentException
-	 * @covers FuelPHP\Fieldset\Input\Select::set
+	 * @covers Fuel\Fieldset\Input\Select::set
 	 * @group Fieldset
 	 */
 	public function testSetInvalid()
@@ -55,7 +55,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Select::set
+	 * @covers Fuel\Fieldset\Input\Select::set
 	 * @group Fieldset
 	 */
 	public function testSetOptgroup()

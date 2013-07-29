@@ -26,7 +26,7 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Select\Optgroup::set
+	 * @covers Fuel\Fieldset\Input\Select\Optgroup::set
 	 * @group Fieldset
      */
     public function testSet()
@@ -41,7 +41,7 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
 	
 	/**
 	 * @expectedException \InvalidArgumentException
-	 * @covers FuelPHP\Fieldset\Input\Select\Optgroup::set
+	 * @covers Fuel\Fieldset\Input\Select\Optgroup::set
 	 * @group Fieldset
 	 */
 	public function testSetInvalid()

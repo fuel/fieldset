@@ -25,7 +25,7 @@ class TextTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input\Text::__construct
+	 * @covers Fuel\Fieldset\Input\Text::__construct
 	 * @group Fieldset
      */
     public function testConstruct()

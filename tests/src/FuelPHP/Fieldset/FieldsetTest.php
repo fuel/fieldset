@@ -29,8 +29,8 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Fieldset::setLegend
-	 * @covers FuelPHP\Fieldset\Fieldset::getLegend
+	 * @covers Fuel\Fieldset\Fieldset::setLegend
+	 * @covers Fuel\Fieldset\Fieldset::getLegend
 	 * @group Fieldset
 	 */
 	public function testSetGetLegend()

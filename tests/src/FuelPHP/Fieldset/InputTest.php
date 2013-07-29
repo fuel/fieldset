@@ -29,7 +29,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers FuelPHP\Fieldset\Input::setName
+     * @covers Fuel\Fieldset\Input::setName
 	 * @group Fieldset
      */
     public function testSetName()
@@ -39,7 +39,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers FuelPHP\Fieldset\Input::getName
+     * @covers Fuel\Fieldset\Input::getName
 	 * @group Fieldset
      */
     public function testGetName()
@@ -48,7 +48,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers FuelPHP\Fieldset\Input::getValue
+     * @covers Fuel\Fieldset\Input::getValue
 	 * @group Fieldset
      */
     public function testGetValue()
@@ -57,7 +57,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers FuelPHP\Fieldset\Input::setValue
+     * @covers Fuel\Fieldset\Input::setValue
 	 * @group Fieldset
      */
     public function testSetValue()
@@ -67,7 +67,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input::setName
+	 * @covers Fuel\Fieldset\Input::setName
 	 * @expectedException InvalidArgumentException
 	 * @group Fieldset
 	 */
@@ -77,8 +77,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input::setAttributes
-	 * @covers FuelPHP\Fieldset\Input::getAttributes
+	 * @covers Fuel\Fieldset\Input::setAttributes
+	 * @covers Fuel\Fieldset\Input::getAttributes
 	 * @group Fieldset
 	 */
 	public function testGetSetAttributes()
@@ -91,7 +91,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @covers FuelPHP\Fieldset\Input::__construct
+	 * @covers Fuel\Fieldset\Input::__construct
 	 * @group Fieldset
 	 */
 	public function testConstructor()
