@@ -21,7 +21,7 @@ namespace Fuel\Fieldset;
 trait AttributeTrait
 {
 
-	protected $_attributes = array();
+	protected $attributes = array();
 
 	/**
 	 * Sets the attributes for the Input
@@ -31,7 +31,7 @@ trait AttributeTrait
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->_attributes = \Fuel\Common\Arr::merge($this->_attributes, $attributes);
+		$this->attributes = \Fuel\Common\Arr::merge($this->attributes, $attributes);
 		return $this;
 	}
 
@@ -42,7 +42,7 @@ trait AttributeTrait
 	 */
 	public function getAttributes()
 	{
-		return $this->_attributes;
+		return $this->attributes;
 	}
 
 }
