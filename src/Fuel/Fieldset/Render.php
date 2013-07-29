@@ -33,7 +33,7 @@ abstract class Render
 	 * to be able to magically add extra rendering functions.
 	 * 
 	 * @param \Fuel\Fieldset\Element $element
-	 * @return type
+	 * @return string
 	 */
 	public function render(Renderable $element)
 	{
@@ -97,6 +97,6 @@ abstract class Render
 	 * @param Input $input The Input to render
 	 * @return string
 	 */
-	public abstract function renderInput($input);
+	public abstract function renderInput(Input $input);
 	
 }

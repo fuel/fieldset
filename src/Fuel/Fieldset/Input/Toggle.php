@@ -14,7 +14,7 @@ namespace Fuel\Fieldset\Input;
 use Fuel\Fieldset\Input;
 
 /**
- * Allows inputs to be togglable, such as checkbox or radiobuttons
+ * Allows inputs to be toggleable, such as checkbox or radio buttons
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0.0
@@ -25,11 +25,22 @@ abstract class Toggle extends Input
 
 	protected $_checked = false;
 
+	/**
+	 * @return bool true or false depending on the status of the input
+	 */
 	public function isChecked()
 	{
 		return $this->_checked;
 	}
 
+	/**
+	 * Sets the status of this toggleable item
+	 *
+	 * @param $status boolean
+	 *
+	 * @return $this Toggle
+	 * @throws \InvalidArgumentException
+	 */
 	public function setChecked($status)
 	{
 		if ( !is_bool($status) )

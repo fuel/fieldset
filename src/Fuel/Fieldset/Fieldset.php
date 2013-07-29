@@ -38,7 +38,7 @@ class Fieldset extends InputContainer
 	 * Sets the legend for the Fieldset.
 	 * 
 	 * @param string|null $legend Set to null (the default) to not display a legend
-	 * @return \Fuel\Fieldset\Fieldset
+	 * @return Fieldset
 	 */
 	public function setLegend($legend)
 	{

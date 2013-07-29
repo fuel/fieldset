@@ -18,7 +18,7 @@ use Fuel\Fieldset\Input\Select\Optgroup;
 use Fuel\Fieldset\Input\Select\Option;
 
 /**
- * 
+ * Defines a select box
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0.0
@@ -48,17 +48,36 @@ class Select extends DataContainer implements Renderable
 		return parent::set($key, $value);
 	}
 
+	/**
+	 * Sets the name of this select
+	 *
+	 * @param $name string
+	 *
+	 * @return $this
+	 */
 	public function setName($name)
 	{
 		$this->attributes['name'] = $name;
 		return $this;
 	}
 
+	/**
+	 * Gets the name of this select
+	 *
+	 * @return string
+	 */
 	public function getName()
 	{
 		return $this->attributes['name'];
 	}
 
+	/**
+	 * Sets makes any options that have a value contained in $value have a "selected" attribute
+	 *
+	 * @param $value array[mixed]
+	 *
+	 * @return $this
+	 */
 	public function setValue($value)
 	{
 		$this->value = $value;
@@ -68,6 +87,12 @@ class Select extends DataContainer implements Renderable
 		return $this;
 	}
 
+	/**
+	 * Recursive function to be able to handle Optgroups
+	 *
+	 * @param $value mixed
+	 * @param $list array[Option|Optgroup]
+	 */
 	protected function recursiveAssignValue($value, $list)
 	{
 		//Loop through all the children and find out if one matches our value
@@ -87,13 +112,23 @@ class Select extends DataContainer implements Renderable
 		}
 	}
 
-	protected function assignSelected($option)
+	/**
+	 * Sets the given Option as selected
+	 *
+	 * @param Option $option
+	 */
+	protected function assignSelected(Option $option)
 	{
 		$attributes = $option->getAttributes();
 		$attributes[] = 'selected';
 		$option->setAttributes($attributes);
 	}
 
+	/**
+	 * Returns any selected values
+	 *
+	 * @return null|array Null if nothing has been selected
+	 */
 	public function getValue()
 	{
 		return $this->value;

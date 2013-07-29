@@ -14,7 +14,7 @@ namespace Fuel\Fieldset\Input;
 use Fuel\Fieldset\Input;
 
 /**
- * 
+ * Defines a password input
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0.0
@@ -23,8 +23,7 @@ use Fuel\Fieldset\Input;
 class Password extends Input
 {
 
-	public function __construct($name = '', array $attributes = array(),
-		$value = null)
+	public function __construct($name = '', array $attributes = array(), $value = null)
 	{
 		$attributes['type'] = 'password';
 		parent::__construct($name, $attributes, $value);

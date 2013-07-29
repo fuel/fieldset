@@ -30,11 +30,15 @@ class Input extends Element
 	 * @var string 
 	 */
 	protected $_name = '';
-	
-	public function __construct(
-		$name = '',
-		array $attributes = array(), 
-		$value = null)
+
+	/**
+	 * Creates a new Input object
+	 *
+	 * @param string $name       Name to apply to this input
+	 * @param array  $attributes A key=>value array of attributes
+	 * @param mixed   $value     The initial value of the input, if any
+	 */
+	public function __construct($name = '', array $attributes = array(), $value = null)
 	{
 		$this->attributes['value'] = '';
 		
@@ -58,7 +62,7 @@ class Input extends Element
 	 * Sets the name of the Input object
 	 * 
 	 * @param string $name
-	 * @return \Fuel\Fieldset\Input
+	 * @return Input
 	 * @since 2.0.0
 	 */
 	public function setName($name)
@@ -87,7 +91,7 @@ class Input extends Element
 	 * Sets the value for the Input object
 	 * 
 	 * @param string $value
-	 * @return \Fuel\Fieldset\Input
+	 * @return Input
 	 * @since 2.0.0
 	 */
 	public function setValue($value)

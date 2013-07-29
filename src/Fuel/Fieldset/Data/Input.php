@@ -14,8 +14,7 @@ namespace Fuel\Fieldset\Data;
 use Fuel\Common\Arr;
 
 /**
- * Handles fetching input data. This allows the fetching to be switched out 
- * later on.
+ * Handles fetching input data. This allows the fetching to be switched out later on.
  * 
  * @package Fuel\Fieldset
  * @since   2.0.0

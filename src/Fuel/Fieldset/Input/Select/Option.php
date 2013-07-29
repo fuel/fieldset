@@ -14,7 +14,7 @@ namespace Fuel\Fieldset\Input\Select;
 use Fuel\Fieldset\Input;
 
 /**
- * 
+ * Defines a select option
  *
  * @package Fuel\Fieldset\Input\Select
  * @since   2.0.0

@@ -12,7 +12,7 @@
 namespace Fuel\Fieldset\Input;
 
 /**
- * 
+ * Defines a radio button
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0.0

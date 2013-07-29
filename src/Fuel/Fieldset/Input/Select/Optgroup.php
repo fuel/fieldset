@@ -16,7 +16,7 @@ use Fuel\Fieldset\AttributeTrait;
 use Fuel\Fieldset\Render\Renderable;
 
 /**
- * 
+ * Defines a group of select options
  *
  * @package Fuel\Fieldset\Input\Select
  * @since   2.0.0

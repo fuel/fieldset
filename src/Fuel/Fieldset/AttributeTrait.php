@@ -10,7 +10,14 @@
 
 namespace Fuel\Fieldset;
 
-
+/**
+ * Simple trait to allow form elements to have attributes assigned easily
+ * TODO: allow for setting/getting of individual attributes
+ *
+ * @package Fuel\Fieldset
+ * @author Fuel Development Team
+ * @since 2.0.0
+ */
 trait AttributeTrait
 {
 
@@ -20,7 +27,7 @@ trait AttributeTrait
 	 * Sets the attributes for the Input
 	 *
 	 * @param array $attributes
-	 * @return \Fuel\Fieldset\Input
+	 * @return $this
 	 */
 	public function setAttributes(array $attributes)
 	{

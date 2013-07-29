@@ -11,7 +11,6 @@
 
 namespace Fuel\Fieldset;
 
-use Fuel\Common\Arr;
 use Fuel\Fieldset\Render\Renderable;
 
 /**
@@ -23,31 +22,9 @@ use Fuel\Fieldset\Render\Renderable;
  */
 class Element implements Renderable
 {
+	use AttributeTrait;
 
-	protected $attributes = array();
 	protected $content = null;
-
-	/**
-	 * Sets the attributes for the Element
-	 * 
-	 * @param  array $attributes
-	 * @return \Fuel\Fieldset\Element
-	 */
-	public function setAttributes(array $attributes)
-	{
-		$this->attributes = Arr::merge($this->attributes, $attributes);
-		return $this;
-	}
-
-	/**
-	 * Gets the attributes for the Element
-	 * 
-	 * @return array
-	 */
-	public function getAttributes()
-	{
-		return $this->attributes;
-	}
 
 	/**
 	 * Gets the content of the Element
@@ -63,7 +40,7 @@ class Element implements Renderable
 	 * Sets the content for this Element
 	 * 
 	 * @param  mixed $content
-	 * @return \Fuel\Fieldset\Element
+	 * @return Element
 	 */
 	public function setContent($content)
 	{

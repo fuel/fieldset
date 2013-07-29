@@ -14,7 +14,7 @@ namespace Fuel\Fieldset\Input;
 use Fuel\Fieldset\Input;
 
 /**
- * 
+ * Defines a text area element
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0.0

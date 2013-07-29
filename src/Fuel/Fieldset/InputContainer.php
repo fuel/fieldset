@@ -72,8 +72,8 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * Helper function to convert html array'd input names into dot notation for
 	 * easy access.
 	 * 
-	 * @param type $name
-	 * @return type
+	 * @param string $name
+	 * @return string
 	 */
 	public function inputNameToKey($name)
 	{

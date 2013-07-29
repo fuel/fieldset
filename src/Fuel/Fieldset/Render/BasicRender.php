@@ -11,9 +11,14 @@
 
 namespace Fuel\Fieldset\Render;
 
+use Fuel\Fieldset\Input;
+use Fuel\Fieldset\Input\Textarea;
+use Fuel\Fieldset\Input\Select;
+use Fuel\Fieldset\Input\Select\Optgroup;
+use Fuel\Fieldset\Input\Select\Option;
 use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Form;
-use Fuel\Fieldset;
+use Fuel\Fieldset\Fieldset;
 use Fuel\Common\Html;
 
 /**
@@ -26,6 +31,13 @@ use Fuel\Common\Html;
 class BasicRender extends Render
 {
 
+	/**
+	 * Builds the main form tag and its content
+	 *
+	 * @param Form $form
+	 *
+	 * @return string <form>...</form>
+	 */
 	public function renderForm(Form $form)
 	{
 		$elements = '';
@@ -38,6 +50,13 @@ class BasicRender extends Render
 		return Html::tag('form', $form->getAttributes(), $elements);
 	}
 
+	/**
+	 * Renders a fieldset object and its content
+	 *
+	 * @param Fieldset $fieldset
+	 *
+	 * @return string <fieldset>...<</fieldset>
+	 */
 	public function renderFieldset(Fieldset $fieldset)
 	{
 		$legend = '';
@@ -60,13 +79,26 @@ class BasicRender extends Render
 		return Html::tag('fieldset', $fieldset->getAttributes(), $elements);
 	}
 
-	public function renderInput($input)
+	/**
+	 * Renders a any generic Input object
+	 *
+	 * @param Input $input
+	 *
+	 * @return string <input ...>
+	 */
+	public function renderInput(Input $input)
 	{
 		return Html::tag('input', $input->getAttributes(), $input->getContent());
 	}
 
-	//Enable rendering for select elements
-	public function renderSelect($select)
+	/**
+	 * Renders a select element and its options
+	 *
+	 * @param Select $select
+	 *
+	 * @return string <select>...</select>
+	 */
+	public function renderSelect(Select $select)
 	{
 		$content = '';
 
@@ -78,7 +110,14 @@ class BasicRender extends Render
 		return Html::tag('select', $select->getAttributes(), $content);
 	}
 
-	public function renderOptgroup($group)
+	/**
+	 * Renders an option group for a select
+	 *
+	 * @param Optgroup $group
+	 *
+	 * @return string <optgroup>...</optgroup>
+	 */
+	public function renderOptgroup(Optgroup $group)
 	{
 		$content = '';
 
@@ -90,12 +129,26 @@ class BasicRender extends Render
 		return Html::tag('optgroup', $group->getAttributes(), $content);
 	}
 
-	public function renderOption($option)
+	/**
+	 * Renders a select option
+	 *
+	 * @param Option $option
+	 *
+	 * @return string <option>...</option>
+	 */
+	public function renderOption(Option $option)
 	{
 		return Html::tag('option', $option->getAttributes(), $option->getContent());
 	}
 
-	public function renderTextarea($area)
+	/**
+	 * Renders a text area
+	 *
+	 * @param Textarea $area
+	 *
+	 * @return string <textarea>...</textarea>
+	 */
+	public function renderTextarea(Textarea $area)
 	{
 		return Html::tag('textarea', $area->getAttributes(), $area->getContent());
 	}
