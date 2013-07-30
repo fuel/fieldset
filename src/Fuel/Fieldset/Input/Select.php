@@ -14,8 +14,8 @@ namespace Fuel\Fieldset\Input;
 use Fuel\Common\DataContainer;
 use Fuel\Fieldset\AttributeTrait;
 use Fuel\Fieldset\Render\Renderable;
-use Fuel\Fieldset\Input\Select\Optgroup;
-use Fuel\Fieldset\Input\Select\Option;
+use Fuel\Fieldset\Input\Optgroup;
+use Fuel\Fieldset\Input\Option;
 
 /**
  * Defines a select box
@@ -34,7 +34,7 @@ class Select extends DataContainer implements Renderable
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
 	 * @param string $key
-	 * @param Select\Option|Select\Optgroup $value
+	 * @param Option|Optgroup $value
 	 * @throws \InvalidArgumentException
 	 */
 	public function set($key, $value)

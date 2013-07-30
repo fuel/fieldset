@@ -36,10 +36,10 @@ class SelectTest extends \PHPUnit_Framework_TestCase
      */
     public function testSet()
     {
-		$this->object[] = new Select\Option;
-		$this->object[] = new Select\Option;
-		$this->object[] = new Select\Option;
-		$this->object[] = new Select\Option;
+		$this->object[] = new Option;
+		$this->object[] = new Option;
+		$this->object[] = new Option;
+		$this->object[] = new Option;
 		
 		$this->assertEquals(4, count($this->object));
     }
@@ -60,7 +60,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetOptgroup()
 	{
-		$this->object[] = new Select\Optgroup;
+		$this->object[] = new Optgroup;
 		
 		$this->assertEquals(1, count($this->object));
 	}
@@ -70,7 +70,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testSetValue()
 	{
-		$option = new Select\Option('test');
+		$option = new  Option('test');
 		$this->object[] = $option;
 		$this->object->setValue('test');
 		

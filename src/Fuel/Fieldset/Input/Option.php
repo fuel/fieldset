@@ -9,14 +9,14 @@
  * @copyright 2010 - 2013 Fuel Development Team
  */
 
-namespace Fuel\Fieldset\Input\Select;
+namespace Fuel\Fieldset\Input;
 
 use Fuel\Fieldset\Input;
 
 /**
  * Defines a select option
  *
- * @package Fuel\Fieldset\Input\Select
+ * @package Fuel\Fieldset\Input
  * @since   2.0.0
  * @author  Fuel Development Team
  */
