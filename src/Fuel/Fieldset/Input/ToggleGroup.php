@@ -30,6 +30,8 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 
 	protected $name = '';
 
+	protected $value;
+
 	/**
 	 * @return string
 	 */
@@ -113,5 +115,14 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 
 		return parent::set($key, $value);
 	}
+
+	/**
+	 * Sets the value of the group, this will define which elements are selected or checked.
+	 *
+	 * @param mixed $value
+	 *
+	 * @return $this
+	 */
+	abstract public function setValue($value);
 
 }

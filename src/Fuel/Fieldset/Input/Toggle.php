@@ -36,14 +36,14 @@ abstract class Toggle extends Input
 	/**
 	 * Sets the status of this toggleable item
 	 *
-	 * @param $status boolean
+	 * @param  $status boolean
 	 *
 	 * @return $this Toggle
 	 * @throws \InvalidArgumentException
 	 */
 	public function setChecked($status)
 	{
-		if ( !is_bool($status) )
+		if ( ! is_bool($status) )
 		{
 			throw new \InvalidArgumentException('The status must be a boolean');
 		}

@@ -12,7 +12,7 @@
 namespace Fuel\Fieldset\Input;
 
 /**
- * 
+ * Defines a checkbox
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0.0
