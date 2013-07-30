@@ -34,9 +34,9 @@ class Input extends Element
 	/**
 	 * Creates a new Input object
 	 *
-	 * @param string $name       Name to apply to this input
-	 * @param array  $attributes A key=>value array of attributes
-	 * @param mixed   $value     The initial value of the input, if any
+	 * @param string  $name       Name to apply to this input
+	 * @param array   $attributes A key=>value array of attributes
+	 * @param mixed   $value      The initial value of the input, if any
 	 */
 	public function __construct($name = '', array $attributes = array(), $value = null)
 	{
@@ -50,7 +50,7 @@ class Input extends Element
 	/**
 	 * Gets the name of this Input.
 	 * 
-	 * @return string Null if a name has not been set
+	 * @return string
 	 * @since 2.0.0
 	 */
 	public function getName()
