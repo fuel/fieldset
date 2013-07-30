@@ -12,11 +12,12 @@
 		}
 	],
 	"require": {
-		"php": ">=5.3.3",
+		"php": ">=5.4.*",
 		"fuelphp/common": "dev-master"
 	},
 	"require-dev": {
-		"mockery/mockery": "0.7.*"
+		"mockery/mockery": "0.7.*",
+        "phpunit/phpunit": "3.7.*@dev"
 	},
 	"autoload": {
 		"psr-0": { "Fuel\\Fieldset": "src/" }
