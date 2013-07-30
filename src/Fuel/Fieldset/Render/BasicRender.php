@@ -14,8 +14,8 @@ namespace Fuel\Fieldset\Render;
 use Fuel\Fieldset\Input;
 use Fuel\Fieldset\Input\Textarea;
 use Fuel\Fieldset\Input\Select;
-use Fuel\Fieldset\Input\Select\Optgroup;
-use Fuel\Fieldset\Input\Select\Option;
+use Fuel\Fieldset\Input\Optgroup;
+use Fuel\Fieldset\Input\Option;
 use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Form;
 use Fuel\Fieldset\Fieldset;
@@ -55,7 +55,7 @@ class BasicRender extends Render
 	 *
 	 * @param Fieldset $fieldset
 	 *
-	 * @return string <fieldset>...<</fieldset>
+	 * @return string <fieldset>...</fieldset>
 	 */
 	public function renderFieldset(Fieldset $fieldset)
 	{
