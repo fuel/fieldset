@@ -23,8 +23,8 @@ use Fuel\Fieldset\Render\Renderable;
 abstract class Render
 {
 
-	protected static $_methodPrefix = 'render';
-	
+	protected static $methodPrefix = 'render';
+
 	/**
 	 * This is the main render function that will work what function from the 
 	 * subclass to call to render the given object.
@@ -41,17 +41,14 @@ abstract class Render
 		$className = $this->getClassName($element);
 		
 		//Work out the function name to look for
-		$functioName = static::$_methodPrefix . $className;
+		$functioName = static::$methodPrefix . $className;
 		
 		//Something to store the callable name in for later
 		$callName = '';
 		
 		//build the array to pass to is_callable
 		$methodVariable = array($this, $functioName);
-		
-		//Make sure we can store a return value and have a default
-		$result = '';
-		
+
 		//Check to see if our method is callable
 		if ( is_callable($methodVariable, false, $callName))
 		{
