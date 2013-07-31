@@ -26,7 +26,7 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 {
 	use AttributeTrait;
 
-	protected $autoArray = true;
+	protected $autoArray = false;
 
 	protected $name = '';
 
@@ -82,7 +82,7 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	 * The brackets will not be added if they already exist. Eg, "name" will become "name[]" whilst "green[]" will remain
 	 * "green[]". Set this to false to disable this functionality.
 	 *
-	 * @param bool $status
+	 * @param bool $status Default is false
 	 *
 	 * @throws \InvalidArgumentException
 	 */

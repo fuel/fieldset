@@ -26,6 +26,7 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	public function testGetNameAuto()
 	{
 		$name = 'test';
+		$this->object->setAutoArray(true);
 		$this->object->setName($name);
 
 		$this->assertEquals(
@@ -51,7 +52,6 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	public function testGetNameNoAuto()
 	{
 		$name = 'purple';
-		$this->object->setAutoArray(false);
 		$this->object->setName($name);
 
 		$this->assertEquals(

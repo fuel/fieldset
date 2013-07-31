@@ -16,6 +16,8 @@ use Fuel\Fieldset\Input\Textarea;
 use Fuel\Fieldset\Input\Select;
 use Fuel\Fieldset\Input\Optgroup;
 use Fuel\Fieldset\Input\Option;
+use Fuel\Fieldset\Input\RadioGroup;
+use Fuel\Fieldset\Input\Radio;
 use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Form;
 use Fuel\Fieldset\Fieldset;
@@ -151,6 +153,22 @@ class BasicRender extends Render
 	public function renderTextarea(Textarea $area)
 	{
 		return Html::tag('textarea', $area->getAttributes(), $area->getContent());
+	}
+
+	public function renderRadio(Radio $radio)
+	{
+		return $this->renderInput($radio);
+	}
+
+	public function renderRadioGroup(RadioGroup $group)
+	{
+		$radios = '';
+		foreach ($group as $radio)
+		{
+			$radios .= "\n" . $this->render($radio);
+		}
+
+		return $radios;
 	}
 
 }

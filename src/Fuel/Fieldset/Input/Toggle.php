@@ -11,6 +11,7 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Arr;
 use Fuel\Fieldset\Input;
 
 /**
@@ -23,14 +24,12 @@ use Fuel\Fieldset\Input;
 abstract class Toggle extends Input
 {
 
-	protected $_checked = false;
-
 	/**
 	 * @return bool true or false depending on the status of the input
 	 */
 	public function isChecked()
 	{
-		return $this->_checked;
+		return Arr::get($this->attributes, 'checked', false);
 	}
 
 	/**
@@ -48,7 +47,8 @@ abstract class Toggle extends Input
 			throw new \InvalidArgumentException('The status must be a boolean');
 		}
 
-		$this->_checked = $status;
+		$this->attributes['checked'] = $status;
+
 		return $this;
 	}
 
