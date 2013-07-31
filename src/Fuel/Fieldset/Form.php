@@ -20,5 +20,5 @@ namespace Fuel\Fieldset;
  */
 class Form extends InputContainer
 {
-	use AttributeTrait;
+
 }

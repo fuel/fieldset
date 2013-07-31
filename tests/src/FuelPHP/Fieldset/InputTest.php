@@ -106,5 +106,24 @@ class InputTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($attributes+['name' => $name], $input->getAttributes());
 		$this->assertEquals($value, $input->getValue());
 	}
+
+	/**
+	 * @covers Fuel\Fieldset\Input::fromArray
+	 * @group  Fieldset
+	 */
+	public function testFromArray()
+	{
+		$config = [
+			'name' => 'my_input',
+			'class' => 'green main',
+		];
+
+		$instance = Input::fromArray($config);
+
+		$this->assertEquals(
+			$config + ['value' => null],
+			$instance->getAttributes()
+		);
+	}
 	
 }

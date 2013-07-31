@@ -29,7 +29,7 @@ class Input extends Element
 	 * 
 	 * @var string 
 	 */
-	protected $_name = '';
+	protected $name = '';
 
 	/**
 	 * Creates a new Input object
@@ -61,9 +61,9 @@ class Input extends Element
 	/**
 	 * Sets the name of the Input object
 	 * 
-	 * @param string $name
+	 * @param  string $name
 	 * @return Input
-	 * @since 2.0.0
+	 * @since  2.0.0
 	 */
 	public function setName($name)
 	{
@@ -79,8 +79,8 @@ class Input extends Element
 	/**
 	 * Gets the value of the Input object
 	 * 
-	 * @return string Null if no value has been set
-	 * @since 2.0.0
+	 * @return string
+	 * @since  2.0.0
 	 */
 	public function getValue()
 	{
@@ -90,9 +90,9 @@ class Input extends Element
 	/**
 	 * Sets the value for the Input object
 	 * 
-	 * @param string $value
+	 * @param  string $value
 	 * @return Input
-	 * @since 2.0.0
+	 * @since  2.0.0
 	 */
 	public function setValue($value)
 	{
@@ -100,4 +100,21 @@ class Input extends Element
 		return $this;
 	}
 
+	/**
+	 * Returns an instance of this Input with the given settings
+	 *
+	 * @param array $config
+	 */
+	public static function fromArray($config = [])
+	{
+		if ( ! is_array($config))
+		{
+			throw new InvalidArgumentException('Config must be an array.');
+		}
+
+		$name = Arr::get($config, 'name', '');
+		$value = Arr::get($config, 'value', null);
+
+		return new static($name, $config, $value);
+	}
 }

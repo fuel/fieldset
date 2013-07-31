@@ -20,8 +20,7 @@ namespace Fuel\Fieldset;
  */
 class Fieldset extends InputContainer
 {
-	use AttributeTrait;
-	
+
 	protected $_legend = null;
 	
 	/**
