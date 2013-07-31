@@ -21,7 +21,7 @@ namespace Fuel\Fieldset;
 trait AttributeTrait
 {
 
-	protected $attributes = array();
+	protected $attributes = [];
 
 	/**
 	 * Sets the attributes for the Input

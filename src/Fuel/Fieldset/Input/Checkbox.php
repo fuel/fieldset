@@ -21,7 +21,7 @@ namespace Fuel\Fieldset\Input;
 class Checkbox extends Toggle
 {
 
-	public function __construct($name = '', array $attributes = array(), $value = null)
+	public function __construct($name = '', array $attributes = [], $value = null)
 	{
 		$attributes['type'] = 'checkbox';
 		parent::__construct($name, $attributes, $value);

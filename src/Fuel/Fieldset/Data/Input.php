@@ -25,9 +25,9 @@ class Input
 
 	protected $get;
 	protected $post;
-	protected $config = array();
+	protected $config = [];
 
-	public function __construct(array $config = array())
+	public function __construct(array $config = [])
 	{
 		//TODO: Add config entry to be able to switch priority of GET and POST
 		$this->get = $_GET;

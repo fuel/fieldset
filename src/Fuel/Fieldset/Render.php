@@ -41,13 +41,13 @@ abstract class Render
 		$className = $this->getClassName($element);
 		
 		//Work out the function name to look for
-		$functioName = static::$methodPrefix . $className;
+		$functionName = static::$methodPrefix . $className;
 		
 		//Something to store the callable name in for later
 		$callName = '';
 		
 		//build the array to pass to is_callable
-		$methodVariable = array($this, $functioName);
+		$methodVariable = [$this, $functionName];
 
 		//Check to see if our method is callable
 		if ( is_callable($methodVariable, false, $callName))

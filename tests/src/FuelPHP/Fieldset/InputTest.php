@@ -83,7 +83,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetSetAttributes()
 	{
-		$attributes = array('name' => 'foobar', 'value' => null);
+		$attributes = ['name' => 'foobar', 'value' => null];
 		
 		$this->object->setAttributes($attributes);
 		
@@ -98,12 +98,12 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	{
 		$name = 'foorbar';
 		$value = '12345';
-		$attributes = array('id' => 'input-foobar', 'value' => $value);
+		$attributes = ['id' => 'input-foobar', 'value' => $value];
 		
 		$input = new Input($name, $attributes, $value);
 		
 		$this->assertEquals($name, $input->getName());
-		$this->assertEquals($attributes+array('name' => $name), $input->getAttributes());
+		$this->assertEquals($attributes+['name' => $name], $input->getAttributes());
 		$this->assertEquals($value, $input->getValue());
 	}
 	

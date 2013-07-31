@@ -31,7 +31,7 @@ class CheckboxTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-		$attributes = array('type' => 'checkbox', 'name' => '', 'value' => null);
+		$attributes = ['type' => 'checkbox', 'name' => '', 'value' => null];
 		
 		$instance = new Checkbox();
 		

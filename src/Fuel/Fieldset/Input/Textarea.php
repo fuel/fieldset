@@ -23,7 +23,7 @@ use Fuel\Fieldset\Input;
 class Textarea extends Input
 {
 
-	public function __construct($name = '', array $attributes = array(), $value = null)
+	public function __construct($name = '', array $attributes = [], $value = null)
 	{
 		parent::__construct($name, $attributes, $value);
 		$this->setContent('');

@@ -30,7 +30,7 @@ class SubmitTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-		$attributes = array('type' => 'submit', 'name' => '', 'value' => null);
+		$attributes = ['type' => 'submit', 'name' => '', 'value' => null];
 		
 		$instance = new Submit();
 		

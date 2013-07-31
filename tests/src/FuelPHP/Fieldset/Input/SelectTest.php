@@ -75,7 +75,7 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 		$this->object->setValue('test');
 		
 		$this->assertEquals(
-			array('selected', 'value' => 'test'),
+			['selected', 'value' => 'test'],
 			$option->getAttributes()
 		);
 	}

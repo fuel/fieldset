@@ -10,8 +10,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 
 	public function setUp()
 	{
-		$_POST = array();
-		$_GET = array();
+		$_POST = [];
+		$_GET = [];
 	}
 	
 	/**
@@ -33,7 +33,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetNested()
 	{
-		$_GET['mockdata'] = array('subkey' => 'foobar');
+		$_GET['mockdata'] = ['subkey' => 'foobar'];
 
 		$object = new Input;
 
@@ -46,7 +46,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetAll()
 	{
-		$_GET['mockdata'] = array('subkey' => 'foobar');
+		$_GET['mockdata'] = ['subkey' => 'foobar'];
 
 		$object = new Input;
 
@@ -72,7 +72,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testPostNested()
 	{
-		$_POST['mockdata'] = array('subkey' => 'foobar');
+		$_POST['mockdata'] = ['subkey' => 'foobar'];
 
 		$object = new Input;
 
@@ -85,7 +85,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testPostAll()
 	{
-		$_POST['mockdata'] = array('subkey' => 'foobar');
+		$_POST['mockdata'] = ['subkey' => 'foobar'];
 
 		$object = new Input;
 
@@ -111,7 +111,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testInputNested()
 	{
-		$_POST['mockdata'] = array('subkey' => 'foobar');
+		$_POST['mockdata'] = ['subkey' => 'foobar'];
 		
 		$object = new Input;
 		
@@ -124,18 +124,18 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testInputAll()
 	{
-		$_POST['mockdata'] = array('one' => 'first value', 'three' => 'overridden');
-		$_GET['mockdata'] = array('two' => 'second value', 'three' => 'third value');
+		$_POST['mockdata'] = ['one' => 'first value', 'three' => 'overridden'];
+		$_GET['mockdata'] = ['two' => 'second value', 'three' => 'third value'];
 
 		$object = new Input;
 
-		$expected = array(
-			'mockdata' => array(
+		$expected = [
+			'mockdata' => [
 				'one' => 'first value',
 				'two' => 'second value',
 				'three' => 'overridden',
-			)
-		);
+			]
+		];
 
 		$this->assertEquals($expected, $object->input());
 	}
@@ -147,7 +147,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testConfig()
 	{
-		$object = new Input(array('testconfig' => 'foobar'));
+		$object = new Input(['testconfig' => 'foobar']);
 		
 		$this->assertEquals('foobar', $object->config('testconfig'));
 	}
@@ -159,10 +159,10 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testConfigAll()
 	{
-		$config = array(
+		$config = [
 			'foo' => 'bar',
 			'baz' => 'bat',
-		);
+		];
 		
 		$object = new Input($config);
 		

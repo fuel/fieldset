@@ -38,7 +38,7 @@ class Input extends Element
 	 * @param array   $attributes A key=>value array of attributes
 	 * @param mixed   $value      The initial value of the input, if any
 	 */
-	public function __construct($name = '', array $attributes = array(), $value = null)
+	public function __construct($name = '', array $attributes = [], $value = null)
 	{
 		$this->attributes['value'] = '';
 		

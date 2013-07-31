@@ -23,8 +23,7 @@ use Fuel\Fieldset\Input;
 class File extends Input
 {
 
-	public function __construct($name = '', array $attributes = array(),
-		$value = null)
+	public function __construct($name = '', array $attributes = [], $value = null)
 	{
 		$attributes['type'] = 'file';
 		parent::__construct($name, $attributes, $value);

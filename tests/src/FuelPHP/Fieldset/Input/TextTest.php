@@ -30,7 +30,7 @@ class TextTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-		$attributes = array('type' => 'text', 'name' => '', 'value' => null);
+		$attributes = ['type' => 'text', 'name' => '', 'value' => null];
 		
 		$instance = new Text();
 		

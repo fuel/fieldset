@@ -65,7 +65,7 @@ class BasicRender extends Render
 		//Make sure the legend is added if needed
 		if ( !is_null($fieldset->getLegend()) )
 		{
-			$legend = Html::tag('legend', array(), $fieldset->getLegend());
+			$legend = Html::tag('legend', [], $fieldset->getLegend());
 		}
 
 		//Makes sure the legend is added if one exists

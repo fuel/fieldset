@@ -20,7 +20,7 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = \Mockery::mock('Fuel\Fieldset\InputContainer[]');
-		$_POST = array();
+		$_POST = [];
 	}
 
 	/**
@@ -59,7 +59,7 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 		
 		$value = 'foobar';
 		
-		$data = array('name' => array('nested' => $value));
+		$data = ['name' => ['nested' => $value]];
 		
 		$_POST = $data;
 		

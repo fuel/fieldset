@@ -77,7 +77,7 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 */
 	public function inputNameToKey($name)
 	{
-		$key = str_replace(array('[', ']'), array('.', ''), $name);
+		$key = str_replace(['[', ']'], ['.', ''], $name);
 		return $key;
 	}
 
