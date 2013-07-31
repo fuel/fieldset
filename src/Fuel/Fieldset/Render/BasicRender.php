@@ -17,6 +17,7 @@ use Fuel\Fieldset\Input\Select;
 use Fuel\Fieldset\Input\Optgroup;
 use Fuel\Fieldset\Input\Option;
 use Fuel\Fieldset\Input\RadioGroup;
+use Fuel\Fieldset\Input\CheckboxGroup;
 use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Form;
 use Fuel\Fieldset\Fieldset;
@@ -170,6 +171,24 @@ class BasicRender extends Render
 		}
 
 		return $radios;
+	}
+
+	/**
+	 * Renders a group of checkboxes
+	 *
+	 * @param RadioGroup $group
+	 *
+	 * @return string
+	 */
+	public function renderCheckboxGroup(CheckboxGroup $group)
+	{
+		$checkboxes = '';
+		foreach ($group as $checkbox)
+		{
+			$checkboxes .= "\n" . $this->render($checkbox);
+		}
+
+		return $checkboxes;
 	}
 
 }

@@ -13,6 +13,7 @@ namespace Fuel\Fieldset;
 
 use Fuel\Common\DataContainer;
 use Fuel\Common\Arr;
+use Fuel\Common\Str;
 use Fuel\Fieldset\Render\Renderable;
 use Fuel\Fieldset\Data\Input;
 
@@ -52,13 +53,13 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 */
 	public function populate($data)
 	{
-		//Loop through all the elements assigned and attempt to assign a value
-		//to them.
+		// Loop through all the elements assigned and attempt to assign a value to them.
 		foreach ( $this->getContents() as $item )
 		{
-			//Convert the name to a dot notation for better searching
+			// Convert the name to a dot notation for better searching
 			$key = $this->inputNameToKey($item->getName());
 			$value = Arr::get($data, $key);
+
 			if ( !is_null($value) )
 			{
 				$item->setValue($value);
@@ -78,6 +79,12 @@ abstract class InputContainer extends DataContainer implements Renderable
 	public function inputNameToKey($name)
 	{
 		$key = str_replace(['[', ']'], ['.', ''], $name);
+
+		if (Str::endsWith($key, '.'))
+		{
+			$key = substr($key, 0, -1);
+		}
+
 		return $key;
 	}
 
