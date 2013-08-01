@@ -11,16 +11,17 @@
 			"email": "team@fuelphp.com"
 		}
 	],
-	"require": {
-		"php": ">=5.4.*",
+    "require": {
+		"php": ">=5.4",
 		"fuelphp/common": "dev-master"
-	},
+    },
 	"require-dev": {
 		"mockery/mockery": "0.7.*",
-        "phpunit/phpunit": "3.7.*@dev"
 	},
-	"autoload": {
-		"psr-0": { "Fuel\\Fieldset": "src/" }
+    "autoload": {
+        "psr-0": {
+			"Fuel\\Fieldset": "src/"
+		}
 	},
-	"minimum-stability": "dev"
+    "minimum-stability": "dev"
 }
