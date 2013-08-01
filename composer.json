@@ -16,7 +16,7 @@
 		"fuelphp/common": "dev-master"
     },
 	"require-dev": {
-		"mockery/mockery": "0.7.*",
+		"mockery/mockery": "0.7.*"
 	},
     "autoload": {
         "psr-0": {
