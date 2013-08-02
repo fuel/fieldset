@@ -11,6 +11,7 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Arr;
 use Fuel\Common\DataContainer;
 use Fuel\Fieldset\AttributeTrait;
 use Fuel\Fieldset\Render\Renderable;
@@ -132,6 +133,42 @@ class Select extends DataContainer implements Renderable
 	public function getValue()
 	{
 		return $this->value;
+	}
+
+	/**
+	 * Builds a select from an array
+	 *
+	 * @param array $config
+	 *
+	 * @return Select
+	 */
+	public static function fromArray($config)
+	{
+		$contentConfig = Arr::get($config, '_content', []);
+		Arr::delete($config, '_content');
+
+		$instance = new static();
+		$instance->setAttributes($config);
+
+		foreach ($contentConfig as $value => $name)
+		{
+			// Check if we are dealing with an opt group
+			if (is_array($name))
+			{
+				$groupConfig = [
+					'label' => $value,
+					'_content' => $name,
+				];
+
+				$instance[] = Optgroup::fromArray($groupConfig);
+			}
+			else
+			{
+				$instance[] = new Option($name, $value);
+			}
+		}
+
+		return $instance;
 	}
 
 }

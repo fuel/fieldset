@@ -89,4 +89,38 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 		$this->object->setValue(new Radio());
 	}
 
+	public function testFromArray()
+	{
+		$config = [
+			'name' => 'test',
+			'_content' => [
+				'1' => 'one',
+				'2' => 'two',
+			]
+		];
+
+		$object = RadioGroup::fromArray($config);
+
+		// Check we have the right object
+		$this->assertInstanceOf(
+			'Fuel\Fieldset\Input\RadioGroup',
+			$object
+		);
+
+		// Check we have the correct name
+		$this->assertEquals(
+			'test',
+			$object->getName()
+		);
+
+		// Check we have the right content
+		foreach ($object->getContents() as $radio)
+		{
+			$this->assertInstanceOf(
+				'Fuel\Fieldset\Input\Radio',
+				$radio
+			);
+		}
+	}
+
 }

@@ -11,6 +11,7 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Arr;
 use Fuel\Common\DataContainer;
 use Fuel\Fieldset\AttributeTrait;
 use Fuel\Fieldset\Render\Renderable;
@@ -41,6 +42,23 @@ class Optgroup extends DataContainer implements Renderable
 		}
 
 		return parent::set($key, $value);
+	}
+
+	public static function fromArray($config)
+	{
+		$contentConfig = Arr::get($config, '_content', []);
+		Arr::delete($config, '_content');
+
+		$instance = new static();
+		$instance->setAttributes($config);
+
+		// Create all the options
+		foreach ($contentConfig as $value => $name)
+		{
+			$instance[] = new Option($name, $value);
+		}
+
+		return $instance;
 	}
 
 }

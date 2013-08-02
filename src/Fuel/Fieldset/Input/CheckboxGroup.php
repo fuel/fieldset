@@ -3,6 +3,8 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Arr;
+
 /**
  * Allows checkboxes to be grouped.
  *
@@ -71,6 +73,39 @@ class CheckboxGroup extends ToggleGroup
 		}
 
 		return parent::set($key, $value);
+	}
+
+	/**
+	 * Constructs a group of checkboxes from an array
+	 *
+	 * @param array $config
+	 *
+	 * @return CheckboxGroup
+	 */
+	public static function fromArray($config)
+	{
+		$contentConfig = Arr::get($config, '_content', []);
+		Arr::delete($config, '_content');
+
+		$instance = new static();
+		$instance->setAttributes($contentConfig);
+
+		// Add any checkboxes
+		foreach ($contentConfig as $value => $name)
+		{
+			// TODO: set the label
+			$instance[] = new Checkbox('', [], $value);
+		}
+
+		$name = Arr::get($config, 'name', false);
+
+		// If there is a name make sure it's set
+		if ($name !== false)
+		{
+			$instance->setName($name);
+		}
+
+		return $instance;
 	}
 
 }

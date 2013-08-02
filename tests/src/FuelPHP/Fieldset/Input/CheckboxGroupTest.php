@@ -97,4 +97,42 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 		$this->assertFalse($checkbox2->isChecked());
 	}
 
+	/**
+	 * @covers Fuel\Fieldset\Input\CheckboxGroup::fromArray
+	 * @group  Fieldset
+	 */
+	public function testFromArray()
+	{
+		$config = [
+			'name' => 'test',
+			'_content' => [
+				'1' => 'one',
+				'2' => 'two',
+			]
+		];
+
+		$object = CheckboxGroup::fromArray($config);
+
+		// Check we have the right object
+		$this->assertInstanceOf(
+			'Fuel\Fieldset\Input\CheckboxGroup',
+			$object
+		);
+
+		// Check we have the correct name
+		$this->assertEquals(
+			'test[]',
+			$object->getName()
+		);
+
+		// Check we have the right content
+		foreach ($object->getContents() as $checkbox)
+		{
+			$this->assertInstanceOf(
+				'Fuel\Fieldset\Input\Checkbox',
+				$checkbox
+			);
+		}
+	}
+
 }
