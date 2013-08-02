@@ -44,6 +44,13 @@ class Optgroup extends DataContainer implements Renderable
 		return parent::set($key, $value);
 	}
 
+	/**
+	 * Constructs an Optgroup from the given config array
+	 *
+	 * @param  array $config
+	 *
+	 * @return Optgroup
+	 */
 	public static function fromArray($config)
 	{
 		$contentConfig = Arr::get($config, '_content', []);

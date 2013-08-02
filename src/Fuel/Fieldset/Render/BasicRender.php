@@ -90,7 +90,28 @@ class BasicRender extends Render
 	 */
 	public function renderInput(Input $input)
 	{
-		return Html::tag('input', $input->getAttributes(), $input->getContent());
+		return $this->getLabel($input) . ' ' . Html::tag('input', $input->getAttributes(), $input->getContent()) . '<br>';
+	}
+
+	/**
+	 * Works out a label to apply to a given input
+	 *
+	 * @param mixed $input
+	 *
+	 * @return string
+	 */
+	public function getLabel($input)
+	{
+		// Checks if the object has a label
+		$label = $input->getLabel();
+
+		// if not guess one from the name
+		if (is_null($label))
+		{
+			$label = $input->getName();
+		}
+
+		return $label;
 	}
 
 	/**
@@ -109,7 +130,7 @@ class BasicRender extends Render
 			$content .= "\n" . $this->render($option);
 		}
 
-		return Html::tag('select', $select->getAttributes(), $content);
+		return $this->getLabel($select) . ' ' . Html::tag('select', $select->getAttributes(), $content) . '<br>';
 	}
 
 	/**
@@ -152,7 +173,7 @@ class BasicRender extends Render
 	 */
 	public function renderTextarea(Textarea $area)
 	{
-		return Html::tag('textarea', $area->getAttributes(), $area->getContent());
+		return $this->getLabel($area) . ' ' . Html::tag('textarea', $area->getAttributes(), $area->getContent());
 	}
 
 	/**
@@ -164,13 +185,16 @@ class BasicRender extends Render
 	 */
 	public function renderRadioGroup(RadioGroup $group)
 	{
-		$radios = '';
+		$radios = [
+			$this->getLabel($group),
+		];
+
 		foreach ($group as $radio)
 		{
-			$radios .= "\n" . $this->render($radio);
+			$radios[] = $this->render($radio);
 		}
 
-		return $radios;
+		return implode("<br>", $radios);
 	}
 
 	/**
@@ -182,13 +206,16 @@ class BasicRender extends Render
 	 */
 	public function renderCheckboxGroup(CheckboxGroup $group)
 	{
-		$checkboxes = '';
+		$checkboxes = [
+			$this->getLabel($group),
+		];
+
 		foreach ($group as $checkbox)
 		{
-			$checkboxes .= "\n" . $this->render($checkbox);
+			$checkboxes[] = $this->render($checkbox);
 		}
 
-		return $checkboxes;
+		return implode("<br>", $checkboxes);
 	}
 
 }

@@ -88,13 +88,14 @@ class CheckboxGroup extends ToggleGroup
 		Arr::delete($config, '_content');
 
 		$instance = new static();
-		$instance->setAttributes($contentConfig);
+		$instance->setAttributes($config);
 
 		// Add any checkboxes
 		foreach ($contentConfig as $value => $name)
 		{
-			// TODO: set the label
-			$instance[] = new Checkbox('', [], $value);
+			$checkbox = new Checkbox('', [], $value);
+			$checkbox->setLabel($name);
+			$instance[] = $checkbox;
 		}
 
 		$name = Arr::get($config, 'name', false);

@@ -32,6 +32,19 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 
 	protected $value;
 
+	protected $label = null;
+
+	public function getLabel()
+	{
+		return $this->label;
+	}
+
+	public function setLabel($label)
+	{
+		$this->label = $label;
+		return $this;
+	}
+
 	/**
 	 * @return string
 	 */

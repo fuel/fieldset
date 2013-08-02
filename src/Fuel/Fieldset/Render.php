@@ -57,6 +57,9 @@ abstract class Render
 		//If not callable then use the default function
 		else
 		{
+			// TODO: Check if the class itself has a render method
+			// If so call the render method
+			// If not call the generic renderer
 			$result = $this->renderInput($element);
 		}
 		

@@ -31,6 +31,8 @@ class Input extends Element
 	 */
 	protected $name = '';
 
+	protected $label = null;
+
 	/**
 	 * Creates a new Input object
 	 *
@@ -98,6 +100,27 @@ class Input extends Element
 	{
 		$this->attributes['value'] = $value;
 		return $this;
+	}
+
+	/**
+	 * @param $label
+	 *
+	 * @return $this
+	 */
+	public function setLabel($label)
+	{
+		$this->label = $label;
+		return $this;
+	}
+
+	/**
+	 * Gets the label for this Input
+	 *
+	 * @return string
+	 */
+	public function getLabel()
+	{
+		return $this->label;
 	}
 
 	/**

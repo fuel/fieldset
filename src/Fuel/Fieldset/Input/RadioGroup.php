@@ -91,8 +91,9 @@ class RadioGroup extends ToggleGroup
 		// Add all the Radios
 		foreach ($contentConfig as $value => $name)
 		{
-			// TODO: set the label
-			$instance[] = new Radio('', [], $value);
+			$radio = new Radio('', [], $value);
+			$radio->setLabel($name);
+			$instance[] = $radio;
 		}
 
 		$name = Arr::get($config, 'name', false);
