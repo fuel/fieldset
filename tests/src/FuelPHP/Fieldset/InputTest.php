@@ -125,5 +125,79 @@ class InputTest extends \PHPUnit_Framework_TestCase
 			$instance->getAttributes()
 		);
 	}
+
+	/**
+	 * @covers Fuel\Fieldset\Input::getAttribute
+	 * @covers Fuel\Fieldset\Input::setAttribute
+	 * @group  Fieldset
+	 */
+	public function testIndividualAttribute()
+	{
+		$name = 'random_attr';
+		$value = '1234567890';
+
+		$this->object->setAttribute($name, $value);
+
+		$this->assertEquals(
+			$value,
+			$this->object->getAttribute($name)
+		);
+
+		// Check the correct default gets returned
+		$expectedDefault = 'foobar';
+
+		$this->assertEquals(
+			$expectedDefault,
+			$this->object->getAttribute('This does not exist!', $expectedDefault)
+		);
+	}
+
+	/**
+	 * @covers Fuel\Fieldset\Input::getAttributes
+	 * @covers Fuel\Fieldset\Input::setAttribute
+	 * @group  Fieldset
+	 */
+	public function testAttributeArray()
+	{
+		$attributes = [
+			'value' => 'pink',
+			'name' => 'input_area',
+		];
+
+		$this->object->setAttribute($attributes);
+
+		$this->assertEquals(
+			$attributes,
+			$this->object->getAttributes()
+		);
+	}
+
+	/**
+	 * @covers Fuel\Fieldset\Input::getLabel
+	 * @covers Fuel\Fieldset\Input::setLabel
+	 * @group  Fieldset
+	 */
+	public function testGetSetLabel()
+	{
+		$name = 'rob';
+
+		$this->object->setName($name);
+
+		// Check the correct default is returned
+		$this->assertEquals(
+			$name,
+			$this->object->getLabel()
+		);
+
+		// Check the correct value is returned when a label is set
+		$label = 'What is your name?';
+
+		$this->object->setLabel($label);
+
+		$this->assertEquals(
+			$label,
+			$this->object->getLabel()
+		);
+	}
 	
 }
