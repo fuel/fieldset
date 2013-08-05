@@ -13,8 +13,10 @@ namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Arr;
 use Fuel\Common\DataContainer;
-use Fuel\Fieldset\AttributeTrait;
+use Fuel\Common\Html;
+use Fuel\Fieldset\InputTrait;
 use Fuel\Fieldset\Render\Renderable;
+use Fuel\Fieldset\Render;
 
 /**
  * Defines a group of select options
@@ -25,7 +27,7 @@ use Fuel\Fieldset\Render\Renderable;
  */
 class Optgroup extends DataContainer implements Renderable
 {
-	use AttributeTrait;
+	use InputTrait;
 
 	/**
 	 * Override the DataContainer's set function to enable type checking.
@@ -66,6 +68,25 @@ class Optgroup extends DataContainer implements Renderable
 		}
 
 		return $instance;
+	}
+
+	/**
+	 * Renders out an optgroup and any child options
+	 *
+	 * @param Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		$content = '';
+
+		foreach ( $this->getContents() as $option )
+		{
+			$content .= "\n" . $renderer->render($option);
+		}
+
+		return Html::tag('optgroup', $this->getAttributes(), $content);
 	}
 
 }

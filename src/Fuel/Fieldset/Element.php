@@ -20,9 +20,9 @@ use Fuel\Fieldset\Render\Renderable;
  * @since   2.0.0
  * @author  Fuel Development Team
  */
-class Element implements Renderable
+abstract class Element implements Renderable
 {
-	use AttributeTrait;
+	use InputTrait;
 
 	protected $content = null;
 
@@ -39,7 +39,7 @@ class Element implements Renderable
 	/**
 	 * Sets the content for this Element
 	 * 
-	 * @param  mixed $content
+	 * @param  mixed   $content
 	 * @return Element
 	 */
 	public function setContent($content)

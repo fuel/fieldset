@@ -11,7 +11,9 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Html;
 use Fuel\Fieldset\Input;
+use Fuel\Fieldset\Render;
 
 /**
  * Defines a text area element
@@ -28,5 +30,17 @@ class Textarea extends Input
 		parent::__construct($name, $attributes, $value);
 		$this->setContent('');
 	}
-	
+
+	/**
+	 * Renders a textarea
+	 *
+	 * @param  Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		return $this->getLabel() . ' ' . Html::tag('textarea', $this->getAttributes(), $this->getContent());
+	}
+
 }

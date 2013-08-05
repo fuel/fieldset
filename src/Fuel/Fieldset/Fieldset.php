@@ -11,6 +11,8 @@
 
 namespace Fuel\Fieldset;
 
+use Fuel\Common\Html;
+
 /**
  * Defines a fieldset that can be added to a Form
  * 
@@ -36,7 +38,7 @@ class Fieldset extends InputContainer
 	/**
 	 * Sets the legend for the Fieldset.
 	 * 
-	 * @param string|null $legend Set to null (the default) to not display a legend
+	 * @param  string|null $legend Set to null (the default) to not display a legend
 	 * @return Fieldset
 	 */
 	public function setLegend($legend)
@@ -45,5 +47,33 @@ class Fieldset extends InputContainer
 		
 		return $this;
 	}
-	
+
+	/**
+	 * Renders the Fieldset to html
+	 *
+	 * @param  Render $renderer
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		$legend = '';
+
+		//Make sure the legend is added if needed
+		if ( !is_null($this->getLegend()) )
+		{
+			$legend = Html::tag('legend', [], $this->getLegend());
+		}
+
+		//Makes sure the legend is added if one exists
+		$elements = $legend;
+
+		//Render all the elements
+		foreach ( $this->getContents() as $element )
+		{
+			$elements .= "\n" . $renderer->render($element);
+		}
+
+		return Html::tag('fieldset', $this->getAttributes(), $elements);
+	}
+
 }

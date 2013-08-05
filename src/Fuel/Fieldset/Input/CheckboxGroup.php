@@ -4,6 +4,7 @@
 namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Arr;
+use Fuel\Fieldset\Render;
 
 /**
  * Allows checkboxes to be grouped.
@@ -107,6 +108,35 @@ class CheckboxGroup extends ToggleGroup
 		}
 
 		return $instance;
+	}
+
+	/**
+	 * Renders a group of checkboxes to html
+	 *
+	 * @param Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		// Checks if the object has a label
+		$label = $this->getLabel();
+
+		// if not guess one from the name
+		if (is_null($label))
+		{
+			$label = $this->getName();
+		}
+
+		$checkboxes = [$label];
+
+		// Render all the boxes
+		foreach ($this->getContents() as $checkbox)
+		{
+			$checkboxes[] = $renderer->render($checkbox);
+		}
+
+		return implode("<br>", $checkboxes);
 	}
 
 }

@@ -12,6 +12,7 @@
 namespace Fuel\Fieldset;
 
 use Fuel\Common\Arr;
+use Fuel\Common\Html;
 use InvalidArgumentException;
 
 /**
@@ -23,15 +24,6 @@ use InvalidArgumentException;
  */
 class Input extends Element
 {
-	
-	/**
-	 * Contains the name of the Input
-	 * 
-	 * @var string 
-	 */
-	protected $name = '';
-
-	protected $label = null;
 
 	/**
 	 * Creates a new Input object
@@ -47,35 +39,6 @@ class Input extends Element
 		$this->setName($name);
 		$this->setAttributes($attributes);
 		$this->setValue($value);
-	}
-	
-	/**
-	 * Gets the name of this Input.
-	 * 
-	 * @return string
-	 * @since 2.0.0
-	 */
-	public function getName()
-	{
-		return Arr::get($this->attributes, 'name', null);
-	}
-	
-	/**
-	 * Sets the name of the Input object
-	 * 
-	 * @param  string $name
-	 * @return Input
-	 * @since  2.0.0
-	 */
-	public function setName($name)
-	{
-		if ( ! is_string($name) )
-		{
-			throw new InvalidArgumentException('The name must be a string');
-		}
-		
-		$this->attributes['name'] = $name;
-		return $this;
 	}
 	
 	/**
@@ -103,27 +66,6 @@ class Input extends Element
 	}
 
 	/**
-	 * @param $label
-	 *
-	 * @return $this
-	 */
-	public function setLabel($label)
-	{
-		$this->label = $label;
-		return $this;
-	}
-
-	/**
-	 * Gets the label for this Input
-	 *
-	 * @return string
-	 */
-	public function getLabel()
-	{
-		return $this->label;
-	}
-
-	/**
 	 * Returns an instance of this Input with the given settings
 	 *
 	 * @param array $config
@@ -140,4 +82,17 @@ class Input extends Element
 
 		return new static($name, $config, $value);
 	}
+
+	/**
+	 * Renders a generic input
+	 *
+	 * @param Render $renderer
+	 *
+	 * @return string "<input type="..."
+	 */
+	public function render(Render $renderer)
+	{
+		return $this->getLabel() . ' ' . Html::tag('input', $this->getAttributes(), $this->getContent()) . '<br>';
+	}
+
 }

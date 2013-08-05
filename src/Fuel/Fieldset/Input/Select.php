@@ -13,10 +13,12 @@ namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Arr;
 use Fuel\Common\DataContainer;
-use Fuel\Fieldset\AttributeTrait;
+use Fuel\Common\Html;
+use Fuel\Fieldset\InputTrait;
 use Fuel\Fieldset\Render\Renderable;
 use Fuel\Fieldset\Input\Optgroup;
 use Fuel\Fieldset\Input\Option;
+use Fuel\Fieldset\Render;
 
 /**
  * Defines a select box
@@ -27,7 +29,7 @@ use Fuel\Fieldset\Input\Option;
  */
 class Select extends DataContainer implements Renderable
 {
-	use AttributeTrait;
+	use InputTrait;
 
 	protected $value = null;
 
@@ -194,6 +196,25 @@ class Select extends DataContainer implements Renderable
 		}
 
 		return $instance;
+	}
+
+	/**
+	 * Renders this select and any added options or optgroups
+	 *
+	 * @param  Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		$content = '';
+
+		foreach ( $this->getContents() as $option )
+		{
+			$content .= "\n" . $renderer->render($option);
+		}
+
+		return $this->getLabel() . ' ' . Html::tag('select', $this->getAttributes(), $content) . '<br>';
 	}
 
 }

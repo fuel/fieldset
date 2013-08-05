@@ -34,6 +34,7 @@ abstract class Render
 	 * 
 	 * @param \Fuel\Fieldset\Element $element
 	 * @return string
+	 * @throws \InvalidArgumentException
 	 */
 	public function render(Renderable $element)
 	{
@@ -57,10 +58,18 @@ abstract class Render
 		//If not callable then use the default function
 		else
 		{
-			// TODO: Check if the class itself has a render method
-			// If so call the render method
-			// If not call the generic renderer
-			$result = $this->renderInput($element);
+			// Check if there is a render method in the object
+			$elementRender = [$element, 'render'];
+
+			if (is_callable($elementRender))
+			{
+				// If so call the render method
+				$result = $element->render($this);
+			}
+			else
+			{
+				throw new \InvalidArgumentException('Unable to find a render method for '.get_class($element));
+			}
 		}
 		
 		return $result;
@@ -89,14 +98,5 @@ abstract class Render
 		
 		return array_pop($nameArray);
 	}
-	
-	/**
-	 * Renders a single Input. This will be used as the generic fallback if no
-	 * magic rendering method is found and therefore should always be implemented
-	 * 
-	 * @param Input $input The Input to render
-	 * @return string
-	 */
-	public abstract function renderInput(Input $input);
 	
 }

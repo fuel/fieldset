@@ -12,7 +12,7 @@ namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\DataContainer;
 use Fuel\Common\Str;
-use Fuel\Fieldset\AttributeTrait;
+use Fuel\Fieldset\InputTrait;
 use Fuel\Fieldset\Input;
 use Fuel\Fieldset\Render\Renderable;
 
@@ -24,46 +24,13 @@ use Fuel\Fieldset\Render\Renderable;
  */
 abstract class ToggleGroup extends DataContainer implements Renderable
 {
-	use AttributeTrait;
+	use InputTrait {
+		setName as itSetName;
+	}
 
 	protected $autoArray = false;
 
-	protected $name = '';
-
 	protected $value;
-
-	protected $label = null;
-
-	/**
-	 * Gets the label of this group
-	 *
-	 * @return mixed
-	 */
-	public function getLabel()
-	{
-		return $this->label;
-	}
-
-	/**
-	 * Sets the label for this group
-	 *
-	 * @param mixed $label
-	 *
-	 * @return $this
-	 */
-	public function setLabel($label)
-	{
-		$this->label = $label;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return $this->name;
-	}
 
 	/**
 	 * Sets the name of this group. Any children added will have their name updated to match, as they are in the same
@@ -75,18 +42,18 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	 */
 	public function setName($name)
 	{
-		$this->name = $name;
-
 		// Check if we need to make this an array
 		if ($this->isAutoArray() && ! Str::endsWith($name, '[]'))
 		{
-			$this->name .= '[]';
+			$name .= '[]';
 		}
+
+		$this->itSetName($name);
 
 		// For any children, update the name
 		foreach ($this->getContents() as $item)
 		{
-			$item->setName($this->name);
+			$item->setName($this->getName());
 		}
 
 		return $this;

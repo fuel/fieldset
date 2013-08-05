@@ -19,7 +19,7 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = \Mockery::mock('Fuel\Fieldset\InputContainer[]');
+		$this->object = \Mockery::mock('Fuel\Fieldset\InputContainer[render]');
 		$_POST = [];
 	}
 

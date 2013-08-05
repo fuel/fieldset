@@ -14,7 +14,7 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 
 	protected function setUp()
 	{
-		$this->object = \Mockery::mock('Fuel\Fieldset\Input\ToggleGroup[setValue]');
+		$this->object = \Mockery::mock('Fuel\Fieldset\Input\ToggleGroup[setValue,render]');
 	}
 
 	/**

@@ -11,6 +11,7 @@
 namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Arr;
+use Fuel\Fieldset\Render;
 
 /**
  * Defines a group of radio buttons
@@ -25,7 +26,7 @@ class RadioGroup extends ToggleGroup
 	/**
 	 * Sets which radio button is checked
 	 *
-	 * @param string $value
+	 * @param  string $value
 	 *
 	 * @return $this
 	 */
@@ -76,7 +77,7 @@ class RadioGroup extends ToggleGroup
 	/**
 	 * Constructs a group of radios from an array
 	 *
-	 * @param array $config
+	 * @param  array $config
 	 *
 	 * @return RadioGroup
 	 */
@@ -105,6 +106,34 @@ class RadioGroup extends ToggleGroup
 		}
 
 		return $instance;
+	}
+
+	/**
+	 * Renders a group of radio buttons
+	 *
+	 * @param  Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		// Checks if the object has a label
+		$label = $this->getLabel();
+
+		// if not guess one from the name
+		if (is_null($label))
+		{
+			$label = $this->getName();
+		}
+
+		$radios = [$label];
+
+		foreach ($this->getContents() as $radio)
+		{
+			$radios[] = $renderer->render($radio);
+		}
+
+		return implode("<br>", $radios);
 	}
 
 }

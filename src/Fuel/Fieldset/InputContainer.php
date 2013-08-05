@@ -26,7 +26,7 @@ use Fuel\Fieldset\Data\Input;
  */
 abstract class InputContainer extends DataContainer implements Renderable
 {
-	use AttributeTrait;
+	use InputTrait;
 
 	/**
 	 * Repopulates the fields using input data. By default uses a combination
@@ -57,13 +57,22 @@ abstract class InputContainer extends DataContainer implements Renderable
 		// Loop through all the elements assigned and attempt to assign a value to them.
 		foreach ( $this->getContents() as $item )
 		{
-			// Convert the name to a dot notation for better searching
-			$key = $this->inputNameToKey($item->getName());
-			$value = Arr::get($data, $key);
-
-			if ( !is_null($value) )
+			if ($item instanceof InputContainer)
 			{
-				$item->setValue($value);
+				// This is another Fieldset or Form so needs to be populated too
+				$item->populate($data);
+			}
+			// This is a regular input so it can be populated
+			else
+			{
+				// Convert the name to a dot notation for better searching
+				$key = $this->inputNameToKey($item->getName());
+				$value = Arr::get($data, $key);
+
+				if ( !is_null($value) )
+				{
+					$item->setValue($value);
+				}
 			}
 		}
 		

@@ -11,6 +11,8 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Html;
+use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Input;
 
 /**
@@ -35,6 +37,18 @@ class Option extends Input
 
 		$this->setValue($value);
 		unset($this->attributes['name']);
+	}
+
+	/**
+	 * Renders out a single option tag
+	 *
+	 * @param  Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer)
+	{
+		return Html::tag('option', $this->getAttributes(), $this->getContent());
 	}
 
 }

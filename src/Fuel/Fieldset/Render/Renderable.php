@@ -11,6 +11,8 @@
 
 namespace Fuel\Fieldset\Render;
 
+use Fuel\Fieldset\Render;
+
 /**
  * Allows an object to be processed by Render.
  *
@@ -20,6 +22,15 @@ namespace Fuel\Fieldset\Render;
  */
 interface Renderable
 {
-	
+
+	/**
+	 * Should return a html string that represents the rendered object
+	 *
+	 * @param Render $renderer
+	 *
+	 * @return string
+	 */
+	public function render(Render $renderer);
+
 }
 
