@@ -14,7 +14,6 @@ use Fuel\Common\Arr;
 
 /**
  * Simple trait to allow form elements to have attributes assigned easily
- * TODO: allow for setting/getting of individual attributes
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
@@ -106,6 +105,39 @@ trait InputTrait
 		}
 
 		Arr::set($this->attributes, 'name', $name);
+	}
+
+	/**
+	 * Gets an attribute
+	 *
+	 * @param  string $name
+	 * @param  null   $default Default value to return if the attribute is not set
+	 *
+	 * @return mixed
+	 */
+	public function getAttribute($name, $default=null)
+	{
+		return Arr::get($this->attributes, $name, $default);
+	}
+
+	/**
+	 * Sets the given attribute. If $value is null then $name is expected to be an array of attributes.
+	 *
+	 * @param  string|array $name
+	 * @param  null|mixed   $value
+	 *
+	 * @return $this
+	 */
+	public function setAttribute($name, $value=null)
+	{
+		if (is_null($value))
+		{
+			return $this->setAttributes($name);
+		}
+
+		Arr::set($this->attributes, $name, $value);
+
+		return $this;
 	}
 
 }
