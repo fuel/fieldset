@@ -37,7 +37,7 @@ trait InputTrait
 	public function getLabel()
 	{
 		// Checks if the object has a label
-		$label = $this->getLabel();
+		$label = $this->label;
 
 		// if not guess one from the name
 		if (is_null($label))
