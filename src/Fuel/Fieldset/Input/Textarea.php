@@ -43,4 +43,17 @@ class Textarea extends Input
 		return $this->getLabel() . ' ' . Html::tag('textarea', $this->getAttributes(), $this->getContent());
 	}
 
+	/**
+	 * Extends setValue to make sure content is set for correct repopulation.
+	 *
+	 * @param  string $value
+	 *
+	 * @return Input
+	 */
+	public function setValue($value)
+	{
+		$this->setContent($value);
+		return parent::setValue($value);
+	}
+
 }
