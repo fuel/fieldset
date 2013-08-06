@@ -33,31 +33,6 @@ class Select extends DataContainer implements Renderable
 
 	protected $value = null;
 
-	protected $label = null;
-
-	/**
-	 * Gets the label for this select
-	 *
-	 * @return string
-	 */
-	public function getLabel()
-	{
-		return $this->label;
-	}
-
-	/**
-	 * Sets the label for this select
-	 *
-	 * @param  string $label
-	 *
-	 * @return $this
-	 */
-	public function setLabel($label)
-	{
-		$this->label = $label;
-		return $this;
-	}
-
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
