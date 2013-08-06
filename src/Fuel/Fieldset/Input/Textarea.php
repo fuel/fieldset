@@ -40,7 +40,7 @@ class Textarea extends Input
 	 */
 	public function render(Render $renderer)
 	{
-		return $this->getLabel() . ' ' . Html::tag('textarea', $this->getAttributes(), $this->getContent());
+		return Html::tag('textarea', $this->getAttributes(), $this->getContent());
 	}
 
 	/**

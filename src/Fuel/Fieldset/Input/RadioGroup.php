@@ -117,16 +117,7 @@ class RadioGroup extends ToggleGroup
 	 */
 	public function render(Render $renderer)
 	{
-		// Checks if the object has a label
-		$label = $this->getLabel();
-
-		// if not guess one from the name
-		if (is_null($label))
-		{
-			$label = $this->getName();
-		}
-
-		$radios = [$label];
+		$radios = [];
 
 		foreach ($this->getContents() as $radio)
 		{

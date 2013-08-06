@@ -92,7 +92,7 @@ class Input extends Element
 	 */
 	public function render(Render $renderer)
 	{
-		return $this->getLabel() . ' ' . Html::tag('input', $this->getAttributes(), $this->getContent()) . '<br>';
+		return Html::tag('input', $this->getAttributes(), $this->getContent()) . '<br>';
 	}
 
 }

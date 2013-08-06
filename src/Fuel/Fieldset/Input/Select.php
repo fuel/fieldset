@@ -189,7 +189,7 @@ class Select extends DataContainer implements Renderable
 			$content .= "\n" . $renderer->render($option);
 		}
 
-		return $this->getLabel() . ' ' . Html::tag('select', $this->getAttributes(), $content) . '<br>';
+		return Html::tag('select', $this->getAttributes(), $content) . '<br>';
 	}
 
 }
