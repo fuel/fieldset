@@ -13,6 +13,7 @@ namespace Fuel\Fieldset\Render;
 
 use Fuel\Fieldset\Form;
 use Fuel\Fieldset\Render;
+use Fuel\Common\Table;
 
 /**
  * Basic implementation of a fieldset renderer
@@ -24,10 +25,5 @@ use Fuel\Fieldset\Render;
  */
 class BasicRender extends Render
 {
-
-//	public function renderForm(Form $form)
-//	{
-//		return $this->render($form);
-//	}
 
 }
