@@ -26,7 +26,7 @@ interface Renderable
 	/**
 	 * Should return a html string that represents the rendered object
 	 *
-	 * @param Render $renderer
+	 * @param  Render  $renderer
 	 *
 	 * @return string
 	 */
