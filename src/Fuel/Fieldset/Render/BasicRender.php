@@ -60,6 +60,9 @@ class BasicRender extends Render
 			return $element->render($this);
 		}
 
+		$name = $element->getName();
+		$element->setAttribute('id', 'form_'.$name);
+
 		$this->table->addCell($element->getLabel());
 		$this->table->addCell($element->render($this));
 		$this->table->addRow();
