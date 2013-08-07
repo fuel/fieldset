@@ -77,7 +77,7 @@ class BasicRender extends Render
 	 */
 	public function renderRadioGroup(RadioGroup $radioGroup)
 	{
-		$this->renderToggleGroup($radioGroup);
+		return $this->renderToggleGroup($radioGroup);
 	}
 
 	/**
@@ -87,7 +87,7 @@ class BasicRender extends Render
 	 */
 	public function renderCheckboxGroup(CheckboxGroup $radioGroup)
 	{
-		$this->renderToggleGroup($radioGroup);
+		return $this->renderToggleGroup($radioGroup);
 	}
 
 	/**
@@ -111,12 +111,38 @@ class BasicRender extends Render
 		$this->table->addCell($toggles);
 
 		$this->table->addRow();
+
+		return '';
 	}
 
-	// TODO: this
+	/**
+	 * Adds a fieldset object to the table.
+	 *
+	 * @param  Fieldset $fieldset
+	 */
 	public function renderFieldset(Fieldset $fieldset)
 	{
-		// TODO: something meaningful here
+		// Create a new renderer and render the content
+		$fieldsetRenderer = new static($this->csrfProvider);
+
+		// Generate all the content
+		foreach ($fieldset as $item)
+		{
+			$fieldsetRenderer->render($item);
+		}
+
+		$content = $fieldsetRenderer->getRenderedForm();
+
+		// Create the fieldset tag and add the content
+		$tag = Html::tag('fieldset', $fieldset->getAttributes(), $content);
+
+		// Make sure everything is added to the parent table
+		$cell = new Table\Cell($tag);
+		$cell->setAttributes(['colspan' => 2]);
+
+		$this->table->addCell($cell);
+		$this->table->addRow();
+
 		return '';
 	}
 
@@ -138,6 +164,15 @@ class BasicRender extends Render
 		$tableContent = $tableRender->renderTable($this->table);
 
 		return Html::tag('form', $form->getAttributes(), $tableContent);
+	}
+
+	/**
+	 * Allows other BasicRenderes to get a rendered version of the table before things have finished.
+	 */
+	protected function getRenderedForm()
+	{
+		$tableRender = new SimpleTable();
+		return $tableRender->renderTable($this->table);
 	}
 
 }
