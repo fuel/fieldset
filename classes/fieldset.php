@@ -157,7 +157,7 @@ class Fieldset extends \Fuel\Core\Fieldset
 	 * @param   Fieldset  parent fieldset to which this belongs
 	 * @return  Fieldset
 	 */
-	public function set_parent(Fieldset $fieldset)
+	public function set_parent(\Fuel\Core\Fieldset $fieldset)
 	{
 		// This has been removed, given the new way that forms are constructed it is no longer needed for a fieldset to
 		// know about its parent.
@@ -175,7 +175,7 @@ class Fieldset extends \Fuel\Core\Fieldset
 	 */
 	public function add($name, $label = '', array $attributes = array(), array $rules = array())
 	{
-		if ($name instanceof Fieldset_Field)
+		if ($name instanceof Fuel\Core\Fieldset_Field)
 		{
 			// It's not possible to get the type from a Fieldset_Field so nothing we can do here
 			throw new Deprecated('Adding Fieldset_Fields directly is not supported by the v2 to v1 interface');
