@@ -127,7 +127,7 @@ class CheckboxGroup extends ToggleGroup
 			$checkboxes[] = $renderer->render($checkbox);
 		}
 
-		return implode("<br>", $checkboxes);
+		return implode('', $checkboxes);
 	}
 
 }

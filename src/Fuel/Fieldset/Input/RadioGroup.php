@@ -124,7 +124,7 @@ class RadioGroup extends ToggleGroup
 			$radios[] = $renderer->render($radio);
 		}
 
-		return implode("<br>", $radios);
+		return implode('', $radios);
 	}
 
 }
