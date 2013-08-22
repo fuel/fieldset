@@ -76,7 +76,7 @@ abstract class Render
 		// Check to see if our method is callable
 		if (is_callable([$this, $functionName], false, $callName))
 		{
-			$result = call_user_func($callName, $element);
+			$result = $this->{$functionName}($element);
 		}
 		// If not callable then use the default function
 		else
@@ -86,7 +86,7 @@ abstract class Render
 			$inputRenderFunction = static::$methodPrefix . 'Input';
 			$inputRender = [$this, $inputRenderFunction];
 
-			if (is_callable($inputRender, false, $callName))
+			if (is_callable($inputRender))
 			{
 				$result = $this->$inputRenderFunction($element);
 			}
