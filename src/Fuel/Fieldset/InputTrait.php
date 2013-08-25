@@ -11,6 +11,7 @@
 namespace Fuel\Fieldset;
 
 use Fuel\Common\Arr;
+use Fuel\Common\DataContainer;
 
 /**
  * Simple trait to allow form elements to have attributes assigned easily
@@ -22,9 +23,19 @@ use Fuel\Common\Arr;
 trait InputTrait
 {
 
+	/**
+	 * Container for any attributes
+	 * @var array
+	 */
 	protected $attributes = [
 		'name' => '',
 	];
+
+	/**
+	 * Used to contain any meta information to associate with this input
+	 * @var array
+	 */
+	protected $metaContainer = [];
 
 	protected $label = null;
 
@@ -63,7 +74,8 @@ trait InputTrait
 	/**
 	 * Sets the attributes for the Input
 	 *
-	 * @param array $attributes
+	 * @param  array $attributes
+	 *
 	 * @return $this
 	 */
 	public function setAttributes(array $attributes)
@@ -95,7 +107,11 @@ trait InputTrait
 	/**
 	 * Sets the name of this input
 	 *
-	 * @param string $name
+	 * @param  string $name
+	 *
+	 * @return $this
+	 *
+	 * @throws \InvalidArgumentException
 	 */
 	public function setName($name)
 	{
@@ -105,17 +121,19 @@ trait InputTrait
 		}
 
 		Arr::set($this->attributes, 'name', $name);
+
+		return $this;
 	}
 
 	/**
 	 * Gets an attribute
 	 *
-	 * @param  string $name
-	 * @param  null   $default Default value to return if the attribute is not set
+	 * @param  string     $name
+	 * @param  null|mixed $default Default value to return if the attribute is not set
 	 *
 	 * @return mixed
 	 */
-	public function getAttribute($name, $default=null)
+	public function getAttribute($name, $default = null)
 	{
 		return Arr::get($this->attributes, $name, $default);
 	}
@@ -128,7 +146,7 @@ trait InputTrait
 	 *
 	 * @return $this
 	 */
-	public function setAttribute($name, $value=null)
+	public function setAttribute($name, $value = null)
 	{
 		if (is_null($value))
 		{
@@ -138,6 +156,38 @@ trait InputTrait
 		Arr::set($this->attributes, $name, $value);
 
 		return $this;
+	}
+
+	/**
+	 * @param string     $key
+	 * @param null|mixed $value
+	 *
+	 * @return $this
+	 */
+	public function setMeta($key, $value = null)
+	{
+		Arr::set($this->metaContainer, $key, $value);
+		return $this;
+	}
+
+	/**
+	 * Returns any meta data associated with this input.
+	 * @return array
+	 */
+	public function getMetaContainer()
+	{
+		return $this->metaContainer;
+	}
+
+	/**
+	 * @param string $key
+	 * @param null   $default
+	 *
+	 * @return mixed
+	 */
+	public function getMeta($key, $default = null)
+	{
+		return Arr::get($this->metaContainer, $key, $default);
 	}
 
 }

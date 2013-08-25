@@ -199,5 +199,29 @@ class InputTest extends \PHPUnit_Framework_TestCase
 			$this->object->getLabel()
 		);
 	}
+
+	/**
+	 * @covers Fuel\Fieldset\Input::getMeta
+	 * @covers Fuel\Fieldset\Input::setMeta
+	 * @group  Fieldset
+	 */
+	public function testGetSetMeta()
+	{
+		$key = 'foobar';
+		$value = 'bazbat';
+
+		$this->object->setMeta($key, $value);
+
+		$this->assertEquals(
+			$value,
+			$this->object->getMeta($key)
+		);
+
+		$default = 'test';
+		$this->assertEquals(
+			$default,
+			$this->object->getMeta('empty', $default)
+		);
+	}
 	
 }
