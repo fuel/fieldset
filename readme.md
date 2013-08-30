@@ -14,9 +14,9 @@ Forms are created by first creating a container object, a `Form` or a `Fieldset`
 ```php
 <?php
 
-use FuelPHP\Fieldset\Form;
-use FuelPHP\Fieldset\Input;
-use FuelPHP\Fieldset\Fieldset;
+use Fuel\Fieldset\Form;
+use Fuel\Fieldset\Input;
+use Fuel\Fieldset\Fieldset;
 
 $form = new Form;
 
@@ -26,7 +26,7 @@ $form[] = new Input\Submit('submit', array('value' => 'GO!'));
 //This will repopulate the form with any submitted data
 $form->repopulate();
 
-//This will repopulate the form with the given data, the flag indicates weather to call `repopulate()` after or not
+//This will repopulate the form with the given data, the flag indicates wether to call `repopulate()` after or not
 $form->populate($myData, true);
 ```
 
@@ -66,7 +66,7 @@ The render classes are all used in the same basic way:
 ```php
 <?php
 
-use FuelPHP\Fieldset\Render;
+use Fuel\Fieldset\Render;
 
 $engine = new BasicRender();
 
