@@ -36,8 +36,11 @@ class Select extends DataContainer implements Renderable
 	/**
 	 * Override the DataContainer's set function to enable type checking.
 	 * 
-	 * @param string $key
-	 * @param Option|Optgroup $value
+	 * @param  string $key
+	 * @param  Option|Optgroup $value
+	 *
+	 * @return $this
+	 *
 	 * @throws \InvalidArgumentException
 	 */
 	public function set($key, $value)
@@ -48,13 +51,14 @@ class Select extends DataContainer implements Renderable
 			throw new \InvalidArgumentException('Only Options or Optgroups can be added to a Select.');
 		}
 
-		return parent::set($key, $value);
+		parent::set($key, $value);
+		return $this;
 	}
 
 	/**
 	 * Sets the name of this select
 	 *
-	 * @param $name string
+	 * @param  $name string
 	 *
 	 * @return $this
 	 */
@@ -75,7 +79,7 @@ class Select extends DataContainer implements Renderable
 	}
 
 	/**
-	 * Sets makes any options that have a value contained in $value have a "selected" attribute
+	 * Sets makes any options that have a value contained in $values have a "selected" attribute
 	 *
 	 * @param $value array[mixed]
 	 *
@@ -85,6 +89,11 @@ class Select extends DataContainer implements Renderable
 	{
 		$this->value = $value;
 
+		if ( ! is_array($value) )
+		{
+			$value = [$value];
+		}
+
 		$this->recursiveAssignValue($value, $this->getContents());
 
 		return $this;
@@ -93,10 +102,10 @@ class Select extends DataContainer implements Renderable
 	/**
 	 * Recursive function to be able to handle Optgroups
 	 *
-	 * @param $value mixed
-	 * @param $list array[Option|Optgroup]
+	 * @param array[mixed]           $values
+	 * @param array[Option|Optgroup] $list
 	 */
-	protected function recursiveAssignValue($value, $list)
+	protected function recursiveAssignValue(array $values, $list)
 	{
 		//Loop through all the children and find out if one matches our value
 		foreach ( $list as $item )
@@ -104,11 +113,11 @@ class Select extends DataContainer implements Renderable
 			//Check if this is an option or group
 			if ( $item instanceof Optgroup )
 			{
-				$this->recursiveAssignValue($value, $item->getContents());
+				$this->recursiveAssignValue($values, $item->getContents());
 			}
 
 			//We have an option so check its value
-			else if ( $item->getValue() === $value )
+			else if ( in_array($item->getValue(), $values) )
 			{
 				$this->assignSelected($item);
 			}
@@ -140,7 +149,7 @@ class Select extends DataContainer implements Renderable
 	/**
 	 * Builds a select from an array
 	 *
-	 * @param array $config
+	 * @param  array $config
 	 *
 	 * @return Select
 	 */
