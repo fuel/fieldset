@@ -109,6 +109,15 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	}
 
 	/**
+	 * Gets the value assigned to the group.
+	 * @return mixed
+	 */
+	public function getValue()
+	{
+		return $this->value;
+	}
+
+	/**
 	 * Sets the value of the group, this will define which elements are selected or checked.
 	 *
 	 * @param mixed $value
