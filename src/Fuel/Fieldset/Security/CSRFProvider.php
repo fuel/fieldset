@@ -17,6 +17,7 @@ use Fuel\Fieldset\InputContainer;
  *
  * @package Fuel\Fieldset\Security
  * @author  Fuel Development Team
+ * @since   2.0
  */
 abstract class CSRFProvider
 {
@@ -25,6 +26,8 @@ abstract class CSRFProvider
 	 * Gets called before the form is rendered to allow for CSRF injection
 	 *
 	 * @param InputContainer $form
+	 *
+	 * @since 2.0
 	 */
 	public abstract function insertTokenPreRender(InputContainer $form);
 
@@ -32,6 +35,8 @@ abstract class CSRFProvider
 	 * Gets called after the form has been rendered to allow for csrf injection
 	 *
 	 * @param $formHtml
+	 *
+	 * @since 2.0
 	 */
 	public abstract function insertTokenPostRender(&$formHtml);
 
@@ -42,6 +47,8 @@ abstract class CSRFProvider
 	 * @param                $data
 	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public abstract function validateToken(InputContainer $form, $data);
 

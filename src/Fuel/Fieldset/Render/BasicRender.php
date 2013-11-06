@@ -41,6 +41,8 @@ class BasicRender extends Render
 
 	/**
 	 * @param CSRFProvider $csrf
+	 *
+	 * @since 2.0
 	 */
 	public function __construct(CSRFProvider $csrf = null)
 	{
@@ -51,6 +53,8 @@ class BasicRender extends Render
 
 	/**
 	 * @param Input|Select|ToggleGroup $element
+	 *
+	 * @since 2.0
 	 */
 	public function renderInput($element)
 	{
@@ -76,6 +80,8 @@ class BasicRender extends Render
 	 * Renders a RadioGroup into the table
 	 *
 	 * @param CheckboxGroup $radioGroup
+	 *
+	 * @since 2.0
 	 */
 	public function renderRadioGroup(RadioGroup $radioGroup)
 	{
@@ -86,6 +92,8 @@ class BasicRender extends Render
 	 * Renders a CheckboxGroup into the table
 	 *
 	 * @param CheckboxGroup $radioGroup
+	 *
+	 * @since 2.0
 	 */
 	public function renderCheckboxGroup(CheckboxGroup $radioGroup)
 	{
@@ -96,6 +104,8 @@ class BasicRender extends Render
 	 * Renders a ToggleGroup into the table
 	 *
 	 * @param ToggleGroup $group
+	 *
+	 * @since 2.0
 	 */
 	protected function renderToggleGroup(ToggleGroup $group)
 	{
@@ -121,6 +131,8 @@ class BasicRender extends Render
 	 * Adds a fieldset object to the table.
 	 *
 	 * @param  Fieldset $fieldset
+	 *
+	 * @since 2.0
 	 */
 	public function renderFieldset(Fieldset $fieldset)
 	{
@@ -154,6 +166,8 @@ class BasicRender extends Render
 	 * @param  Form $form
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function renderForm(Form $form)
 	{
@@ -170,6 +184,8 @@ class BasicRender extends Render
 
 	/**
 	 * Allows other BasicRenderes to get a rendered version of the table before things have finished.
+	 *
+	 * @since 2.0
 	 */
 	protected function getRenderedForm()
 	{

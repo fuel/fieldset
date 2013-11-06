@@ -29,6 +29,8 @@ class RadioGroup extends ToggleGroup
 	 * @param  string $value
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setValue($value)
 	{
@@ -62,7 +64,10 @@ class RadioGroup extends ToggleGroup
 	 * @param  mixed  $value
 	 *
 	 * @return $this
+	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function set($key, $value)
 	{
@@ -80,6 +85,8 @@ class RadioGroup extends ToggleGroup
 	 * @param  array $config
 	 *
 	 * @return RadioGroup
+	 *
+	 * @since 2.0
 	 */
 	public static function fromArray($config)
 	{
@@ -114,6 +121,8 @@ class RadioGroup extends ToggleGroup
 	 * @param  Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

@@ -27,6 +27,8 @@ class Option extends Input
 	/**
 	 * @param mixed $content
 	 * @param mixed $value
+	 *
+	 * @since 2.0
 	 */
 	public function __construct($content = null, $value = null)
 	{
@@ -48,6 +50,8 @@ class Option extends Input
 	 * @param  Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

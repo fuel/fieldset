@@ -30,6 +30,8 @@ class Input extends Element
 	 * @param string  $name       Name to apply to this input
 	 * @param array   $attributes A key => value array of attributes
 	 * @param mixed   $value      The initial value of the input, if any
+	 *
+	 * @since 2.0
 	 */
 	public function __construct($name = '', array $attributes = [], $value = null)
 	{
@@ -44,7 +46,8 @@ class Input extends Element
 	 * Gets the value of the Input object
 	 *
 	 * @return string
-	 * @since  2.0.0
+	 *
+	 * @since  2.0
 	 */
 	public function getValue()
 	{
@@ -55,8 +58,10 @@ class Input extends Element
 	 * Sets the value for the Input object
 	 *
 	 * @param  string $value
+	 *
 	 * @return Input
-	 * @since  2.0.0
+	 *
+	 * @since  2.0
 	 */
 	public function setValue($value)
 	{
@@ -68,6 +73,8 @@ class Input extends Element
 	 * Returns an instance of this Input with the given settings
 	 *
 	 * @param array $config
+	 *
+	 * @since 2.0
 	 */
 	public static function fromArray($config = [])
 	{
@@ -88,6 +95,8 @@ class Input extends Element
 	 * @param Render $renderer
 	 *
 	 * @return string "<input type="..."
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

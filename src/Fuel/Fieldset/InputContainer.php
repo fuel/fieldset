@@ -32,6 +32,8 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * of get and post but other data can be used by passing a child of Input
 	 *
 	 * @param \Fuel\Fieldset\Data\Input $data
+	 *
+	 * @since 2.0
 	 */
 	public function repopulate(Input $data = null)
 	{
@@ -49,7 +51,10 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * Populates the fields using the array passed.
 	 *
 	 * @param array $data The data to use for population.
+	 *
 	 * @return \Fuel\Fieldset\InputContainer
+	 *
+	 * @since 2.0
 	 */
 	public function populate($data)
 	{
@@ -83,7 +88,10 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * easy access.
 	 *
 	 * @param string $name
+	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function inputNameToKey($name)
 	{
@@ -99,6 +107,8 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * @param array $config
 	 *
 	 * @return static
+	 *
+	 * @since 2.0
 	 */
 	public static function fromArray($config = [])
 	{

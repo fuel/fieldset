@@ -24,6 +24,8 @@ class Checkbox extends Toggle
 	 * @param string $name
 	 * @param array  $attributes
 	 * @param mixed  $value
+	 *
+	 * @since 2.0
 	 */
 	public function __construct($name = '', array $attributes = [], $value = null)
 	{

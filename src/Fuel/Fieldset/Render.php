@@ -31,6 +31,10 @@ abstract class Render
 	 */
 	protected $csrfProvider;
 
+	/**
+	 * @param CSRFProvider $csrf
+	 * @since 2.0
+	 */
 	public function __construct(CSRFProvider $csrf = null)
 	{
 		if (is_null($csrf))
@@ -52,6 +56,8 @@ abstract class Render
 	 *
 	 * @return string
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function render(Renderable $element)
 	{
@@ -126,6 +132,8 @@ abstract class Render
 	 * @param  mixed $object
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	protected function getClassName($object)
 	{

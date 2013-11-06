@@ -25,6 +25,8 @@ abstract class Toggle extends Input
 
 	/**
 	 * @return bool true or false depending on the status of the input
+	 *
+	 * @since 2.0
 	 */
 	public function isChecked()
 	{
@@ -37,7 +39,10 @@ abstract class Toggle extends Input
 	 * @param  $status boolean
 	 *
 	 * @return $this Toggle
+	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function setChecked($status)
 	{

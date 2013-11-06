@@ -28,6 +28,8 @@ class Textarea extends Input
 	 * @param string $name
 	 * @param array  $attributes
 	 * @param mixed  $value
+	 *
+	 * @since 2.0
 	 */
 	public function __construct($name = '', array $attributes = [], $value = null)
 	{
@@ -41,6 +43,8 @@ class Textarea extends Input
 	 * @param  Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{
@@ -53,6 +57,8 @@ class Textarea extends Input
 	 * @param  string $value
 	 *
 	 * @return Input
+	 *
+	 * @since 2.0
 	 */
 	public function setValue($value)
 	{

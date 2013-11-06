@@ -26,6 +26,11 @@ class Input
 	protected $post;
 	protected $config = [];
 
+	/**
+	 * @param array $config
+	 *
+	 * @since 2.0
+	 */
 	public function __construct(array $config = [])
 	{
 		//TODO: Add config entry to be able to switch priority of GET and POST
@@ -39,7 +44,10 @@ class Input
 	 *
 	 * @param  string|null $key     Key to fetch, or null to return the full array
 	 * @param  mixed       $default Default value if the key does not exist
+	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function get($key = null, $default = null)
 	{
@@ -56,7 +64,10 @@ class Input
 	 *
 	 * @param  string|null $key     Key to fetch, or null to return the full array
 	 * @param  mixed       $default Default value if the key does not exist
+	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function post($key = null, $default = null)
 	{
@@ -74,7 +85,10 @@ class Input
 	 *
 	 * @param  string|null $key     Key to fetch, or null to return the full array
 	 * @param  mixed       $default Default value if the key does not exist
+	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function input($key = null, $default = null)
 	{
@@ -92,7 +106,10 @@ class Input
 	 * Gets a value from the Input config.
 	 *
 	 * @param  string|null $key Dot notated key or null for all
+	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function config($key = null)
 	{

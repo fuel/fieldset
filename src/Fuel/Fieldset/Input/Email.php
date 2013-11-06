@@ -17,6 +17,7 @@ use Fuel\Fieldset\Input;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @since   2.0
  */
 class Email extends Input
 {
@@ -25,6 +26,8 @@ class Email extends Input
 	 * @param string $name
 	 * @param array  $attributes
 	 * @param mixed  $value
+	 *
+	 * @since 2.0
 	 */
 	public function __construct($name = '', array $attributes = [], $value = null)
 	{

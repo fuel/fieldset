@@ -32,6 +32,8 @@ class CheckboxGroup extends ToggleGroup
 	 * @param  mixed $value
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setValue($value)
 	{
@@ -71,7 +73,10 @@ class CheckboxGroup extends ToggleGroup
 	 * @param  mixed  $value
 	 *
 	 * @return $this
+	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function set($key, $value)
 	{
@@ -89,6 +94,8 @@ class CheckboxGroup extends ToggleGroup
 	 * @param array $config
 	 *
 	 * @return CheckboxGroup
+	 *
+	 * @since 2.0
 	 */
 	public static function fromArray($config)
 	{
@@ -123,6 +130,8 @@ class CheckboxGroup extends ToggleGroup
 	 * @param Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

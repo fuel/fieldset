@@ -15,6 +15,7 @@ namespace Fuel\Fieldset\Exception;
  *
  * @package Fuel\Fieldset\Exception
  * @author  Fuel Development Team
+ * @since   2.0
  */
 class Deprecated extends \Exception
 {

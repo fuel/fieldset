@@ -17,6 +17,7 @@ use Fuel\Fieldset\InputContainer;
  *
  * @package Fuel\Fieldset\Security
  * @author  Fuel Development Team
+ * @since   2.0
  */
 class CSRFNullProvider extends CSRFProvider
 {
@@ -25,6 +26,8 @@ class CSRFNullProvider extends CSRFProvider
 	 * Gets called before the form is rendered to allow for CSRF injection
 	 *
 	 * @param InputContainer $form
+	 *
+	 * @since 2.0
 	 */
 	public function insertTokenPreRender(InputContainer $form)
 	{
@@ -35,6 +38,8 @@ class CSRFNullProvider extends CSRFProvider
 	 * Gets called after the form has been rendered to allow for csrf injection
 	 *
 	 * @param $formHtml
+	 *
+	 * @since 2.0
 	 */
 	public function insertTokenPostRender(&$formHtml)
 	{
@@ -48,6 +53,8 @@ class CSRFNullProvider extends CSRFProvider
 	 * @param                $data
 	 *
 	 * @return boolean
+	 *
+	 * @since 2.0
 	 */
 	public function validateToken(InputContainer $form, $data)
 	{

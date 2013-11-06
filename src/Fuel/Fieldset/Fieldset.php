@@ -28,6 +28,8 @@ class Fieldset extends InputContainer
 	 * Gets the legend for the Fieldset
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function getLegend()
 	{
@@ -38,7 +40,10 @@ class Fieldset extends InputContainer
 	 * Sets the legend for the Fieldset.
 	 *
 	 * @param  string|null $legend Set to null (the default) to not display a legend
+	 *
 	 * @return Fieldset
+	 *
+	 * @since 2.0
 	 */
 	public function setLegend($legend)
 	{
@@ -51,7 +56,10 @@ class Fieldset extends InputContainer
 	 * Renders the Fieldset to html
 	 *
 	 * @param  Render $renderer
+	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

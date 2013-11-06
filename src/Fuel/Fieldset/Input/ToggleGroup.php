@@ -21,6 +21,7 @@ use Fuel\Fieldset\Render\Renderable;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @since   2.0
  */
 abstract class ToggleGroup extends DataContainer implements Renderable
 {
@@ -39,6 +40,8 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	 * @param string $name
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setName($name)
 	{
@@ -63,6 +66,8 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	 * Returns true or false to indicate the status of the auto array functionality
 	 *
 	 * @return bool
+	 *
+	 * @since 2.0
 	 */
 	public function isAutoArray()
 	{
@@ -97,6 +102,8 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	 * @return $this
 	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function set($key, $value)
 	{
@@ -110,7 +117,10 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 
 	/**
 	 * Gets the value assigned to the group.
+	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function getValue()
 	{
@@ -123,6 +133,8 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	 * @param mixed $value
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	abstract public function setValue($value);
 

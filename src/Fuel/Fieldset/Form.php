@@ -28,6 +28,8 @@ class Form extends InputContainer
 	 * @param Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

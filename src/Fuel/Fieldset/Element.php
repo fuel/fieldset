@@ -29,6 +29,8 @@ abstract class Element implements Renderable
 	 * Gets the content of the Element
 	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function getContent()
 	{
@@ -38,8 +40,11 @@ abstract class Element implements Renderable
 	/**
 	 * Sets the content for this Element
 	 *
-	 * @param  mixed   $content
+	 * @param mixed $content
+	 *
 	 * @return Element
+	 *
+	 * @since 2.0
 	 */
 	public function setContent($content)
 	{

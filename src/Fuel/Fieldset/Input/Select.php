@@ -41,6 +41,8 @@ class Select extends DataContainer implements Renderable
 	 * @return $this
 	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function set($key, $value)
 	{
@@ -60,6 +62,8 @@ class Select extends DataContainer implements Renderable
 	 * @param  $name string
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setName($name)
 	{
@@ -71,6 +75,8 @@ class Select extends DataContainer implements Renderable
 	 * Gets the name of this select
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function getName()
 	{
@@ -83,6 +89,8 @@ class Select extends DataContainer implements Renderable
 	 * @param $value array[mixed]
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setValue($value)
 	{
@@ -103,6 +111,8 @@ class Select extends DataContainer implements Renderable
 	 *
 	 * @param array[mixed]           $values
 	 * @param array[Option|Optgroup] $list
+	 *
+	 * @since 2.0
 	 */
 	protected function recursiveAssignValue(array $values, $list)
 	{
@@ -127,6 +137,8 @@ class Select extends DataContainer implements Renderable
 	 * Sets the given Option as selected
 	 *
 	 * @param Option $option
+	 *
+	 * @since 2.0
 	 */
 	protected function assignSelected(Option $option)
 	{
@@ -139,6 +151,8 @@ class Select extends DataContainer implements Renderable
 	 * Returns any selected values
 	 *
 	 * @return null|array Null if nothing has been selected
+	 *
+	 * @since 2.0
 	 */
 	public function getValue()
 	{
@@ -151,6 +165,8 @@ class Select extends DataContainer implements Renderable
 	 * @param  array $config
 	 *
 	 * @return Select
+	 *
+	 * @since 2.0
 	 */
 	public static function fromArray($config)
 	{
@@ -187,6 +203,8 @@ class Select extends DataContainer implements Renderable
 	 * @param  Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{

@@ -43,6 +43,8 @@ trait InputTrait
 	 * Gets the label of this group
 	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function getLabel()
 	{
@@ -64,6 +66,8 @@ trait InputTrait
 	 * @param mixed $label
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setLabel($label)
 	{
@@ -77,6 +81,8 @@ trait InputTrait
 	 * @param  array $attributes
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setAttributes(array $attributes)
 	{
@@ -88,6 +94,8 @@ trait InputTrait
 	 * Gets the attributes for the Input
 	 *
 	 * @return array
+	 *
+	 * @since 2.0
 	 */
 	public function getAttributes()
 	{
@@ -98,6 +106,8 @@ trait InputTrait
 	 * Gets the name of this input
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function getName()
 	{
@@ -112,6 +122,8 @@ trait InputTrait
 	 * @return $this
 	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function setName($name)
 	{
@@ -132,6 +144,8 @@ trait InputTrait
 	 * @param  null|mixed $default Default value to return if the attribute is not set
 	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function getAttribute($name, $default = null)
 	{
@@ -145,6 +159,8 @@ trait InputTrait
 	 * @param  null|mixed   $value
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setAttribute($name, $value = null)
 	{
@@ -163,6 +179,8 @@ trait InputTrait
 	 * @param null|mixed $value
 	 *
 	 * @return $this
+	 *
+	 * @since 2.0
 	 */
 	public function setMeta($key, $value = null)
 	{
@@ -172,7 +190,10 @@ trait InputTrait
 
 	/**
 	 * Returns any meta data associated with this input.
+	 *
 	 * @return array
+	 *
+	 * @since 2.0
 	 */
 	public function getMetaContainer()
 	{
@@ -184,6 +205,8 @@ trait InputTrait
 	 * @param null   $default
 	 *
 	 * @return mixed
+	 *
+	 * @since 2.0
 	 */
 	public function getMeta($key, $default = null)
 	{

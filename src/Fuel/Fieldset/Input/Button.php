@@ -17,10 +17,18 @@ use Fuel\Fieldset\Input;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @since   2.0
  */
 class Button extends Input
 {
 
+	/**
+	 * @param string $name
+	 * @param array  $attributes
+	 * @param null   $value
+	 *
+	 * @since 2.0
+	 */
 	public function __construct($name = '', array $attributes = [], $value = null)
 	{
 		$attributes['type'] = 'button';

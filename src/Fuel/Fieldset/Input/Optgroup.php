@@ -33,7 +33,10 @@ class Optgroup extends DataContainer implements Renderable
 	 *
 	 * @param string $key
 	 * @param Option $value
+	 *
 	 * @throws \InvalidArgumentException
+	 *
+	 * @since 2.0
 	 */
 	public function set($key, $value)
 	{
@@ -51,6 +54,8 @@ class Optgroup extends DataContainer implements Renderable
 	 * @param  array $config
 	 *
 	 * @return Optgroup
+	 *
+	 * @since 2.0
 	 */
 	public static function fromArray($config)
 	{
@@ -75,6 +80,8 @@ class Optgroup extends DataContainer implements Renderable
 	 * @param Render $renderer
 	 *
 	 * @return string
+	 *
+	 * @since 2.0
 	 */
 	public function render(Render $renderer)
 	{
