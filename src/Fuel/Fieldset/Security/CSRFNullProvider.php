@@ -1,14 +1,25 @@
 <?php
-
+/**
+ * @package   Fuel\Fieldset
+ * @version   2.0
+ * @author    Fuel Development Team
+ * @license   MIT License
+ * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
+ */
 
 namespace Fuel\Fieldset\Security;
 
-
 use Fuel\Fieldset\InputContainer;
 
+/**
+ * Default CSRF provider that does not do anything
+ *
+ * @package Fuel\Fieldset\Security
+ * @author  Fuel Development Team
+ */
 class CSRFNullProvider extends CSRFProvider
 {
-
 
 	/**
 	 * Gets called before the form is rendered to allow for CSRF injection

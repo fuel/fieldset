@@ -1,12 +1,11 @@
 <?php
-
 /**
- * Part of the FuelPHP framework.
- *
- * @package   Fuel\Fieldset\Render
+ * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset\Render;
@@ -32,7 +31,7 @@ use Fuel\Fieldset\Security\CSRFProvider;
  * Basic implementation of a fieldset renderer
  *
  * @package Fuel\Fieldset\Render
- * @since   2.0.0
+ * @since   2.0
  * @author  Fuel Development Team
  */
 class BasicRender extends Render
@@ -40,6 +39,9 @@ class BasicRender extends Render
 
 	protected $table;
 
+	/**
+	 * @param CSRFProvider $csrf
+	 */
 	public function __construct(CSRFProvider $csrf = null)
 	{
 		parent::__construct($csrf);

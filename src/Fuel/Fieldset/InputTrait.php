@@ -1,11 +1,11 @@
 <?php
 /**
- * Part of the FuelPHP framework.
- *
  * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset;
@@ -18,7 +18,7 @@ use Fuel\Common\DataContainer;
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
- * @since   2.0.0
+ * @since   2.0
  */
 trait InputTrait
 {

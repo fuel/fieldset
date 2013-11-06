@@ -1,11 +1,11 @@
 <?php
 /**
- * Part of the FuelPHP framework.
- *
- * @package   Fuel\Fieldset\Input
+ * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset\Input;
@@ -20,7 +20,7 @@ use Fuel\Fieldset\Render\Renderable;
  * Defines a group of toggleable inputs such as checkboxes or radio buttons.
  *
  * @package Fuel\Fieldset\Input
- * @author Steve West
+ * @author  Fuel Development Team
  */
 abstract class ToggleGroup extends DataContainer implements Renderable
 {

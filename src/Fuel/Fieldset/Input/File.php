@@ -1,12 +1,11 @@
 <?php
-
 /**
- * Part of the FuelPHP framework.
- *
- * @package   Fuel\Fieldset\Input
+ * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset\Input;
@@ -14,10 +13,10 @@ namespace Fuel\Fieldset\Input;
 use Fuel\Fieldset\Input;
 
 /**
- * 
+ * Defines a file input
  *
  * @package Fuel\Fieldset\Input
- * @since   2.0.0
+ * @since   2.0
  * @author  Fuel Development Team
  */
 class File extends Input

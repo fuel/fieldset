@@ -1,12 +1,11 @@
 <?php
-
 /**
- * Part of the FuelPHP framework.
- *
  * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset;
@@ -19,9 +18,9 @@ use Fuel\Fieldset\Data\Input;
 
 /**
  * Defines a common interface for objects that can handle input data
- * 
+ *
  * @package Fuel\Fieldset
- * @since   2.0.0
+ * @since   2.0
  * @author  Fuel Development Team
  */
 abstract class InputContainer extends DataContainer implements Renderable
@@ -31,7 +30,7 @@ abstract class InputContainer extends DataContainer implements Renderable
 	/**
 	 * Repopulates the fields using input data. By default uses a combination
 	 * of get and post but other data can be used by passing a child of Input
-	 * 
+	 *
 	 * @param \Fuel\Fieldset\Data\Input $data
 	 */
 	public function repopulate(Input $data = null)
@@ -42,13 +41,13 @@ abstract class InputContainer extends DataContainer implements Renderable
 		}
 
 		$this->populate($data->input());
-		
+
 		return $this;
 	}
 
 	/**
 	 * Populates the fields using the array passed.
-	 * 
+	 *
 	 * @param array $data The data to use for population.
 	 * @return \Fuel\Fieldset\InputContainer
 	 */
@@ -75,21 +74,21 @@ abstract class InputContainer extends DataContainer implements Renderable
 				}
 			}
 		}
-		
+
 		return $this;
 	}
 
 	/**
 	 * Helper function to convert html array'd input names into dot notation for
 	 * easy access.
-	 * 
+	 *
 	 * @param string $name
 	 * @return string
 	 */
 	public function inputNameToKey($name)
 	{
 		$key = str_replace(['[', ']'], ['.', ''], $name);
-		
+
 		return trim($key, '.');
 	}
 

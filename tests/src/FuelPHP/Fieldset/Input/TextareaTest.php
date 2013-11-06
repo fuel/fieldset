@@ -1,7 +1,21 @@
 <?php
+/**
+ * @package   Fuel\Fieldset
+ * @version   2.0
+ * @author    Fuel Development Team
+ * @license   MIT License
+ * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
+ */
 
 namespace Fuel\Fieldset\Input;
 
+/**
+ * Tests for Textarea
+ *
+ * @package Fuel\Fieldset\Input
+ * @author  Fuel Development Team
+ */
 class TextareaTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -19,9 +33,9 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
     public function testConstruct()
     {
 		$attributes = ['name' => '', 'value' => null];
-		
+
 		$instance = new Textarea();
-		
+
 		$this->assertEquals($attributes, $instance->getAttributes());
     }
 
@@ -46,5 +60,5 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
 			$this->object->getContent()
 		);
 	}
-	
+
 }

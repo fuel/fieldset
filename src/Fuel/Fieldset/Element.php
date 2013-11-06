@@ -1,12 +1,11 @@
 <?php
-
 /**
- * Part of the FuelPHP framework.
- *
  * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset;
@@ -17,7 +16,7 @@ use Fuel\Fieldset\Render\Renderable;
  * Defines common properties and functionality for input elements
  *
  * @package Fuel\Fieldset
- * @since   2.0.0
+ * @since   2.0
  * @author  Fuel Development Team
  */
 abstract class Element implements Renderable
@@ -28,7 +27,7 @@ abstract class Element implements Renderable
 
 	/**
 	 * Gets the content of the Element
-	 * 
+	 *
 	 * @return mixed
 	 */
 	public function getContent()
@@ -38,7 +37,7 @@ abstract class Element implements Renderable
 
 	/**
 	 * Sets the content for this Element
-	 * 
+	 *
 	 * @param  mixed   $content
 	 * @return Element
 	 */

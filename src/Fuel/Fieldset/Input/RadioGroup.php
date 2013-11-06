@@ -1,11 +1,11 @@
 <?php
 /**
- * Part of the FuelPHP framework.
- *
- * @package   Fuel\Fieldset\Input
+ * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset\Input;
@@ -17,8 +17,8 @@ use Fuel\Fieldset\Render;
  * Defines a group of radio buttons
  *
  * @package Fuel\Fieldset\Input
- * @author Fuel Development Team
- * @since 2.0.0
+ * @author  Fuel Development Team
+ * @since   2.0
  */
 class RadioGroup extends ToggleGroup
 {

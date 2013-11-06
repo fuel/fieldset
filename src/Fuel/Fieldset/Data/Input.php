@@ -1,12 +1,11 @@
 <?php
-
 /**
- * Part of the FuelPHP framework.
- *
  * @package   Fuel\Fieldset
  * @version   2.0
+ * @author    Fuel Development Team
  * @license   MIT License
  * @copyright 2010 - 2013 Fuel Development Team
+ * @link      http://fuelphp.com
  */
 
 namespace Fuel\Fieldset\Data;
@@ -15,9 +14,9 @@ use Fuel\Common\Arr;
 
 /**
  * Handles fetching input data. This allows the fetching to be switched out later on.
- * 
+ *
  * @package Fuel\Fieldset
- * @since   2.0.0
+ * @since   2.0
  * @author  Fuel Development Team
  */
 class Input
@@ -37,7 +36,7 @@ class Input
 
 	/**
 	 * Gets GET data.
-	 * 
+	 *
 	 * @param  string|null $key     Key to fetch, or null to return the full array
 	 * @param  mixed       $default Default value if the key does not exist
 	 * @return mixed
@@ -54,7 +53,7 @@ class Input
 
 	/**
 	 * Gets POST data
-	 * 
+	 *
 	 * @param  string|null $key     Key to fetch, or null to return the full array
 	 * @param  mixed       $default Default value if the key does not exist
 	 * @return mixed
@@ -72,7 +71,7 @@ class Input
 	/**
 	 * Gets data from both POST and GET. When keys clash the value from POST will
 	 * be used.
-	 * 
+	 *
 	 * @param  string|null $key     Key to fetch, or null to return the full array
 	 * @param  mixed       $default Default value if the key does not exist
 	 * @return mixed
@@ -80,7 +79,7 @@ class Input
 	public function input($key = null, $default = null)
 	{
 		$combined = Arr::merge($this->get, $this->post);
-		
+
 		if ( is_null($key) )
 		{
 			return $combined;
@@ -91,7 +90,7 @@ class Input
 
 	/**
 	 * Gets a value from the Input config.
-	 * 
+	 *
 	 * @param  string|null $key Dot notated key or null for all
 	 * @return string
 	 */
