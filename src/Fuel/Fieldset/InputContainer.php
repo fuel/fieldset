@@ -12,7 +12,6 @@ namespace Fuel\Fieldset;
 
 use Fuel\Common\DataContainer;
 use Fuel\Common\Arr;
-use Fuel\Common\Str;
 use Fuel\Fieldset\Render\Renderable;
 use Fuel\Fieldset\Data\Input;
 
