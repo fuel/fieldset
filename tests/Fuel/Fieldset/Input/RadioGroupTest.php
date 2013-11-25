@@ -135,4 +135,27 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRender()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$radio1 = \Mockery::mock('Fuel\Fieldset\Input\Radio');
+		$radio2 = \Mockery::mock('Fuel\Fieldset\Input\Radio');
+
+		$renderer->shouldReceive('render')->with($radio1)->once()->andReturn('<input type="radio" name=""/>');
+		$renderer->shouldReceive('render')->with($radio2)->once()->andReturn('<input type="radio" name=""/>');
+
+		$this->object[] = $radio1;
+		$this->object[] = $radio2;
+
+		$this->assertEquals(
+			'<input type="radio" name=""/><input type="radio" name=""/>',
+			$this->object->render($renderer)
+		);
+	}
+
 }

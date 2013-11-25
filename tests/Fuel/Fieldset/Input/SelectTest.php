@@ -15,6 +15,7 @@ namespace Fuel\Fieldset\Input;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @covers  Fuel\Fieldset\Input\Select
  */
 class SelectTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,18 +25,14 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
     protected function setUp()
     {
 		$this->object = new Select;
     }
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Select::set
-	 * @group Fieldset
+	 * @coversDefaultClass set
+	 * @group              Fieldset
      */
     public function testSet()
     {
@@ -48,9 +45,9 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @expectedException \InvalidArgumentException
-	 * @covers Fuel\Fieldset\Input\Select::set
-	 * @group Fieldset
+	 * @expectedException  \InvalidArgumentException
+	 * @coversDefaultClass set
+	 * @group              Fieldset
 	 */
 	public function testSetInvalid()
 	{
@@ -58,8 +55,8 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Select::set
-	 * @group Fieldset
+	 * @coversDefaultClass set
+	 * @group              Fieldset
 	 */
 	public function testSetOptgroup()
 	{
@@ -69,7 +66,11 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @group Fieldset
+	 * @coversDefaultClass setValue
+	 * @coversDefaultClass getValue
+	 * @coversDefaultClass getAttributes
+	 * @coversDefaultClass set
+	 * @group              Fieldset
 	 */
 	public function testSetValue()
 	{
@@ -81,8 +82,17 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 			['selected', 'value' => 'test'],
 			$option->getAttributes()
 		);
+
+		$this->assertEquals(
+			'test',
+			$this->object->getValue()
+		);
 	}
 
+	/**
+	 * @coversDefaultClass fromArray
+	 * @group              Fieldset
+	 */
 	public function testFromArray()
 	{
 		$config = [
@@ -126,4 +136,56 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 			$object[2]
 		);
 	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRender()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$this->assertXmlStringEqualsXmlString(
+			'<select name=""></select>',
+			$this->object->render($renderer)
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRenderWithContent()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$option = \Mockery::mock('Fuel\Fieldset\Input\Option');
+
+		$renderer->shouldReceive('render')->with($option)->andReturn('<option></option>')->once();
+
+		$this->object[] = $option;
+
+		$this->assertXmlStringEqualsXmlString(
+			'<select name=""><option></option></select>',
+			$this->object->render($renderer)
+		);
+	}
+
+	/**
+	 * @coversDefaultClass setName
+	 * @coversDefaultClass getName
+	 * @group              Fieldset
+	 */
+	public function testGetSetName()
+	{
+		$name = 'name';
+
+		$this->object->setName($name);
+
+		$this->assertEquals(
+			$name,
+			$this->object->getName()
+		);
+	}
+
 }

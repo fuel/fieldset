@@ -15,10 +15,14 @@ namespace Fuel\Fieldset\Input;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @covers  Fuel\Fieldset\Input\Textarea
  */
 class TextareaTest extends \PHPUnit_Framework_TestCase
 {
 
+	/**
+	 * @var Textarea
+	 */
 	protected $object;
 
 	protected function setUp()
@@ -27,8 +31,8 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Textarea::__construct
-	 * @group  Fieldset
+	 * @coversDefaultClass __construct
+	 * @group              Fieldset
      */
     public function testConstruct()
     {
@@ -40,9 +44,9 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Textarea::setValue
-	 * @covers Fuel\Fieldset\Input\Textarea::getContent
-	 * @group  Fieldset
+	 * @coversDefaultClass setValue
+	 * @coversDefaultClass getContent
+	 * @group              Fieldset
 	 */
 	public function testSetValue()
 	{
@@ -58,6 +62,24 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(
 			$value,
 			$this->object->getContent()
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @covers             Fuel\Fieldset\Element::setContent
+	 * @covers             Fuel\Fieldset\Element::getContent
+	 * @group              Fieldset
+	 */
+	public function testRender()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$this->object->setContent('abc');
+
+		$this->assertXmlStringEqualsXmlString(
+			'<textarea name="" value="">abc</textarea>',
+			$this->object->render($renderer)
 		);
 	}
 

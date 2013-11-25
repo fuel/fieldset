@@ -15,6 +15,7 @@ namespace Fuel\Fieldset\Input;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @covers  Fuel\Fieldset\Input\Optgroup
  */
 class OptgroupTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,8 +31,8 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Optgroup::set
-	 * @group  Fieldset
+	 * @coversDefaultClass set
+	 * @group              Fieldset
      */
     public function testSet()
     {
@@ -44,15 +45,19 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @covers            Fuel\Fieldset\Input\Optgroup::set
-	 * @group             Fieldset
-	 * @expectedException \InvalidArgumentException
+	 * @coversDefaultClass set
+	 * @expectedException  \InvalidArgumentException
+	 * @group              Fieldset
 	 */
 	public function testSetInvalid()
 	{
 		$this->object[] = '';
 	}
 
+	/**
+	 * @coversDefaultClass fromArray
+	 * @group              Fieldset
+	 */
 	public function testFromArray()
 	{
 		$config = [
@@ -84,6 +89,40 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf(
 			'Fuel\Fieldset\Input\Option',
 			$object[1]
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRender()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$this->assertXmlStringEqualsXmlString(
+			'<optgroup name=""></optgroup>',
+			$this->object->render($renderer)
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRenderWithContent()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$option = \Mockery::mock('Fuel\Fieldset\Input\Option');
+
+		$renderer->shouldReceive('render')->with($option)->andReturn('<option></option>')->once();
+
+		$this->object[] = $option;
+
+		$this->assertXmlStringEqualsXmlString(
+			'<optgroup name=""><option></option></optgroup>',
+			$this->object->render($renderer)
 		);
 	}
 

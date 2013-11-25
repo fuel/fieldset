@@ -83,6 +83,7 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @covers Fuel\Fieldset\Input\CheckboxGroup::setValue
+	 * @covers Fuel\Fieldset\Input\CheckboxGroup::getValue
 	 * @group  Fieldset
 	 */
 	public function testSetValue()
@@ -94,6 +95,11 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 		$this->object[] = $checkbox2;
 
 		$this->object->setValue(1);
+
+		$this->assertEquals(
+			1,
+			$this->object->getValue()
+		);
 
 		$this->assertTrue($checkbox1->isChecked());
 		$this->assertFalse($checkbox2->isChecked());

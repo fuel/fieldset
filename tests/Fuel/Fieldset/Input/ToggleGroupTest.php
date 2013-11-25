@@ -15,6 +15,7 @@ namespace Fuel\Fieldset\Input;
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ * @covers  Fuel\Fieldset\Input\ToggleGroup
  */
 class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,10 +31,11 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::setName
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::getName
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::isAutoArray
-	 * @group  Fieldset
+	 * @coversDefaultClass setName
+	 * @coversDefaultClass getName
+	 * @coversDefaultClass isAutoArray
+	 * @coversDefaultClass setAutoArray
+	 * @group              Fieldset
 	 */
 	public function testGetNameAuto()
 	{
@@ -55,11 +57,11 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::setName
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::getName
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::setAutoArray
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::isAutoArray
-	 * @group  Fieldset
+	 * @coversDefaultClass setName
+	 * @coversDefaultClass getName
+	 * @coversDefaultClass setAutoArray
+	 * @coversDefaultClass isAutoArray
+	 * @group              Fieldset
 	 */
 	public function testGetNameNoAuto()
 	{
@@ -73,9 +75,9 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers            Fuel\Fieldset\Input\ToggleGroup::setAutoArray
-	 * @group             Fieldset
-	 * @expectedException \InvalidArgumentException
+	 * @coversDefaultClass setAutoArray
+	 * @expectedException  \InvalidArgumentException
+	 * @group              Fieldset
 	 */
 	public function testInvalidAutoArray()
 	{
@@ -83,8 +85,8 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::set
-	 * @group  Fieldset
+	 * @coversDefaultClass set
+	 * @group              Fieldset
 	 */
 	public function testSet()
 	{
@@ -98,9 +100,9 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers            Fuel\Fieldset\Input\ToggleGroup::set
-	 * @group             Fieldset
-	 * @expectedException \InvalidArgumentException
+	 * @coversDefaultClass set
+	 * @expectedException  \InvalidArgumentException
+	 * @group              Fieldset
 	 */
 	public function testSetInvalid()
 	{
@@ -109,9 +111,9 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::getName
-	 * @covers Fuel\Fieldset\Input\ToggleGroup::isAutoArray
-	 * @group  Fieldset
+	 * @coversDefaultClass getName
+	 * @coversDefaultClass isAutoArray
+	 * @group              Fieldset
 	 */
 	public function testChildNameSet()
 	{
