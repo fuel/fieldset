@@ -99,45 +99,4 @@ abstract class InputContainer extends DataContainer implements Renderable
 		return trim($key, '.');
 	}
 
-	/**
-	 * Takes an array and returns a populated instance of this input container. Child objects should override this to
-	 * provide correct population functionality.
-	 *
-	 * @param array $config
-	 *
-	 * @return static
-	 *
-	 * @since 2.0
-	 */
-	public static function fromArray($config = [])
-	{
-		$instance = new static();
-
-		// Get any content
-		$content = Arr::get($config, '_content', array());
-
-		// Make sure the content is not confused for other attributes
-		Arr::delete($config, '_content');
-
-		// Set any needed attributes
-		$instance->setAttributes($config);
-
-		// Build any content that we might need
-		$processedContent = FormFactory::fromArray($content);
-
-		// Check if more than one element has been returned
-		if (is_array($processedContent))
-		{
-			// If so then set our content
-			$instance->setContents($processedContent);
-		}
-		else
-		{
-			// If juts one then add it normally
-			$instance[] = $processedContent;
-		}
-
-		return $instance;
-	}
-
 }

@@ -20,7 +20,9 @@ use Fuel\Fieldset\Input\Option;
 use Fuel\Fieldset\Render;
 
 /**
- * Defines a select box
+ * Defines a select box.
+ * Please note that setting a value before setting options and optgroups can cause the necessary options to not be
+ * selected when the form is rendered. Please make sure you call setValue() after adding all options.
  *
  * @package Fuel\Fieldset\Input
  * @since   2.0
