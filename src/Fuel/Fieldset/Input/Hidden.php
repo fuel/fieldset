@@ -10,7 +10,7 @@
 
 namespace Fuel\Fieldset\Input;
 
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 
 /**
  * Defines a hidden input
@@ -19,7 +19,7 @@ use Fuel\Fieldset\Input;
  * @author  Fuel Development Team
  * @since   2.0
  */
-class Hidden extends Input
+class Hidden extends InputElement
 {
 
 	/**

@@ -10,7 +10,7 @@
 
 namespace Fuel\Fieldset\Input;
 
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 
 /**
  * Defines a file input
@@ -19,7 +19,7 @@ use Fuel\Fieldset\Input;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class File extends Input
+class File extends InputElement
 {
 
 	/**

@@ -13,7 +13,7 @@ namespace Fuel\Fieldset\Input;
 use Fuel\Common\DataContainer;
 use Fuel\Common\Str;
 use Fuel\Fieldset\InputTrait;
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 use Fuel\Fieldset\Render\Renderable;
 
 /**

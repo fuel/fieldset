@@ -12,7 +12,7 @@ namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Html;
 use Fuel\Fieldset\Render;
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 
 /**
  * Defines a select option
@@ -21,7 +21,7 @@ use Fuel\Fieldset\Input;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class Option extends Input
+class Option extends InputElement
 {
 
 	/**

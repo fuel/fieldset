@@ -11,7 +11,7 @@
 namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Html;
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 use Fuel\Fieldset\Render;
 
 /**
@@ -21,7 +21,7 @@ use Fuel\Fieldset\Render;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class Textarea extends Input
+class Textarea extends InputElement
 {
 
 	/**
@@ -56,7 +56,7 @@ class Textarea extends Input
 	 *
 	 * @param  string $value
 	 *
-	 * @return Input
+	 * @return InputElement
 	 *
 	 * @since 2.0
 	 */

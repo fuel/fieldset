@@ -13,7 +13,7 @@ namespace Fuel\Fieldset\Render;
 use Fuel\Common\Html;
 use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 use Fuel\Fieldset\Input\Checkbox;
 use Fuel\Fieldset\Input\CheckboxGroup;
 use Fuel\Fieldset\Input\Optgroup;
@@ -52,7 +52,7 @@ class BasicRender extends Render
 	}
 
 	/**
-	 * @param Input|Select|ToggleGroup $element
+	 * @param InputElement|Select|ToggleGroup $element
 	 *
 	 * @since 2.0
 	 */

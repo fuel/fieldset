@@ -15,13 +15,13 @@ Forms are created by first creating a container object, a `Form` or a `Fieldset`
 <?php
 
 use Fuel\Fieldset\Form;
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 use Fuel\Fieldset\Fieldset;
 
 $form = new Form;
 
-$form[] = new Input\Text('name');
-$form[] = new Input\Submit('submit', array('value' => 'GO!'));
+$form[] = new InputElement\Text('name');
+$form[] = new InputElement\Submit('submit', array('value' => 'GO!'));
 
 //This will repopulate the form with any submitted data
 $form->repopulate();
@@ -30,9 +30,9 @@ $form->repopulate();
 $form->populate($myData, true);
 ```
 
-## Input types
+## InputElement types
 
-The current `Input` classes exist.
+The current `InputElement` classes exist.
 
  - Button
  - Checkbox
@@ -50,14 +50,14 @@ The current `Input` classes exist.
  - Submit
  - Text
  - Textarea
- 
+
 Grouped check boxes and radio buttons now have their own logic for repopulation and naming when used in groups, hence the `ChecboxGroup` and `RadioGroup` classes. `Select` elements are comprised of `Option`s and `Optgroup`s.
 For more info on check box/radio groups and selects please see [here](https://github.com/fuelphp/fieldset/wiki/Select-and-Radio-Checkbox-groups).
- 
+
 
 ## Showing the form
 
-Unlike v1 fieldsets a totally separate class is used to create the html for the form. Whilst each `Input` knows how to display itself in the most basic form the use of a `Renderer` allows for more complex behaviour to be achieved.
+Unlike v1 fieldsets a totally separate class is used to create the html for the form. Whilst each `InputElement` knows how to display itself in the most basic form the use of a `Renderer` allows for more complex behaviour to be achieved.
 This can include things such as generating the form in a table or as a list. By default `SimpleRender` will render the form in a table, much the same as the v1 fieldsets did.
 In the future other basic renderers might be added to the package to support things like list based forms out of the box. Pull/merge requests are always welcome.
 

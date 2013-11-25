@@ -21,11 +21,11 @@ use InvalidArgumentException;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class Input extends Element
+class InputElement extends Element
 {
 
 	/**
-	 * Creates a new Input object
+	 * Creates a new InputElement object
 	 *
 	 * @param string  $name       Name to apply to this input
 	 * @param array   $attributes A key => value array of attributes
@@ -43,7 +43,7 @@ class Input extends Element
 	}
 
 	/**
-	 * Gets the value of the Input object
+	 * Gets the value of the InputElement object
 	 *
 	 * @return string
 	 *
@@ -55,11 +55,11 @@ class Input extends Element
 	}
 
 	/**
-	 * Sets the value for the Input object
+	 * Sets the value for the InputElement object
 	 *
 	 * @param  string $value
 	 *
-	 * @return Input
+	 * @return InputElement
 	 *
 	 * @since  2.0
 	 */
@@ -70,7 +70,7 @@ class Input extends Element
 	}
 
 	/**
-	 * Returns an instance of this Input with the given settings
+	 * Returns an instance of this InputElement with the given settings
 	 *
 	 * @param array $config
 	 *

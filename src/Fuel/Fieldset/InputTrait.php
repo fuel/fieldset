@@ -76,7 +76,7 @@ trait InputTrait
 	}
 
 	/**
-	 * Sets the attributes for the Input
+	 * Sets the attributes for the InputElement
 	 *
 	 * @param  array $attributes
 	 *
@@ -91,7 +91,7 @@ trait InputTrait
 	}
 
 	/**
-	 * Gets the attributes for the Input
+	 * Gets the attributes for the InputElement
 	 *
 	 * @return array
 	 *

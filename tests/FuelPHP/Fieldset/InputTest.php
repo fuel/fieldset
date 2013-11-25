@@ -11,7 +11,7 @@
 namespace Fuel\Fieldset;
 
 /**
- * Tests for Input
+ * Tests for InputElement
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
@@ -19,7 +19,7 @@ namespace Fuel\Fieldset;
 class InputTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Input
+     * @var InputElement
      */
     protected $object;
 
@@ -29,11 +29,11 @@ class InputTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Input('');
+        $this->object = new InputElement('');
     }
 
     /**
-     * @covers Fuel\Fieldset\Input::setName
+     * @covers Fuel\Fieldset\InputElement::setName
 	 * @group Fieldset
      */
     public function testSetName()
@@ -43,7 +43,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Fuel\Fieldset\Input::getName
+     * @covers Fuel\Fieldset\InputElement::getName
 	 * @group Fieldset
      */
     public function testGetName()
@@ -52,7 +52,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Fuel\Fieldset\Input::getValue
+     * @covers Fuel\Fieldset\InputElement::getValue
 	 * @group Fieldset
      */
     public function testGetValue()
@@ -61,7 +61,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Fuel\Fieldset\Input::setValue
+     * @covers Fuel\Fieldset\InputElement::setValue
 	 * @group Fieldset
      */
     public function testSetValue()
@@ -71,18 +71,18 @@ class InputTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @covers Fuel\Fieldset\Input::setName
+	 * @covers Fuel\Fieldset\InputElement::setName
 	 * @expectedException InvalidArgumentException
 	 * @group Fieldset
 	 */
 	public function testInvalidName()
 	{
-		$this->object->setName(new Input);
+		$this->object->setName(new InputElement);
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::setAttributes
-	 * @covers Fuel\Fieldset\Input::getAttributes
+	 * @covers Fuel\Fieldset\InputElement::setAttributes
+	 * @covers Fuel\Fieldset\InputElement::getAttributes
 	 * @group Fieldset
 	 */
 	public function testGetSetAttributes()
@@ -95,7 +95,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::__construct
+	 * @covers Fuel\Fieldset\InputElement::__construct
 	 * @group Fieldset
 	 */
 	public function testConstructor()
@@ -104,7 +104,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 		$value = '12345';
 		$attributes = ['id' => 'input-foobar', 'value' => $value];
 
-		$input = new Input($name, $attributes, $value);
+		$input = new InputElement($name, $attributes, $value);
 
 		$this->assertEquals($name, $input->getName());
 		$this->assertEquals($attributes+['name' => $name], $input->getAttributes());
@@ -112,7 +112,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::fromArray
+	 * @covers Fuel\Fieldset\InputElement::fromArray
 	 * @group  Fieldset
 	 */
 	public function testFromArray()
@@ -122,7 +122,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 			'class' => 'green main',
 		];
 
-		$instance = Input::fromArray($config);
+		$instance = InputElement::fromArray($config);
 
 		$this->assertEquals(
 			$config + ['value' => null],
@@ -131,8 +131,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::getAttribute
-	 * @covers Fuel\Fieldset\Input::setAttribute
+	 * @covers Fuel\Fieldset\InputElement::getAttribute
+	 * @covers Fuel\Fieldset\InputElement::setAttribute
 	 * @group  Fieldset
 	 */
 	public function testIndividualAttribute()
@@ -157,8 +157,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::getAttributes
-	 * @covers Fuel\Fieldset\Input::setAttribute
+	 * @covers Fuel\Fieldset\InputElement::getAttributes
+	 * @covers Fuel\Fieldset\InputElement::setAttribute
 	 * @group  Fieldset
 	 */
 	public function testAttributeArray()
@@ -177,8 +177,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::getLabel
-	 * @covers Fuel\Fieldset\Input::setLabel
+	 * @covers Fuel\Fieldset\InputElement::getLabel
+	 * @covers Fuel\Fieldset\InputElement::setLabel
 	 * @group  Fieldset
 	 */
 	public function testGetSetLabel()
@@ -205,8 +205,8 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input::getMeta
-	 * @covers Fuel\Fieldset\Input::setMeta
+	 * @covers Fuel\Fieldset\InputElement::getMeta
+	 * @covers Fuel\Fieldset\InputElement::setMeta
 	 * @group  Fieldset
 	 */
 	public function testGetSetMeta()

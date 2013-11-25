@@ -28,7 +28,7 @@ abstract class InputContainer extends DataContainer implements Renderable
 
 	/**
 	 * Repopulates the fields using input data. By default uses a combination
-	 * of get and post but other data can be used by passing a child of Input
+	 * of get and post but other data can be used by passing a child of InputElement
 	 *
 	 * @param \Fuel\Fieldset\Data\SimpleInput $data
 	 *

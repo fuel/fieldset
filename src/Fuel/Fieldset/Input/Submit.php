@@ -10,7 +10,7 @@
 
 namespace Fuel\Fieldset\Input;
 
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 
 /**
  * Defines a submit button
@@ -19,7 +19,7 @@ use Fuel\Fieldset\Input;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class Submit extends Input
+class Submit extends InputElement
 {
 
 	/**

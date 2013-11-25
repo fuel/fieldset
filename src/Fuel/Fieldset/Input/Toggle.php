@@ -11,7 +11,7 @@
 namespace Fuel\Fieldset\Input;
 
 use Fuel\Common\Arr;
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 
 /**
  * Allows inputs to be toggleable, such as checkbox or radio buttons
@@ -20,7 +20,7 @@ use Fuel\Fieldset\Input;
  * @since   2.0
  * @author  Fuel Development Team
  */
-abstract class Toggle extends Input
+abstract class Toggle extends InputElement
 {
 
 	/**

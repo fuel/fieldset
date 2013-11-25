@@ -10,7 +10,7 @@
 
 namespace Fuel\Fieldset\Input;
 
-use Fuel\Fieldset\Input;
+use Fuel\Fieldset\InputElement;
 
 /**
  * Defines a password input
@@ -19,7 +19,7 @@ use Fuel\Fieldset\Input;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class Password extends Input
+class Password extends InputElement
 {
 
 	/**
