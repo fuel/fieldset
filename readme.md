@@ -15,7 +15,7 @@ Forms are created by first creating a container object, a `Form` or a `Fieldset`
 <?php
 
 use Fuel\Fieldset\Form;
-use Fuel\Fieldset\InputElement;
+use Fuel\Fieldset\Input;
 use Fuel\Fieldset\Fieldset;
 
 $form = new Form;
