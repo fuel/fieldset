@@ -16,7 +16,7 @@ namespace Fuel\Fieldset;
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
  */
-class InputTest extends \PHPUnit_Framework_TestCase
+class InputElementTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var InputElement
@@ -72,7 +72,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @covers Fuel\Fieldset\InputElement::setName
-	 * @expectedException InvalidArgumentException
+	 * @expectedException \InvalidArgumentException
 	 * @group Fieldset
 	 */
 	public function testInvalidName()
@@ -109,25 +109,6 @@ class InputTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($name, $input->getName());
 		$this->assertEquals($attributes+['name' => $name], $input->getAttributes());
 		$this->assertEquals($value, $input->getValue());
-	}
-
-	/**
-	 * @covers Fuel\Fieldset\InputElement::fromArray
-	 * @group  Fieldset
-	 */
-	public function testFromArray()
-	{
-		$config = [
-			'name' => 'my_input',
-			'class' => 'green main',
-		];
-
-		$instance = InputElement::fromArray($config);
-
-		$this->assertEquals(
-			$config + ['value' => null],
-			$instance->getAttributes()
-		);
 	}
 
 	/**
@@ -225,6 +206,21 @@ class InputTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(
 			$default,
 			$this->object->getMeta('empty', $default)
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRender()
+	{
+		$render = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$render1 = $this->object->render($render);
+		$this->assertXmlStringEqualsXmlString(
+			'<input name="" value=""/>',
+			$render1
 		);
 	}
 

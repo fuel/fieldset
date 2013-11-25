@@ -70,26 +70,6 @@ class InputElement extends Element
 	}
 
 	/**
-	 * Returns an instance of this InputElement with the given settings
-	 *
-	 * @param array $config
-	 *
-	 * @since 2.0
-	 */
-	public static function fromArray($config = [])
-	{
-		if ( ! is_array($config))
-		{
-			throw new InvalidArgumentException('Config must be an array.');
-		}
-
-		$name = Arr::get($config, 'name', '');
-		$value = Arr::get($config, 'value', null);
-
-		return new static($name, $config, $value);
-	}
-
-	/**
 	 * Renders a generic input
 	 *
 	 * @param Render $renderer

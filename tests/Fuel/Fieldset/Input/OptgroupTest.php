@@ -19,6 +19,11 @@ namespace Fuel\Fieldset\Input;
 class OptgroupTest extends \PHPUnit_Framework_TestCase
 {
 
+	/**
+	 * @var Optgroup
+	 */
+	protected $object;
+
     protected function setUp()
     {
 		$this->object = new Optgroup;

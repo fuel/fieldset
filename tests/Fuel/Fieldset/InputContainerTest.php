@@ -15,6 +15,7 @@ namespace Fuel\Fieldset;
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
+ * @covers  Fuel\Fieldset\InputContainer
  */
 class InputContainerTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,10 +25,6 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
 	protected function setUp()
 	{
 		$this->object = \Mockery::mock('Fuel\Fieldset\InputContainer[render]');
@@ -35,9 +32,9 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputContainer::repopulate
-	 * @covers Fuel\Fieldset\InputContainer::populate
-	 * @covers Fuel\Fieldset\InputContainer::inputNameToKey
+	 * @coversDefaultClass repopulate
+	 * @coversDefaultClass populate
+	 * @coversDefaultClass inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulate()
@@ -57,9 +54,9 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputContainer::repopulate
-	 * @covers Fuel\Fieldset\InputContainer::populate
-	 * @covers Fuel\Fieldset\InputContainer::inputNameToKey
+	 * @coversDefaultClass repopulate
+	 * @coversDefaultClass populate
+	 * @coversDefaultClass inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulateArray()
@@ -78,6 +75,34 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 
 		// Remove the following lines when you implement this test.
 		$this->assertEquals($value, $input->getValue());
+	}
+
+	/**
+	 * @coversDefaultClass populate
+	 * @group              Fieldset
+	 */
+	public function testPopulateChildInputContainer()
+	{
+		$data = array();
+
+		$child = \Mockery::mock('Fuel\Fieldset\InputContainer');
+		$child->shouldReceive('populate')->with($data)->once();
+
+		$this->object->set(0, $child);
+
+		$this->object->populate($data);
+	}
+
+	/**
+	 * @covers \Fuel\Fieldset\InputTrait::getMetaContainer
+	 * @group  Fieldset
+	 */
+	public function testGetMeta()
+	{
+		$this->assertEquals(
+			[],
+			$this->object->getMetaContainer()
+		);
 	}
 
 }
