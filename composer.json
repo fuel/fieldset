@@ -18,6 +18,9 @@
 	"require-dev": {
 		"mockery/mockery": "0.7.*"
 	},
+    "suggest": {
+        "fuelphp/validation": "Allows forms to be validated"
+    },
     "autoload": {
         "psr-0": {
 			"Fuel\\Fieldset": "src/"
