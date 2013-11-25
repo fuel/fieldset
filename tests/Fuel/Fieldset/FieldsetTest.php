@@ -15,6 +15,7 @@ namespace Fuel\Fieldset;
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
+ * @sovers  Fuel\Fieldset\Fieldset
  */
 class FieldsetTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,6 +24,8 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
      */
     protected $object;
 
+	protected $testFileLocations;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -30,12 +33,18 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new Fieldset;
+
+		$this->testFileLocations = array(
+			'testRender' => __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'FieldsetTest_testRender.xml',
+			'testRenderWithLegend' => __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'FieldsetTest_testRenderWithLegend.xml',
+			'testRenderWithElement' => __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'FieldsetTest_testRenderWithElement.xml',
+		);
     }
 
 	/**
-	 * @covers Fuel\Fieldset\Fieldset::setLegend
-	 * @covers Fuel\Fieldset\Fieldset::getLegend
-	 * @group Fieldset
+	 * @coversDefaultClass setLegend
+	 * @coversDefaultClass getLegend
+	 * @group              Fieldset
 	 */
 	public function testSetGetLegend()
 	{
@@ -46,6 +55,56 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals(
 			$legend,
 			$this->object->getLegend()
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRender()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$this->assertXmlStringEqualsXmlFile(
+			$this->testFileLocations['testRender'],
+			$this->object->render($renderer)
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRenderWithLegend()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$this->object->setLegend('Test Legend');
+
+		$this->assertXmlStringEqualsXmlFile(
+			$this->testFileLocations['testRenderWithLegend'],
+			$this->object->render($renderer)
+		);
+	}
+
+	/**
+	 * @coversDefaultClass render
+	 * @group              Fieldset
+	 */
+	public function testRenderWithElement()
+	{
+		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
+
+		$input = \Mockery::mock('Fuel\Fieldset\InputElement');
+
+		$renderer->shouldReceive('render')->with($input)->once()->andReturn('<input/>');
+
+		$this->object[] = $input;
+
+		$this->assertXmlStringEqualsXmlFile(
+			$this->testFileLocations['testRenderWithElement'],
+			$this->object->render($renderer)
 		);
 	}
 
