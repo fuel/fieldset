@@ -20,8 +20,8 @@ use Fuel\Fieldset\Fieldset;
 
 $form = new Form;
 
-$form[] = new InputElement\Text('name');
-$form[] = new InputElement\Submit('submit', array('value' => 'GO!'));
+$form[] = new Input\Text('name');
+$form[] = new Input\Submit('submit', array('value' => 'GO!'));
 
 //This will repopulate the form with any submitted data
 $form->repopulate();
