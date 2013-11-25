@@ -11,12 +11,12 @@
 namespace Fuel\Fieldset\Data;
 
 /**
- * Tests for Input
+ * Tests for SimpleInput
  *
  * @package Fuel\Fieldset\Data
  * @author  Fuel Development Team
  */
-class InputTest extends \PHPUnit_Framework_TestCase
+class SimpleInputTest extends \PHPUnit_Framework_TestCase
 {
 
 	public function setUp()
@@ -26,119 +26,119 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::get
+	 * @covers Fuel\Fieldset\Data\SimpleInput::get
 	 * @group  Fieldset
 	 */
 	public function testGet()
 	{
 		$_GET['mockdata'] = 'some data';
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals('some data', $object->get('mockdata'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::get
+	 * @covers Fuel\Fieldset\Data\SimpleInput::get
 	 * @group  Fieldset
 	 */
 	public function testGetNested()
 	{
 		$_GET['mockdata'] = ['subkey' => 'foobar'];
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals('foobar', $object->get('mockdata.subkey'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::get
+	 * @covers Fuel\Fieldset\Data\SimpleInput::get
 	 * @group  Fieldset
 	 */
 	public function testGetAll()
 	{
 		$_GET['mockdata'] = ['subkey' => 'foobar'];
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals($_GET, $object->get());
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::post
+	 * @covers Fuel\Fieldset\Data\SimpleInput::post
 	 * @group  Fieldset
 	 */
 	public function testPost()
 	{
 		$_POST['mockdata'] = 'some data';
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals('some data', $object->post('mockdata'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::post
+	 * @covers Fuel\Fieldset\Data\SimpleInput::post
 	 * @group  Fieldset
 	 */
 	public function testPostNested()
 	{
 		$_POST['mockdata'] = ['subkey' => 'foobar'];
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals('foobar', $object->post('mockdata.subkey'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::post
+	 * @covers Fuel\Fieldset\Data\SimpleInput::post
 	 * @group  Fieldset
 	 */
 	public function testPostAll()
 	{
 		$_POST['mockdata'] = ['subkey' => 'foobar'];
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals($_POST, $object->post());
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::input
+	 * @covers Fuel\Fieldset\Data\SimpleInput::input
 	 * $group  Fieldset
 	 */
-	public function testInput()
+	public function testSimpleInput()
 	{
 		$_POST['mockdata'] = 'foobar';
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals('foobar', $object->input('mockdata'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::input
+	 * @covers Fuel\Fieldset\Data\SimpleInput::input
 	 * @group  Fieldset
 	 */
-	public function testInputNested()
+	public function testSimpleInputNested()
 	{
 		$_POST['mockdata'] = ['subkey' => 'foobar'];
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$this->assertEquals('foobar', $object->input('mockdata.subkey'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::input
+	 * @covers Fuel\Fieldset\Data\SimpleInput::input
 	 * @group  Fieldset
 	 */
-	public function testInputAll()
+	public function testSimpleInputAll()
 	{
 		$_POST['mockdata'] = ['one' => 'first value', 'three' => 'overridden'];
 		$_GET['mockdata'] = ['two' => 'second value', 'three' => 'third value'];
 
-		$object = new Input;
+		$object = new SimpleInput;
 
 		$expected = [
 			'mockdata' => [
@@ -152,20 +152,20 @@ class InputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::__construct
-	 * @covers Fuel\Fieldset\Data\Input::config
+	 * @covers Fuel\Fieldset\Data\SimpleInput::__construct
+	 * @covers Fuel\Fieldset\Data\SimpleInput::config
 	 * @group Fieldset
 	 */
 	public function testConfig()
 	{
-		$object = new Input(['testconfig' => 'foobar']);
+		$object = new SimpleInput(['testconfig' => 'foobar']);
 
 		$this->assertEquals('foobar', $object->config('testconfig'));
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\Input::__construct
-	 * @covers Fuel\Fieldset\Data\Input::config
+	 * @covers Fuel\Fieldset\Data\SimpleInput::__construct
+	 * @covers Fuel\Fieldset\Data\SimpleInput::config
 	 * @group Fieldset
 	 */
 	public function testConfigAll()
@@ -175,7 +175,7 @@ class InputTest extends \PHPUnit_Framework_TestCase
 			'baz' => 'bat',
 		];
 
-		$object = new Input($config);
+		$object = new SimpleInput($config);
 
 		$this->assertEquals($config, $object->config());
 	}

@@ -19,7 +19,7 @@ use Fuel\Common\Arr;
  * @since   2.0
  * @author  Fuel Development Team
  */
-class Input
+class SimpleInput
 {
 
 	protected $get;

@@ -12,9 +12,8 @@ namespace Fuel\Fieldset;
 
 use Fuel\Common\DataContainer;
 use Fuel\Common\Arr;
-use Fuel\Common\Str;
+use Fuel\Fieldset\Data\SimpleInput;
 use Fuel\Fieldset\Render\Renderable;
-use Fuel\Fieldset\Data\Input;
 
 /**
  * Defines a common interface for objects that can handle input data
@@ -31,15 +30,15 @@ abstract class InputContainer extends DataContainer implements Renderable
 	 * Repopulates the fields using input data. By default uses a combination
 	 * of get and post but other data can be used by passing a child of Input
 	 *
-	 * @param \Fuel\Fieldset\Data\Input $data
+	 * @param \Fuel\Fieldset\Data\SimpleInput $data
 	 *
 	 * @since 2.0
 	 */
-	public function repopulate(Input $data = null)
+	public function repopulate(SimpleInput $data = null)
 	{
 		if ( is_null($data) )
 		{
-			$data = new Input;
+			$data = new SimpleInput;
 		}
 
 		$this->populate($data->input());
