@@ -54,12 +54,29 @@ class Bootstrap3 extends Render
 		$element->setAttribute('id', 'form_'.$name);
 
 		$elementHtml = $element->render($this);
+		
+		$renderGroup = $element->getMeta('group', true);
 
-		$content = '<div class="form-group">';
-		$content .= '<label for="'.$element->getAttribute('id').'">'.$element->getLabel().'</label>';
+		$content = '';
+		
+		if ($renderGroup)
+		{
+			$content = '<div class="form-group">';
+		}
+		
+		if (trim($element->getLabel()) != '')
+		{
+			$content .= '<label for="'.$element->getAttribute('id').'">'.$element->getLabel().'</label>';
+		}
+		
 		$content .= $elementHtml;
 
-		return $content . '</div>';
+		if ($renderGroup)
+		{
+			$content .= '<div>';
+		}
+
+		return $content;
 	}
 
 	/**
