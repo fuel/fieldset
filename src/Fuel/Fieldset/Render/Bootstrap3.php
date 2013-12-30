@@ -73,7 +73,7 @@ class Bootstrap3 extends Render
 
 		if ($renderGroup)
 		{
-			$content .= '<div>';
+			$content .= '</div>';
 		}
 
 		return $content;
