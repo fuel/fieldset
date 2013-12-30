@@ -46,7 +46,8 @@ abstract class ToggleGroup extends DataContainer implements Renderable
 	public function setName($name)
 	{
 		// Check if we need to make this an array
-		if ($this->isAutoArray() && ! Str::endsWith($name, '[]'))
+		$endsWithBrackets = substr_compare($name, '[]', -2, 2) === 0;
+		if ($this->isAutoArray() && ! $endsWithBrackets)
 		{
 			$name .= '[]';
 		}
