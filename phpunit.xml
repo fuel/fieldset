@@ -15,13 +15,10 @@
 		</testsuite>
 	</testsuites>
 	<filter>
-		<blacklist>
-			<directory suffix=".php">./vendor/</directory>
-		</blacklist>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
 	</filter>
-	<listeners>
-		<listener class="\Mockery\Adapter\Phpunit\TestListener" file="./vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php"></listener>
-	</listeners>
     <logging>
         <log type="coverage-html" target="./coverage" charset="UTF-8" yui="true" highlight="false" lowUpperBound="49" highLowerBound="75"/>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="true"/>
