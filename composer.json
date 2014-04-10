@@ -11,20 +11,20 @@
 			"email": "team@fuelphp.com"
 		}
 	],
-    "require": {
+	"require": {
 		"php": ">=5.4",
 		"fuelphp/common": "dev-master"
-    },
+	},
 	"require-dev": {
 		"mockery/mockery": "0.7.*"
 	},
-    "suggest": {
-        "fuelphp/validation": "Allows forms to be validated"
-    },
-    "autoload": {
-        "psr-0": {
+	"suggest": {
+		"fuelphp/validation": "Allows forms to be validated"
+	},
+	"autoload": {
+		"psr-0": {
 			"Fuel\\Fieldset": "src/"
 		}
 	},
-    "minimum-stability": "dev"
+	"minimum-stability": "dev"
 }
