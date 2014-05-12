@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Textarea
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
- * @covers  Fuel\Fieldset\Input\Textarea
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Textarea
  */
-class TextareaTest extends \PHPUnit_Framework_TestCase
+class TextareaTest extends Test
 {
 
 	/**
@@ -25,17 +28,17 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	protected function setUp()
+	protected function _before()
 	{
 		$this->object = new Textarea();
 	}
 
 	/**
-	 * @coversDefaultClass __construct
-	 * @group              Fieldset
-     */
-    public function testConstruct()
-    {
+	 * @covers ::__construct
+	 * @group  Fieldset
+	 */
+	public function testConstruct()
+	{
 		$attributes = ['name' => '', 'value' => null];
 
 		$instance = new Textarea();
@@ -44,9 +47,9 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @coversDefaultClass setValue
-	 * @coversDefaultClass getContent
-	 * @group              Fieldset
+	 * @covers ::setValue
+	 * @covers ::getContent
+	 * @group  Fieldset
 	 */
 	public function testSetValue()
 	{
@@ -66,10 +69,10 @@ class TextareaTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @covers             Fuel\Fieldset\Element::setContent
-	 * @covers             Fuel\Fieldset\Element::getContent
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @covers Fuel\Fieldset\Element::setContent
+	 * @covers Fuel\Fieldset\Element::getContent
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{

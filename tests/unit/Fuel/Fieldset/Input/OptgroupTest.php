@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Optgroup
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
- * @covers  Fuel\Fieldset\Input\Optgroup
+ *
+ * @coversDefaultClass Fuel\Fieldset\Input\Optgroup
  */
-class OptgroupTest extends \PHPUnit_Framework_TestCase
+class OptgroupTest extends Test
 {
 
 	/**
@@ -25,14 +28,14 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-    protected function setUp()
+    protected function _before()
     {
 		$this->object = new Optgroup;
     }
 
 	/**
-	 * @coversDefaultClass set
-	 * @group              Fieldset
+	 * @covers ::set
+	 * @group  Fieldset
      */
     public function testSet()
     {
@@ -45,7 +48,7 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @coversDefaultClass set
+	 * @covers             ::set
 	 * @expectedException  \InvalidArgumentException
 	 * @group              Fieldset
 	 */
@@ -55,8 +58,8 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass fromArray
-	 * @group              Fieldset
+	 * @covers ::fromArray
+	 * @group  Fieldset
 	 */
 	public function testFromArray()
 	{
@@ -93,8 +96,8 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{
@@ -107,8 +110,8 @@ class OptgroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRenderWithContent()
 	{

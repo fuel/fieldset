@@ -10,17 +10,21 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Hidden
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Hidden
  */
-class HiddenTest extends \PHPUnit_Framework_TestCase
+class HiddenTest extends Test
 {
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Hidden::__construct
+	 * @covers ::__construct
 	 * @group  Fieldset
      */
     public function testConstruct()

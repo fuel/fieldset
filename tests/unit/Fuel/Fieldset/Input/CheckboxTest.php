@@ -10,40 +10,45 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Checkbox
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Checkbox
  */
-class CheckboxTest extends \PHPUnit_Framework_TestCase
+class CheckboxTest extends Test
 {
 
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp()
-    {
+	/**
+	 * @var Checkbox
+	 */
+	protected $object;
+
+	protected function _before()
+	{
 		$this->object = new Checkbox;
-    }
+	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\CheckBox::__construct
-	 * @group Fieldset
-     */
-    public function testConstruct()
-    {
+	 * @covers ::__construct
+	 * @group  Fieldset
+	 */
+	public function testConstruct()
+	{
 		$attributes = ['type' => 'checkbox', 'name' => '', 'value' => null];
 
 		$instance = new Checkbox();
 
 		$this->assertEquals($attributes, $instance->getAttributes());
-    }
+	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Toggle::isChecked
-	 * @group Fieldset
+	 * @covers ::isChecked
+	 * @group  Fieldset
 	 */
 	public function testDefaultChecked()
 	{
@@ -51,9 +56,9 @@ class CheckboxTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Toggle::isChecked
-	 * @covers Fuel\Fieldset\Input\Toggle::setChecked
-	 * @group Fieldset
+	 * @covers ::isChecked
+	 * @covers ::setChecked
+	 * @group  Fieldset
 	 */
 	public function testGetSetChecked()
 	{
@@ -63,9 +68,9 @@ class CheckboxTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Toggle::setChecked
+	 * @covers            ::setChecked
 	 * @expectedException \InvalidArgumentException
-	 * @group Fieldset
+	 * @group             Fieldset
 	 */
 	public function testSetNonBool()
 	{

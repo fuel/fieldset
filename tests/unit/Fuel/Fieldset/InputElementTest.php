@@ -10,70 +10,70 @@
 
 namespace Fuel\Fieldset;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for InputElement
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\InputElement
  */
-class InputElementTest extends \PHPUnit_Framework_TestCase
+class InputElementTest extends Test
 {
-    /**
-     * @var InputElement
-     */
-    protected $object;
+	/**
+	 * @var InputElement
+	 */
+	protected $object;
 
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp()
-    {
-        $this->object = new InputElement('');
-    }
-
-    /**
-     * @covers Fuel\Fieldset\InputElement::setName
-	 * @group Fieldset
-     */
-    public function testSetName()
-    {
-		$this->object->setName('test-name');
-        $this->assertEquals('test-name', $this->object->getName());
-    }
-
-    /**
-     * @covers Fuel\Fieldset\InputElement::getName
-	 * @group Fieldset
-     */
-    public function testGetName()
-    {
-        $this->assertEquals('', $this->object->getName());
-    }
-
-    /**
-     * @covers Fuel\Fieldset\InputElement::getValue
-	 * @group Fieldset
-     */
-    public function testGetValue()
-    {
-        $this->assertNull($this->object->getValue());
-    }
-
-    /**
-     * @covers Fuel\Fieldset\InputElement::setValue
-	 * @group Fieldset
-     */
-    public function testSetValue()
-    {
-        $this->object->setValue('test-value');
-        $this->assertEquals('test-value', $this->object->getValue());
-    }
+	protected function _before()
+	{
+		$this->object = new InputElement('');
+	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::setName
+	 * @covers ::setName
+	 * @group  Fieldset
+	 */
+	public function testSetName()
+	{
+		$this->object->setName('test-name');
+		$this->assertEquals('test-name', $this->object->getName());
+	}
+
+	/**
+	 * @covers ::getName
+	 * @group  Fieldset
+	 */
+	public function testGetName()
+	{
+		$this->assertEquals('', $this->object->getName());
+	}
+
+	/**
+	 * @covers ::getValue
+	 * @group  Fieldset
+	 */
+	public function testGetValue()
+	{
+		$this->assertNull($this->object->getValue());
+	}
+
+	/**
+	 * @covers ::setValue
+	 * @group  Fieldset
+	 */
+	public function testSetValue()
+	{
+		$this->object->setValue('test-value');
+		$this->assertEquals('test-value', $this->object->getValue());
+	}
+
+	/**
+	 * @covers            ::setName
 	 * @expectedException \InvalidArgumentException
-	 * @group Fieldset
+	 * @group             Fieldset
 	 */
 	public function testInvalidName()
 	{
@@ -81,9 +81,9 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::setAttributes
-	 * @covers Fuel\Fieldset\InputElement::getAttributes
-	 * @group Fieldset
+	 * @covers ::setAttributes
+	 * @covers ::getAttributes
+	 * @group  Fieldset
 	 */
 	public function testGetSetAttributes()
 	{
@@ -95,8 +95,8 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::__construct
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @group  Fieldset
 	 */
 	public function testConstructor()
 	{
@@ -107,13 +107,13 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 		$input = new InputElement($name, $attributes, $value);
 
 		$this->assertEquals($name, $input->getName());
-		$this->assertEquals($attributes+['name' => $name], $input->getAttributes());
+		$this->assertEquals($attributes + ['name' => $name], $input->getAttributes());
 		$this->assertEquals($value, $input->getValue());
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::getAttribute
-	 * @covers Fuel\Fieldset\InputElement::setAttribute
+	 * @covers ::getAttribute
+	 * @covers ::setAttribute
 	 * @group  Fieldset
 	 */
 	public function testIndividualAttribute()
@@ -124,22 +124,22 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 		$this->object->setAttribute($name, $value);
 
 		$this->assertEquals(
-			$value,
-			$this->object->getAttribute($name)
+			 $value,
+				 $this->object->getAttribute($name)
 		);
 
 		// Check the correct default gets returned
 		$expectedDefault = 'foobar';
 
 		$this->assertEquals(
-			$expectedDefault,
-			$this->object->getAttribute('This does not exist!', $expectedDefault)
+			 $expectedDefault,
+				 $this->object->getAttribute('This does not exist!', $expectedDefault)
 		);
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::getAttributes
-	 * @covers Fuel\Fieldset\InputElement::setAttribute
+	 * @covers ::getAttributes
+	 * @covers ::setAttribute
 	 * @group  Fieldset
 	 */
 	public function testAttributeArray()
@@ -152,14 +152,14 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 		$this->object->setAttribute($attributes);
 
 		$this->assertEquals(
-			$attributes,
-			$this->object->getAttributes()
+			 $attributes,
+				 $this->object->getAttributes()
 		);
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::getLabel
-	 * @covers Fuel\Fieldset\InputElement::setLabel
+	 * @covers ::getLabel
+	 * @covers ::setLabel
 	 * @group  Fieldset
 	 */
 	public function testGetSetLabel()
@@ -170,8 +170,8 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 
 		// Check the correct default is returned
 		$this->assertEquals(
-			$name,
-			$this->object->getLabel()
+			 $name,
+				 $this->object->getLabel()
 		);
 
 		// Check the correct value is returned when a label is set
@@ -180,14 +180,14 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 		$this->object->setLabel($label);
 
 		$this->assertEquals(
-			$label,
-			$this->object->getLabel()
+			 $label,
+				 $this->object->getLabel()
 		);
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\InputElement::getMeta
-	 * @covers Fuel\Fieldset\InputElement::setMeta
+	 * @covers ::getMeta
+	 * @covers ::setMeta
 	 * @group  Fieldset
 	 */
 	public function testGetSetMeta()
@@ -198,20 +198,20 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 		$this->object->setMeta($key, $value);
 
 		$this->assertEquals(
-			$value,
-			$this->object->getMeta($key)
+			 $value,
+				 $this->object->getMeta($key)
 		);
 
 		$default = 'test';
 		$this->assertEquals(
-			$default,
-			$this->object->getMeta('empty', $default)
+			 $default,
+				 $this->object->getMeta('empty', $default)
 		);
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{
@@ -219,8 +219,8 @@ class InputElementTest extends \PHPUnit_Framework_TestCase
 
 		$render1 = $this->object->render($render);
 		$this->assertXmlStringEqualsXmlString(
-			'<input name="" value=""/>',
-			$render1
+			 '<input name="" value=""/>',
+				 $render1
 		);
 	}
 

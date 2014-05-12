@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for ToggleGroup
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
- * @covers  Fuel\Fieldset\Input\ToggleGroup
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\ToggleGroup
  */
-class ToggleGroupTest extends \PHPUnit_Framework_TestCase
+class ToggleGroupTest extends Test
 {
 
 	/**
@@ -25,17 +28,17 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	protected function setUp()
+	protected function _before()
 	{
 		$this->object = \Mockery::mock('Fuel\Fieldset\Input\ToggleGroup[setValue,render]');
 	}
 
 	/**
-	 * @coversDefaultClass setName
-	 * @coversDefaultClass getName
-	 * @coversDefaultClass isAutoArray
-	 * @coversDefaultClass setAutoArray
-	 * @group              Fieldset
+	 * @covers ::setName
+	 * @covers ::getName
+	 * @covers ::isAutoArray
+	 * @covers ::setAutoArray
+	 * @group  Fieldset
 	 */
 	public function testGetNameAuto()
 	{
@@ -57,11 +60,11 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass setName
-	 * @coversDefaultClass getName
-	 * @coversDefaultClass setAutoArray
-	 * @coversDefaultClass isAutoArray
-	 * @group              Fieldset
+	 * @covers ::setName
+	 * @covers ::getName
+	 * @covers ::setAutoArray
+	 * @covers ::isAutoArray
+	 * @group  Fieldset
 	 */
 	public function testGetNameNoAuto()
 	{
@@ -75,9 +78,9 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass setAutoArray
-	 * @expectedException  \InvalidArgumentException
-	 * @group              Fieldset
+	 * @covers            ::setAutoArray
+	 * @expectedException \InvalidArgumentException
+	 * @group             Fieldset
 	 */
 	public function testInvalidAutoArray()
 	{
@@ -85,8 +88,8 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass set
-	 * @group              Fieldset
+	 * @covers ::set
+	 * @group  Fieldset
 	 */
 	public function testSet()
 	{
@@ -100,7 +103,7 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass set
+	 * @covers             ::set
 	 * @expectedException  \InvalidArgumentException
 	 * @group              Fieldset
 	 */
@@ -111,9 +114,9 @@ class ToggleGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass getName
-	 * @coversDefaultClass isAutoArray
-	 * @group              Fieldset
+	 * @covers ::getName
+	 * @covers ::isAutoArray
+	 * @group  Fieldset
 	 */
 	public function testChildNameSet()
 	{

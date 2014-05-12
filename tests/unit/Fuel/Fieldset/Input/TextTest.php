@@ -10,34 +10,22 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Text
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Text
  */
-class TextTest extends \PHPUnit_Framework_TestCase
+class TextTest extends Test
 {
 
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
-    protected function setUp()
-    {
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     */
-    protected function tearDown()
-    {
-    }
-
 	/**
-	 * @covers Fuel\Fieldset\Input\Text::__construct
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @group  Fieldset
      */
     public function testConstruct()
     {

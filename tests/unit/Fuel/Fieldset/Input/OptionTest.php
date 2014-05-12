@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Option
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
- * @covers  Fuel\Fieldset\Input\Option
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Option
  */
-class OptionTest extends \PHPUnit_Framework_TestCase
+class OptionTest extends Test
 {
 
 	/**
@@ -25,14 +28,14 @@ class OptionTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	protected function setUp()
+	protected function _before()
 	{
 		$this->object = new Option;
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{

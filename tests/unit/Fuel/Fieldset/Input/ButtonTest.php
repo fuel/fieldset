@@ -10,18 +10,22 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Button
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Button
  */
-class ButtonTest extends \PHPUnit_Framework_TestCase
+class ButtonTest extends Test
 {
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Button::__construct
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @group  Fieldset
      */
     public function testConstruct()
     {

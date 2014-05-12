@@ -10,18 +10,22 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Password
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Password
  */
-class PasswordTest extends \PHPUnit_Framework_TestCase
+class PasswordTest extends Test
 {
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Password::__construct
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @group  Fieldset
      */
     public function testConstruct()
     {

@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Select
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
- * @covers  Fuel\Fieldset\Input\Select
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Select
  */
-class SelectTest extends \PHPUnit_Framework_TestCase
+class SelectTest extends Test
 {
 
 	/**
@@ -25,14 +28,14 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-    protected function setUp()
+    protected function _before()
     {
 		$this->object = new Select;
     }
 
 	/**
-	 * @coversDefaultClass set
-	 * @group              Fieldset
+	 * @covers ::set
+	 * @group  Fieldset
      */
     public function testSet()
     {
@@ -45,9 +48,9 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @expectedException  \InvalidArgumentException
-	 * @coversDefaultClass set
-	 * @group              Fieldset
+	 * @covers            ::set
+	 * @expectedException \InvalidArgumentException
+	 * @group             Fieldset
 	 */
 	public function testSetInvalid()
 	{
@@ -55,8 +58,8 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass set
-	 * @group              Fieldset
+	 * @covers ::set
+	 * @group  Fieldset
 	 */
 	public function testSetOptgroup()
 	{
@@ -66,11 +69,11 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass setValue
-	 * @coversDefaultClass getValue
-	 * @coversDefaultClass getAttributes
-	 * @coversDefaultClass set
-	 * @group              Fieldset
+	 * @covers ::setValue
+	 * @covers ::getValue
+	 * @covers ::getAttributes
+	 * @covers ::set
+	 * @group  Fieldset
 	 */
 	public function testSetValue()
 	{
@@ -90,8 +93,8 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass fromArray
-	 * @group              Fieldset
+	 * @covers ::fromArray
+	 * @group  Fieldset
 	 */
 	public function testFromArray()
 	{
@@ -138,8 +141,8 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{
@@ -152,8 +155,8 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRenderWithContent()
 	{
@@ -172,9 +175,9 @@ class SelectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass setName
-	 * @coversDefaultClass getName
-	 * @group              Fieldset
+	 * @covers ::setName
+	 * @covers ::getName
+	 * @group  Fieldset
 	 */
 	public function testGetSetName()
 	{

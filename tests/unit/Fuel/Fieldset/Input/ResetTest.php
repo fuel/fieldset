@@ -10,18 +10,22 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Reset
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Reset
  */
-class ResetTest extends \PHPUnit_Framework_TestCase
+class ResetTest extends Test
 {
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Reset::__construct
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @group  Fieldset
      */
     public function testConstruct()
     {

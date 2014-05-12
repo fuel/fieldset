@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for InputContainer
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
- * @covers  Fuel\Fieldset\InputContainer
+ *
+ * @coversDefaultClass Fuel\Fieldset\InputContainer
  */
-class InputContainerTest extends \PHPUnit_Framework_TestCase
+class InputContainerTest extends Test
 {
 
 	/**
@@ -25,16 +28,16 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	protected function setUp()
+	protected function _before()
 	{
 		$this->object = \Mockery::mock('Fuel\Fieldset\InputContainer[render]');
 		$_POST = [];
 	}
 
 	/**
-	 * @coversDefaultClass repopulate
-	 * @coversDefaultClass populate
-	 * @coversDefaultClass inputNameToKey
+	 * @covers ::repopulate
+	 * @covers ::populate
+	 * @covers ::inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulate()
@@ -54,9 +57,9 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass repopulate
-	 * @coversDefaultClass populate
-	 * @coversDefaultClass inputNameToKey
+	 * @covers ::repopulate
+	 * @covers ::populate
+	 * @covers ::inputNameToKey
 	 * @group  Fieldset
 	 */
 	public function testRepopulateArray()
@@ -78,8 +81,8 @@ class InputContainerTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass populate
-	 * @group              Fieldset
+	 * @covers ::populate
+	 * @group  Fieldset
 	 */
 	public function testPopulateChildInputContainer()
 	{

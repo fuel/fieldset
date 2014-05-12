@@ -10,18 +10,22 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Email
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\Email
  */
-class EmailTest extends \PHPUnit_Framework_TestCase
+class EmailTest extends Test
 {
 
 	/**
-	 * @covers Fuel\Fieldset\Input\Email::__construct
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @group  Fieldset
      */
     public function testConstruct()
     {

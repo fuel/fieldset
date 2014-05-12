@@ -10,13 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for RadioGroup
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\RadioGroup
  */
-class RadioGroupTest extends \PHPUnit_Framework_TestCase
+class RadioGroupTest extends Test
 {
 
 	/**
@@ -24,13 +28,13 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	protected function setUp()
+	protected function _before()
 	{
 		$this->object = new RadioGroup();
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\RadioGroup::set
+	 * @covers ::set
 	 * @group  Fieldset
 	 */
 	public function testAddRadio()
@@ -45,9 +49,9 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\RadioGroup::set
-	 * @group             Fieldset
+	 * @covers            ::set
 	 * @expectedException \InvalidArgumentException
+	 * @group             Fieldset
 	 */
 	public function testAddNonRadio()
 	{
@@ -56,8 +60,8 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\RadioGroup::set
-	 * @covers Fuel\Fieldset\Input\RadioGroup::setValue
+	 * @covers ::set
+	 * @covers ::setValue
 	 * @group  Fieldset
 	 */
 	public function testSetValue()
@@ -92,15 +96,19 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers            Fuel\Fieldset\Input\RadioGroup::setValue
-	 * @group             Fieldset
+	 * @covers            ::setValue
 	 * @expectedException \InvalidArgumentException
+	 * @group             Fieldset
 	 */
 	public function testInvalidValue()
 	{
 		$this->object->setValue(new Radio());
 	}
 
+	/**
+	 * @covers ::fromArray
+	 * @group  Fieldset
+	 */
 	public function testFromArray()
 	{
 		$config = [
@@ -136,8 +144,8 @@ class RadioGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{

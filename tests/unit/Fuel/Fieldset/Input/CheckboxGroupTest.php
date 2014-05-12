@@ -10,13 +10,17 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for CheckboxGroup
  *
  * @package Fuel\Fieldset\Input
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Input\CheckboxGroup
  */
-class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
+class CheckboxGroupTest extends Test
 {
 
 	/**
@@ -24,16 +28,16 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected $object;
 
-	protected function setUp()
+	protected function _before()
 	{
 		$this->object = new CheckboxGroup;
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\CheckboxGroup::set
+	 * @covers ::set
 	 * @group  Fieldset
 	 */
-	public function testAddCheckboxes()
+	public function testAddCheckbox()
 	{
 		$checkbox = new Checkbox();
 		$this->object[] = $checkbox;
@@ -45,9 +49,9 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers            Fuel\Fieldset\Input\CheckboxGroup::set
-	 * @group             Fieldset
+	 * @covers            ::set
 	 * @expectedException \InvalidArgumentException
+	 * @group             Fieldset
 	 */
 	public function testAddInvalid()
 	{
@@ -55,7 +59,7 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\CheckboxGroup::setName
+	 * @covers ::setName
 	 * @group  Fieldset
 	 */
 	public function testSetName()
@@ -82,8 +86,8 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\CheckboxGroup::setValue
-	 * @covers Fuel\Fieldset\Input\CheckboxGroup::getValue
+	 * @covers ::setValue
+	 * @covers ::getValue
 	 * @group  Fieldset
 	 */
 	public function testSetValue()
@@ -116,7 +120,7 @@ class CheckboxGroupTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Input\CheckboxGroup::fromArray
+	 * @covers ::fromArray
 	 * @group  Fieldset
 	 */
 	public function testFromArray()

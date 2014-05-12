@@ -10,14 +10,17 @@
 
 namespace Fuel\Fieldset;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for Fieldset
  *
  * @package Fuel\Fieldset
  * @author  Fuel Development Team
- * @sovers  Fuel\Fieldset\Fieldset
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Fieldset
  */
-class FieldsetTest extends \PHPUnit_Framework_TestCase
+class FieldsetTest extends Test
 {
     /**
      * @var Fieldset
@@ -30,7 +33,7 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function _before()
     {
         $this->object = new Fieldset;
 
@@ -42,9 +45,9 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
     }
 
 	/**
-	 * @coversDefaultClass setLegend
-	 * @coversDefaultClass getLegend
-	 * @group              Fieldset
+	 * @covers ::setLegend
+	 * @covers ::getLegend
+	 * @group  Fieldset
 	 */
 	public function testSetGetLegend()
 	{
@@ -59,8 +62,8 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRender()
 	{
@@ -73,8 +76,8 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRenderWithLegend()
 	{
@@ -89,8 +92,8 @@ class FieldsetTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @coversDefaultClass render
-	 * @group              Fieldset
+	 * @covers ::render
+	 * @group  Fieldset
 	 */
 	public function testRenderWithElement()
 	{

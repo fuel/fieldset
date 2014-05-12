@@ -10,23 +10,27 @@
 
 namespace Fuel\Fieldset\Data;
 
+use Codeception\TestCase\Test;
+
 /**
  * Tests for SimpleInput
  *
  * @package Fuel\Fieldset\Data
  * @author  Fuel Development Team
+ *
+ * @coversDefaultClass \Fuel\Fieldset\Data\SimpleInput
  */
-class SimpleInputTest extends \PHPUnit_Framework_TestCase
+class SimpleInputTest extends Test
 {
 
-	public function setUp()
+	public function _before()
 	{
 		$_POST = [];
 		$_GET = [];
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::get
+	 * @covers ::get
 	 * @group  Fieldset
 	 */
 	public function testGet()
@@ -39,7 +43,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::get
+	 * @covers ::get
 	 * @group  Fieldset
 	 */
 	public function testGetNested()
@@ -52,7 +56,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::get
+	 * @covers ::get
 	 * @group  Fieldset
 	 */
 	public function testGetAll()
@@ -65,7 +69,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::post
+	 * @covers ::post
 	 * @group  Fieldset
 	 */
 	public function testPost()
@@ -78,7 +82,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::post
+	 * @covers ::post
 	 * @group  Fieldset
 	 */
 	public function testPostNested()
@@ -91,7 +95,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::post
+	 * @covers ::post
 	 * @group  Fieldset
 	 */
 	public function testPostAll()
@@ -104,7 +108,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::input
+	 * @covers ::input
 	 * $group  Fieldset
 	 */
 	public function testSimpleInput()
@@ -117,7 +121,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::input
+	 * @covers ::input
 	 * @group  Fieldset
 	 */
 	public function testSimpleInputNested()
@@ -130,7 +134,7 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::input
+	 * @covers ::input
 	 * @group  Fieldset
 	 */
 	public function testSimpleInputAll()
@@ -152,9 +156,9 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::__construct
-	 * @covers Fuel\Fieldset\Data\SimpleInput::config
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @covers ::config
+	 * @group  Fieldset
 	 */
 	public function testConfig()
 	{
@@ -164,9 +168,9 @@ class SimpleInputTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @covers Fuel\Fieldset\Data\SimpleInput::__construct
-	 * @covers Fuel\Fieldset\Data\SimpleInput::config
-	 * @group Fieldset
+	 * @covers ::__construct
+	 * @covers ::config
+	 * @group  Fieldset
 	 */
 	public function testConfigAll()
 	{
