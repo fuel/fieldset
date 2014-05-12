@@ -16,6 +16,8 @@
 		"fuelphp/common": "dev-master"
 	},
 	"require-dev": {
+		"codeception/codeception": "1.8.*",
+		"codeception/mockery-module": "dev-master",
 		"mockery/mockery": "0.7.*"
 	},
 	"suggest": {

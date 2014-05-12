@@ -3,6 +3,7 @@ vendor
 coverage
 cache
 composer.lock
+composer.phar
 *~
 *.bak
 Thumbs.db
@@ -16,3 +17,4 @@ nbproject/
 *.sublime-project
 *.sublime-workspace
 index.php
+tests/_log
