@@ -1,4 +1,8 @@
-# Fuel Fieldset Package [![Build Status](https://travis-ci.org/fuelphp/fieldset.png?branch=master)](https://travis-ci.org/fuelphp/fieldset)
+# Fuel Fieldset Package
+
+[![Build Status](https://travis-ci.org/fuelphp/fieldset.png?branch=master)](https://travis-ci.org/fuelphp/fieldset)
+[![Code Coverage](https://scrutinizer-ci.com/g/fuelphp/fieldset/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/fuelphp/fieldset/?branch=master)
+[![Code Quality](https://scrutinizer-ci.com/g/fuelphp/fieldset/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/fuelphp/fieldset/?branch=master)
 
 This package will replace the default Fieldset class provided by the FuelPHP v1.x core by the FuelPHP v2.0 fieldset package.
 
