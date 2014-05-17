@@ -86,7 +86,7 @@ trait InputTrait
 	 */
 	public function setAttributes(array $attributes)
 	{
-		$this->attributes = \Fuel\Common\Arr::merge($this->attributes, $attributes);
+		$this->attributes = array_merge($this->attributes, $attributes);
 		return $this;
 	}
 

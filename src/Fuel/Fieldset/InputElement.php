@@ -88,6 +88,10 @@ class InputElement extends Element
 	 *
 	 * @param array $config
 	 *
+	 * @return InputElement
+	 *
+	 * @throws InvalidArgumentException if config is not an array
+	 *
 	 * @since 2.0
 	 */
 	public static function fromArray($config = [])
