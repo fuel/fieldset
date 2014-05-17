@@ -15,13 +15,12 @@ use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;
 
 /**
- * Can construct forms from an array structure
+ * Stub class for testing AbstractBuilder
  *
  * @package Fuel\Fieldset\Builder
  * @author  Fuel Development Team
- * @since   2.0
  */
-class Basic extends AbstractBuilder
+class StubBuilder extends AbstractBuilder
 {
 
 	/**

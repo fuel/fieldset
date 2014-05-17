@@ -13,21 +13,21 @@ namespace Fuel\Fieldset\Builder;
 use Codeception\TestCase\Test;
 
 /**
- * Tests for the basic form creator
+ * Tests for the abstract builder class.
  *
- * @coversDefaultClass \Fuel\Fieldset\Builder\Basic
+ * @coversDefaultClass \Fuel\Fieldset\Builder\AbstractBuilder
  */
-class BasicTest extends Test
+class AbstractBuilderTest extends Test
 {
 
 	/**
-	 * @var Basic
+	 * @var AbstractBuilder
 	 */
 	protected $builder;
 
 	public function _before()
 	{
-		$this->builder = new Basic;
+		$this->builder = new StubBuilder;
 	}
 
 	/**
