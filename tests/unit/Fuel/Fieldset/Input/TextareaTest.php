@@ -70,7 +70,7 @@ class TextareaTest extends Test
 
 	/**
 	 * @covers ::render
-	 * @covers Fuel\Fieldset\Element::setContent
+	 * @covers Fuel\Fieldset\Element::setContents
 	 * @covers Fuel\Fieldset\Element::getContents
 	 * @group  Fieldset
 	 */
@@ -78,7 +78,7 @@ class TextareaTest extends Test
 	{
 		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
 
-		$this->object->setContent('abc');
+		$this->object->setContents('abc');
 
 		$this->assertXmlStringEqualsXmlString(
 			'<textarea name="" value="">abc</textarea>',

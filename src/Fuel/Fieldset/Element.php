@@ -46,7 +46,7 @@ abstract class Element implements Renderable
 	 *
 	 * @since 2.0
 	 */
-	public function setContent($content)
+	public function setContents($content)
 	{
 		$this->content = $content;
 		return $this;

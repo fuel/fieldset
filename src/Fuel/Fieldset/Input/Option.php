@@ -33,7 +33,7 @@ class Option extends InputElement
 	public function __construct($content = null, $value = null)
 	{
 		parent::__construct();
-		$this->setContent($content);
+		$this->setContents($content);
 
 		if ( is_null($value) )
 		{

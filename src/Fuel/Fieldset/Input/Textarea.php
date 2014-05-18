@@ -34,7 +34,7 @@ class Textarea extends InputElement
 	public function __construct($name = '', array $attributes = [], $value = null)
 	{
 		parent::__construct($name, $attributes, $value);
-		$this->setContent('');
+		$this->setContents('');
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Textarea extends InputElement
 	 */
 	public function setValue($value)
 	{
-		$this->setContent($value);
+		$this->setContents($value);
 		return parent::setValue($value);
 	}
 
