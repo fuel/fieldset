@@ -39,7 +39,6 @@ class CheckboxGroup extends ToggleGroup
 	{
 		$this->value = $value;
 
-		$valueArray = [];
 		if ( ! is_array($value) && ! $value instanceof \ArrayAccess)
 		{
 			$valueArray = [$value];

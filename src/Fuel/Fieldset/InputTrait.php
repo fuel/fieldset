@@ -12,6 +12,7 @@ namespace Fuel\Fieldset;
 
 use Fuel\Common\Arr;
 use Fuel\Common\DataContainer;
+use InvalidArgumentException;
 
 /**
  * Simple trait to allow form elements to have attributes assigned easily
@@ -25,12 +26,14 @@ trait InputTrait
 
 	/**
 	 * Container for any attributes
+	 *
 	 * @var array
 	 */
 	protected $attributes = [];
 
 	/**
 	 * Used to contain any meta information to associate with this input
+	 *
 	 * @var array
 	 */
 	protected $metaContainer = [];
@@ -158,12 +161,19 @@ trait InputTrait
 	 *
 	 * @return $this
 	 *
+	 * @throws InvalidArgumentException
+	 *
 	 * @since 2.0
 	 */
 	public function setAttribute($name, $value = null)
 	{
 		if (is_null($value))
 		{
+			if ( ! is_array($name))
+			{
+				throw new InvalidArgumentException('If the value is null then name must be an array');
+			}
+
 			return $this->setAttributes($name);
 		}
 

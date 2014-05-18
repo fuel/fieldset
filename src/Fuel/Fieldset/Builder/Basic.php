@@ -144,7 +144,7 @@ class Basic extends AbstractBuilder
 			$class->setAttributes($data['attributes']);
 		}
 
-		if (array_key_exists('content', $data))
+		if (array_key_exists('content', $data) && method_exists($class, 'setContents'))
 		{
 			$class->setContents(
 				  $this->generate($data['content'])
