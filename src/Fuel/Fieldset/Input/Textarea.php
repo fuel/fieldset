@@ -48,7 +48,7 @@ class Textarea extends InputElement
 	 */
 	public function render(Render $renderer)
 	{
-		return Html::tag('textarea', $this->getAttributes(), $this->getContent());
+		return Html::tag('textarea', $this->getAttributes(), $this->getContents());
 	}
 
 	/**

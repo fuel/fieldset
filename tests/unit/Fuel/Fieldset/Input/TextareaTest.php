@@ -48,7 +48,7 @@ class TextareaTest extends Test
 
 	/**
 	 * @covers ::setValue
-	 * @covers ::getContent
+	 * @covers ::getContents
 	 * @group  Fieldset
 	 */
 	public function testSetValue()
@@ -64,14 +64,14 @@ class TextareaTest extends Test
 
 		$this->assertEquals(
 			$value,
-			$this->object->getContent()
+			$this->object->getContents()
 		);
 	}
 
 	/**
 	 * @covers ::render
 	 * @covers Fuel\Fieldset\Element::setContent
-	 * @covers Fuel\Fieldset\Element::getContent
+	 * @covers Fuel\Fieldset\Element::getContents
 	 * @group  Fieldset
 	 */
 	public function testRender()

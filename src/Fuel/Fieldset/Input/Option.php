@@ -55,7 +55,7 @@ class Option extends InputElement
 	 */
 	public function render(Render $renderer)
 	{
-		return Html::tag('option', $this->getAttributes(), $this->getContent());
+		return Html::tag('option', $this->getAttributes(), $this->getContents());
 	}
 
 }

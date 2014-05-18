@@ -32,7 +32,7 @@ abstract class Element implements Renderable
 	 *
 	 * @since 2.0
 	 */
-	public function getContent()
+	public function getContents()
 	{
 		return $this->content;
 	}
