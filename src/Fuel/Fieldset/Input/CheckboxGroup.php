@@ -10,7 +10,6 @@
 
 namespace Fuel\Fieldset\Input;
 
-use Fuel\Common\Arr;
 use Fuel\Fieldset\Render;
 
 /**

@@ -10,7 +10,6 @@
 
 namespace Fuel\Fieldset\Input;
 
-use Fuel\Common\Arr;
 use Fuel\Common\DataContainer;
 use Fuel\Common\Html;
 use Fuel\Fieldset\InputTrait;

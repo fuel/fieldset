@@ -10,9 +10,7 @@
 
 namespace Fuel\Fieldset;
 
-use Fuel\Common\Arr;
 use Fuel\Common\Html;
-use InvalidArgumentException;
 
 /**
  * Defines common properties and functionality for input elements

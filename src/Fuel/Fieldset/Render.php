@@ -129,7 +129,7 @@ abstract class Render
 	 *
 	 * This really should be moved to common
 	 *
-	 * @param  mixed $object
+	 * @param  Renderable $object
 	 *
 	 * @return string
 	 *

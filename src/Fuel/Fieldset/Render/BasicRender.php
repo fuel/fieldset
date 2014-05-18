@@ -79,7 +79,7 @@ class BasicRender extends Render
 	/**
 	 * Renders a RadioGroup into the table
 	 *
-	 * @param CheckboxGroup $radioGroup
+	 * @param RadioGroup $radioGroup
 	 *
 	 * @since 2.0
 	 */

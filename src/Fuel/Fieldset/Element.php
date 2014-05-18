@@ -28,7 +28,7 @@ abstract class Element implements Renderable
 	/**
 	 * Gets the content of the Element
 	 *
-	 * @return mixed
+	 * @return null|string
 	 *
 	 * @since 2.0
 	 */

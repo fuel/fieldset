@@ -10,8 +10,6 @@
 
 namespace Fuel\Fieldset\Builder;
 
-use Fuel\Fieldset\Input\Optgroup;
-use Fuel\Fieldset\Input\Select;
 use Fuel\Fieldset\InputElement;
 use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;

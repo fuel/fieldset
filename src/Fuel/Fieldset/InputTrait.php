@@ -11,7 +11,6 @@
 namespace Fuel\Fieldset;
 
 use Fuel\Common\Arr;
-use Fuel\Common\DataContainer;
 use InvalidArgumentException;
 
 /**
@@ -156,8 +155,8 @@ trait InputTrait
 	/**
 	 * Sets the given attribute. If $value is null then $name is expected to be an array of attributes.
 	 *
-	 * @param  string|array $name
-	 * @param  null|mixed   $value
+	 * @param  string $name
+	 * @param  string   $value
 	 *
 	 * @return $this
 	 *
