@@ -16,6 +16,7 @@ use Fuel\Common\Html;
 use Fuel\Fieldset\InputTrait;
 use Fuel\Fieldset\Render\Renderable;
 use Fuel\Fieldset\Render;
+use InvalidArgumentException;
 
 /**
  * Defines a group of select options
@@ -34,7 +35,9 @@ class Optgroup extends DataContainer implements Renderable
 	 * @param string $key
 	 * @param Option $value
 	 *
-	 * @throws \InvalidArgumentException
+	 * @return $this
+	 *
+	 * @throws InvalidArgumentException
 	 *
 	 * @since 2.0
 	 */
@@ -42,36 +45,10 @@ class Optgroup extends DataContainer implements Renderable
 	{
 		if ( !($value instanceof Option) )
 		{
-			throw new \InvalidArgumentException('Only Options can be added to an Optgroup.');
+			throw new InvalidArgumentException('Only Options can be added to an Optgroup.');
 		}
 
 		return parent::set($key, $value);
-	}
-
-	/**
-	 * Constructs an Optgroup from the given config array
-	 *
-	 * @param  array $config
-	 *
-	 * @return Optgroup
-	 *
-	 * @since 2.0
-	 */
-	public static function fromArray($config)
-	{
-		$contentConfig = Arr::get($config, '_content', []);
-		Arr::delete($config, '_content');
-
-		$instance = new static();
-		$instance->setAttributes($config);
-
-		// Create all the options
-		foreach ($contentConfig as $value => $name)
-		{
-			$instance[] = new Option($name, $value);
-		}
-
-		return $instance;
 	}
 
 	/**

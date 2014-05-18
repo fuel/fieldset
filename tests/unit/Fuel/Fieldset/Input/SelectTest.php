@@ -93,54 +93,6 @@ class SelectTest extends Test
 	}
 
 	/**
-	 * @covers ::fromArray
-	 * @group  Fieldset
-	 */
-	public function testFromArray()
-	{
-		$config = [
-			'name' => 'foobar',
-			'_content' => [
-				'optgroup' => [
-					'a' => 'array',
-					'b' => 'binary',
-				],
-				'1' => 'one',
-				'2' => 'two',
-			],
-		];
-
-		$object = Select::fromArray($config);
-
-		// Got the right object?
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Select',
-			$object
-		);
-
-		// With the right name?
-		$this->assertEquals(
-			'foobar',
-			$object->getName()
-		);
-
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Optgroup',
-			$object[0]
-		);
-
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Option',
-			$object[1]
-		);
-
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Option',
-			$object[2]
-		);
-	}
-
-	/**
 	 * @covers ::render
 	 * @group  Fieldset
 	 */

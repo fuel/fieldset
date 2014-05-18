@@ -89,42 +89,6 @@ class CheckboxGroup extends ToggleGroup
 	}
 
 	/**
-	 * Constructs a group of checkboxes from an array
-	 *
-	 * @param array $config
-	 *
-	 * @return CheckboxGroup
-	 *
-	 * @since 2.0
-	 */
-	public static function fromArray($config)
-	{
-		$contentConfig = Arr::get($config, '_content', []);
-		Arr::delete($config, '_content');
-
-		$instance = new static();
-		$instance->setAttributes($config);
-
-		// Add any checkboxes
-		foreach ($contentConfig as $value => $name)
-		{
-			$checkbox = new Checkbox('', [], $value);
-			$checkbox->setLabel($name);
-			$instance[] = $checkbox;
-		}
-
-		$name = Arr::get($config, 'name', false);
-
-		// If there is a name make sure it's set
-		if ($name !== false)
-		{
-			$instance->setName($name);
-		}
-
-		return $instance;
-	}
-
-	/**
 	 * Renders a group of checkboxes to html
 	 *
 	 * @param Render $renderer

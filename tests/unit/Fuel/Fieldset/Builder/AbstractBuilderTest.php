@@ -31,36 +31,6 @@ class AbstractBuilderTest extends Test
 	}
 
 	/**
-	 * @covers ::__construct
-	 * @covers ::setData
-	 * @covers ::getData
-	 * @group  Fieldset
-	 */
-	public function testSettingAndGettingData()
-	{
-		$this->assertEquals(
-			[],
-			$this->builder->getData()
-		);
-
-		$data = 'my custom data';
-
-		$this->builder->setData($data);
-
-		$this->assertEquals(
-			$data,
-			$this->builder->getData()
-		);
-
-		$newBuilder = new Basic($data);
-
-		$this->assertEquals(
-			$data,
-			$newBuilder->getData()
-		);
-	}
-
-	/**
 	 * @covers ::getElementInstance
 	 * @group  Fieldset
 	 */

@@ -80,42 +80,6 @@ class RadioGroup extends ToggleGroup
 	}
 
 	/**
-	 * Constructs a group of radios from an array
-	 *
-	 * @param  array $config
-	 *
-	 * @return RadioGroup
-	 *
-	 * @since 2.0
-	 */
-	public static function fromArray($config)
-	{
-		$contentConfig = Arr::get($config, '_content', []);
-		Arr::delete($config, '_content');
-
-		$instance = new static();
-		$instance->setAttributes($contentConfig);
-
-		// Add all the Radios
-		foreach ($contentConfig as $value => $name)
-		{
-			$radio = new Radio('', [], $value);
-			$radio->setLabel($name);
-			$instance[] = $radio;
-		}
-
-		$name = Arr::get($config, 'name', false);
-
-		// If there is a name make sure to set it
-		if ($name !== false)
-		{
-			$instance->setName($name);
-		}
-
-		return $instance;
-	}
-
-	/**
 	 * Renders a group of radio buttons
 	 *
 	 * @param  Render $renderer

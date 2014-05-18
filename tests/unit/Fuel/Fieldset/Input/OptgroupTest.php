@@ -58,44 +58,6 @@ class OptgroupTest extends Test
 	}
 
 	/**
-	 * @covers ::fromArray
-	 * @group  Fieldset
-	 */
-	public function testFromArray()
-	{
-		$config = [
-			'label' => 'test',
-			'_content' => [
-				'1' => 'One',
-				'2' => 'Two',
-			]
-		];
-
-		$object = Optgroup::fromArray($config);
-
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Optgroup',
-			$object
-		);
-
-		$this->assertEquals(
-			'test',
-			$object->getAttributes()['label']
-		);
-
-		// Check the right content has been set
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Option',
-			$object[0]
-		);
-
-		$this->assertInstanceOf(
-			'Fuel\Fieldset\Input\Option',
-			$object[1]
-		);
-	}
-
-	/**
 	 * @covers ::render
 	 * @group  Fieldset
 	 */

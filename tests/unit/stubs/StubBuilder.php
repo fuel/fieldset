@@ -26,11 +26,13 @@ class StubBuilder extends AbstractBuilder
 	/**
 	 * Generates a form structure based on the given data.
 	 *
+	 * @param mixed $data Data to construct a form from
+	 *
 	 * @return Element|Fieldset|Form
 	 *
 	 * @since 2.0
 	 */
-	public function generate()
+	public function generate($data)
 	{
 
 	}

@@ -162,44 +162,6 @@ class Select extends DataContainer implements Renderable
 	}
 
 	/**
-	 * Builds a select from an array
-	 *
-	 * @param  array $config
-	 *
-	 * @return Select
-	 *
-	 * @since 2.0
-	 */
-	public static function fromArray($config)
-	{
-		$contentConfig = Arr::get($config, '_content', []);
-		Arr::delete($config, '_content');
-
-		$instance = new static();
-		$instance->setAttributes($config);
-
-		foreach ($contentConfig as $value => $name)
-		{
-			// Check if we are dealing with an opt group
-			if (is_array($name))
-			{
-				$groupConfig = [
-					'label' => $value,
-					'_content' => $name,
-				];
-
-				$instance[] = Optgroup::fromArray($groupConfig);
-			}
-			else
-			{
-				$instance[] = new Option($name, $value);
-			}
-		}
-
-		return $instance;
-	}
-
-	/**
 	 * Renders this select and any added options or optgroups
 	 *
 	 * @param  Render $renderer

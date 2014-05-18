@@ -10,6 +10,8 @@
 
 namespace Fuel\Fieldset\Builder;
 
+use Fuel\Fieldset\Input\Optgroup;
+use Fuel\Fieldset\Input\Select;
 use Fuel\Fieldset\InputElement;
 use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;
@@ -21,8 +23,6 @@ use InvalidArgumentException;
  * @package Fuel\Fieldset\Builder
  * @author  Fuel Development Team
  * @since   2.0
- *
- * TODO: Add proper support for things like
  */
 class Basic extends AbstractBuilder
 {
@@ -30,36 +30,35 @@ class Basic extends AbstractBuilder
 	/**
 	 * Generates a form structure based on the given data.
 	 *
-	 * @return InputElement[]|Fieldset|Form
+	 * @param array $data
+	 *
+	 * @return InputElement[]|Fieldset[]|Form[]
 	 *
 	 * @since 2.0
 	 */
-	public function generate()
+	public function generate($data)
 	{
-		$data = $this->getData();
-
 		$result = [];
 
-		// TODO: Clean this crap up
-		foreach ($data as $type => $config)
+		foreach ($data as $config)
 		{
-			if ($type == 'form')
+			$type = 'text';
+
+			if (array_key_exists('type', $config))
 			{
-				$result[] = $this->generateForm($config);
+				$type = $config['type'];
 			}
-			elseif ($type == 'fieldset')
+
+			$generateFunction = 'generate' . ucfirst($type);
+
+			if (method_exists($this, $generateFunction))
 			{
-				$result[] = $this->generateFieldset($config);
+				$result[] = $this->$generateFunction($config);
 			}
 			else
 			{
 				$result[] = $this->generateInput($type, $config);
 			}
-		}
-
-		if (count($result) == 1)
-		{
-			$result = $result[0];
 		}
 
 		return $result;
@@ -74,7 +73,7 @@ class Basic extends AbstractBuilder
 	 *
 	 * @since 2.0
 	 */
-	public function generateForm($data)
+	public function generateForm(array $data)
 	{
 		/** @var Form $form */
 		$form = new $this->formClass;
@@ -82,6 +81,12 @@ class Basic extends AbstractBuilder
 		if (array_key_exists('attributes', $data))
 		{
 			$form->setAttributes($data['attributes']);
+		}
+
+		if (array_key_exists('content', $data))
+		{
+			$content = $this->generate($data['content']);
+			$form->setContents($content);
 		}
 
 		return $form;
@@ -109,13 +114,19 @@ class Basic extends AbstractBuilder
 			$fieldset->setLegend($data['legend']);
 		}
 
+		if (array_key_exists('content', $data))
+		{
+			$content = $this->generate($data['content']);
+			$fieldset->setContents($content);
+		}
+
 		return $fieldset;
 	}
 
 	/**
 	 * Attempts to generate an InputElement.
 	 *
-	 * @param string $type 'select', 'button', 'text', etc
+	 * @param string $type
 	 * @param array  $data
 	 *
 	 * @return InputElement
@@ -133,9 +144,26 @@ class Basic extends AbstractBuilder
 			$class->setAttributes($data['attributes']);
 		}
 
+		if (array_key_exists('content', $data))
+		{
+			$class->setContents(
+				  $this->generate($data['content'])
+			);
+		}
+
 		if (array_key_exists('name', $data))
 		{
 			$class->setName($data['name']);
+		}
+
+		if (array_key_exists('value', $data))
+		{
+			$class->setValue($data['value']);
+		}
+
+		if (array_key_exists('label', $data))
+		{
+			$class->setLabel($data['label']);
 		}
 
 		return $class;
