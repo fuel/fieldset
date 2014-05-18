@@ -27,9 +27,7 @@ trait InputTrait
 	 * Container for any attributes
 	 * @var array
 	 */
-	protected $attributes = [
-		'name' => '',
-	];
+	protected $attributes = [];
 
 	/**
 	 * Used to contain any meta information to associate with this input
@@ -111,7 +109,7 @@ trait InputTrait
 	 */
 	public function getName()
 	{
-		return Arr::get($this->attributes, 'name');
+		return Arr::get($this->attributes, 'name', '');
 	}
 
 	/**

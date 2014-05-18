@@ -104,7 +104,7 @@ class OptgroupTest extends Test
 		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
 
 		$this->assertXmlStringEqualsXmlString(
-			'<optgroup name=""></optgroup>',
+			'<optgroup></optgroup>',
 			$this->object->render($renderer)
 		);
 	}
@@ -124,7 +124,7 @@ class OptgroupTest extends Test
 		$this->object[] = $option;
 
 		$this->assertXmlStringEqualsXmlString(
-			'<optgroup name=""><option></option></optgroup>',
+			'<optgroup><option></option></optgroup>',
 			$this->object->render($renderer)
 		);
 	}

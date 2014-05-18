@@ -16,6 +16,7 @@ use Fuel\Fieldset\Form;
 
 abstract class AbstractBuilder
 {
+
 	/**
 	 * Contains the array to define the form structure
 	 *
@@ -29,6 +30,20 @@ abstract class AbstractBuilder
 	 * @var string
 	 */
 	protected $baseElementNamespace = 'Fuel\Fieldset\Input\\';
+
+	/**
+	 * Defines the class to use when generating a form
+	 *
+	 * @var string
+	 */
+	protected $formClass = 'Fuel\Fieldset\Form';
+
+	/**
+	 * Defines the class to use when generating a fieldset
+	 *
+	 * @var string
+	 */
+	protected $fieldsetClass = 'Fuel\Fieldset\Fieldset';
 
 	/**
 	 * @var Element[]
@@ -116,4 +131,5 @@ abstract class AbstractBuilder
 	 * @since 2.0
 	 */
 	abstract public function generate();
+
 }

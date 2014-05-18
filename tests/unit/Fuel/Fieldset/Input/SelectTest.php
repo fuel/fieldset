@@ -149,7 +149,7 @@ class SelectTest extends Test
 		$renderer = \Mockery::mock('Fuel\Fieldset\Render');
 
 		$this->assertXmlStringEqualsXmlString(
-			'<select name=""></select>',
+			'<select></select>',
 			$this->object->render($renderer)
 		);
 	}
@@ -169,7 +169,7 @@ class SelectTest extends Test
 		$this->object[] = $option;
 
 		$this->assertXmlStringEqualsXmlString(
-			'<select name=""><option></option></select>',
+			'<select><option></option></select>',
 			$this->object->render($renderer)
 		);
 	}
