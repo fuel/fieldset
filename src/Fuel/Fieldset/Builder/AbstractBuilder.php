@@ -15,7 +15,7 @@ use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;
 use Fuel\Fieldset\InputElement;
 
-abstract class AbstractBuilder
+abstract class AbstractBuilder implements BuilderInterface
 {
 
 	/**

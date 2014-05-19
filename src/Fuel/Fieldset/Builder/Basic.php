@@ -167,4 +167,15 @@ class Basic extends AbstractBuilder
 		return $class;
 	}
 
+	public function generateOption(array $data)
+	{
+		$content = $data['content'];
+		unset($data['content']);
+
+		$instance = $this->generateInput('option', $data);
+		$instance->setContents($content);
+
+		return $instance;
+	}
+
 }

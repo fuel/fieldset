@@ -21,3 +21,5 @@ coverage:
     whitelist:
         include:
             - src/*
+        exclude:
+            - src/Fuel/Fieldset/Builder/V1Model.php

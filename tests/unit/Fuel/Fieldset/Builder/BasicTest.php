@@ -180,7 +180,7 @@ class BasicTest extends Test
 				[
 					'type' => 'optgroup',
 					'label' => 'Group',
-					'content' =>[
+					'content' => [
 						[
 							'type' => 'option',
 							'label' => 'A',
