@@ -169,11 +169,21 @@ class Basic extends AbstractBuilder
 
 	public function generateOption(array $data)
 	{
-		$content = $data['content'];
-		unset($data['content']);
+		//TODO: Clean this up
+		$content = null;
+
+		if (array_key_exists('content', $data))
+		{
+			$content = $data['content'];
+			unset($data['content']);
+		}
 
 		$instance = $this->generateInput('option', $data);
-		$instance->setContents($content);
+
+		if ($content !== null)
+		{
+			$instance->setContents($content);
+		}
 
 		return $instance;
 	}
