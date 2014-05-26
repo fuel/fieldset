@@ -24,8 +24,8 @@
 		"fuelphp/validation": "Allows forms to be validated"
 	},
 	"autoload": {
-		"psr-0": {
-			"Fuel\\Fieldset": "src/"
+		"psr-4": {
+			"Fuel\\Fieldset\\": "src/"
 		}
 	},
 	"minimum-stability": "dev"
