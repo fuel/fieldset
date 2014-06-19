@@ -20,12 +20,11 @@ Forms are created by first creating a container object, a `Form` or a `Fieldset`
 
 use Fuel\Fieldset\Form;
 use Fuel\Fieldset\Input;
-use Fuel\Fieldset\Fieldset;
 
 $form = new Form;
 
 $form[] = new Input\Text('name');
-$form[] = new Input\Submit('submit', array('value' => 'GO!'));
+$form[] = new Input\Submit('submit', [], 'GO!');
 
 //This will repopulate the form with any submitted data
 $form->repopulate();
