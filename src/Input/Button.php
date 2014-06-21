@@ -10,7 +10,9 @@
 
 namespace Fuel\Fieldset\Input;
 
+use Fuel\Common\Html;
 use Fuel\Fieldset\InputElement;
+use Fuel\Fieldset\Render;
 
 /**
  * Defines a button input
@@ -33,6 +35,11 @@ class Button extends InputElement
 	{
 		$attributes['type'] = 'button';
 		parent::__construct($name, $attributes, $value);
+	}
+
+	public function render(Render $renderer)
+	{
+		return Html::tag('button', $this->getAttributes(), $this->getContents());
 	}
 
 }
