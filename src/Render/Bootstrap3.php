@@ -66,7 +66,7 @@ class Bootstrap3 extends Render
 		
 		if (trim($element->getLabel()) != '')
 		{
-			$content .= '<label for="'.$element->getAttribute('id').'">'.$element->getLabel().'</label>';
+			$content .= '<label for="'.$element->getAttribute('id').'">'.$element->getValue().'</label>';
 		}
 		
 		$content .= $elementHtml;
