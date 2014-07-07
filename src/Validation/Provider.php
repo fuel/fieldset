@@ -62,7 +62,7 @@ class Provider extends FromArray
 			return $result;
 		}
 
-		$metaData = $element->getMeta();
+		$metaData = $element->getMetaContainer();
 
 		if (isset($metaData['validation']))
 		{
