@@ -23,6 +23,19 @@ class Form extends InputContainer
 {
 
 	/**
+	 * @var Render
+	 */
+	protected $renderer;
+	
+	/**
+	 * @param Render $renderer
+	 */
+	public function setRenderer(Render $renderer)
+	{
+		$this->renderer = $renderer;
+	}
+
+	/**
 	 * Should return a html string that represents the rendered object
 	 *
 	 * @param Render $renderer
@@ -31,8 +44,10 @@ class Form extends InputContainer
 	 *
 	 * @since 2.0
 	 */
-	public function render(Render $renderer)
+	public function render(Render $renderer = null)
 	{
+		$renderer = $renderer ?: $this->renderer;
+
 		$elements = '';
 
 		foreach ( $this->getContents() as $element )
@@ -43,4 +58,25 @@ class Form extends InputContainer
 		return Html::tag('form', $this->getAttributes(), $elements);
 	}
 
+	/**
+	 * Should return a html string of one emement
+	 * 
+	 * @param string $name
+	 * @return string
+	 */
+	public function renderElement($name)
+	{
+		return $this->get($name)->render($this->renderer);
+	}
+
+	/**
+	 * Should return label text of one emement
+	 * 
+	 * @param string $name
+	 * @return string
+	 */
+	public function getElementLabel($name)
+	{
+		return $this->get($name)->getLabel();
+	}
 }
