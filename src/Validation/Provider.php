@@ -25,6 +25,11 @@ use Fuel\Validation\RuleProvider\FromArray;
 class Provider extends FromArray
 {
 
+	public function __construct()
+	{
+		parent::__construct(true);
+	}
+
 	/**
 	 * Adds some processing to turn input objects into arrays of validation rules
 	 *
@@ -48,7 +53,6 @@ class Provider extends FromArray
 	 */
 	protected function processRules($element)
 	{
-
 		// If this is a container (Form or Fieldset) loop through each of the fields
 		if ($element instanceof Form or $element instanceof Fieldset)
 		{
@@ -66,7 +70,10 @@ class Provider extends FromArray
 
 		if (isset($metaData['validation']))
 		{
-			return array($element->getName() => $metaData['validation']);
+			return array($element->getName() => [
+				$this->ruleKey => $metaData['validation'],
+				$this->labelKey => $element->getLabel()
+			]);
 		}
 
 		return array($element->getName() => array());
