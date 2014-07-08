@@ -70,9 +70,15 @@ class Provider extends FromArray
 
 		if (isset($metaData['validation']))
 		{
+			$label = $element->getLabel();
+			if ($label === null)
+			{
+				$label = $element->getName();
+			}
+
 			return array($element->getName() => [
 				$this->ruleKey => $metaData['validation'],
-				$this->labelKey => $element->getLabel()
+				$this->labelKey => $label,
 			]);
 		}
 
