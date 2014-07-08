@@ -25,14 +25,9 @@ use Fuel\Validation\RuleProvider\FromArray;
 class Provider extends FromArray
 {
 
-	public function __construct($labelKey = null, $ruleKey = 'rules')
+	public function __construct()
 	{
-		if ($labelKey === null)
-		{
-			$labelKey = true;
-		}
-
-		parent::__construct($labelKey, $ruleKey);
+		parent::__construct(true);
 	}
 
 	/**
