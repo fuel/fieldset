@@ -133,7 +133,7 @@ class V1Model implements BuilderInterface
 			return $elements;
 		}
 
-		$wrapperClass = '\Fuel\Fieldset\\' . ucfirst($this->wrapIn);
+		$wrapperClass = 'Fuel\\Fieldset\\' . ucfirst($this->wrapIn);
 		/** @var InputContainer $wrapper */
 		$wrapper = new $wrapperClass;
 		$wrapper->setContents($elements);
