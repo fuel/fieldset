@@ -116,7 +116,7 @@ class V1Model implements BuilderInterface
 						$config['content'][] = [
 							'type' => 'option',
 							'value' => $value,
-							'content' => $name,
+							'content' => $contentName,
 						];
 					}
 				}
