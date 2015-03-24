@@ -78,3 +78,11 @@ $formHtml = $engine->render($form);
 ```
 
 It is easily possible to create your own renderer if the default one does not suit your needs. For an example take a look at the `SimpleRender` code and additionally [here](https://github.com/fuelphp/fieldset/wiki/Advanced-form-rendering). If you do make your own renderer for a UI kit or css framework then please consider submitting a pull request!
+
+### Included Renderers
+
+Fieldset comes with a couple of basic renderes, a generic one that does not add any formatting or css and a Bootstrap3 based renderer that will build forms that are compatible with the Bootstrap CSS framework.
+
+### 3rd party renderers
+
+ - [Twig intergration](https://github.com/indigophp/fuelphp-fieldset-twig)
