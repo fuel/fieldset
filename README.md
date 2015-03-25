@@ -1,16 +1,25 @@
-# Fuel Fieldset Package
+# Fuel Fieldset
 
-[![Build Status](https://travis-ci.org/fuelphp/fieldset.png?branch=master)](https://travis-ci.org/fuelphp/fieldset)
-[![Code Coverage](https://scrutinizer-ci.com/g/fuelphp/fieldset/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/fuelphp/fieldset/?branch=master)
-[![Code Quality](https://scrutinizer-ci.com/g/fuelphp/fieldset/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/fuelphp/fieldset/?branch=master)
-[![HHVM Status](http://hhvm.h4cc.de/badge/fuelphp/fieldset.svg)](http://hhvm.h4cc.de/package/fuelphp/fieldset)
+[![Build Status](https://img.shields.io/travis/fuelphp/fieldset.svg?style=flat-square)](https://travis-ci.org/fuelphp/fieldset)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/fuelphp/fieldset.svg?style=flat-square)](https://scrutinizer-ci.com/g/fuelphp/fieldset)
+[![Quality Score](https://img.shields.io/scrutinizer/g/fuelphp/fieldset.svg?style=flat-square)](https://scrutinizer-ci.com/g/fuelphp/fieldset)
+[![HHVM Status](https://img.shields.io/hhvm/fuelphp/fieldset.svg?style=flat-square)](http://hhvm.h4cc.de/package/fuelphp/fieldset)
+
+**Form generation and building.**
 
 This package will replace the default Fieldset class provided by the FuelPHP v1.x core by the FuelPHP v2.0 fieldset package.
 
-## Installing
 
-Simply add `"fuelphp/fieldset": "dev-master"` to your `composer.json` and install.
+## Install
+
+Via Composer
+
+``` bash
+$ composer require fuelphp/fieldset
+```
+
 Once the package reaches a suitable milestone a tagged release will be created.
+
 
 ## Getting started
 
@@ -33,6 +42,7 @@ $form->repopulate();
 //This will repopulate the form with the given data, the flag indicates wether to call `repopulate()` after or not
 $form->populate($myData, true);
 ```
+
 
 ## InputElement types
 
@@ -62,7 +72,7 @@ For more info on check box/radio groups and selects please see [here](https://gi
 ## Showing the form
 
 Unlike v1 fieldsets a totally separate class is used to create the html for the form. Whilst each `InputElement` knows how to display itself in the most basic form the use of a `Renderer` allows for more complex behaviour to be achieved.
-This can include things such as generating the form in a table or as a list. By default `SimpleRender` will render the form in a table, much the same as the v1 fieldsets did.
+This can include things such as generating the form in a table or as a list. By default `BasicRender` will render the form in a table, much the same as the v1 fieldsets did.
 In the future other basic renderers might be added to the package to support things like list based forms out of the box. Pull/merge requests are always welcome.
 
 The render classes are all used in the same basic way:
@@ -70,18 +80,20 @@ The render classes are all used in the same basic way:
 ```php
 <?php
 
-use Fuel\Fieldset\Render;
+use Fuel\Fieldset\Render\BasicRender;
 
 $engine = new BasicRender();
 
 $formHtml = $engine->render($form);
 ```
 
-It is easily possible to create your own renderer if the default one does not suit your needs. For an example take a look at the `SimpleRender` code and additionally [here](https://github.com/fuelphp/fieldset/wiki/Advanced-form-rendering). If you do make your own renderer for a UI kit or css framework then please consider submitting a pull request!
+It is easily possible to create your own renderer if the default one does not suit your needs. For an example take a look at the `BasicRender` code and additionally [here](https://github.com/fuelphp/fieldset/wiki/Advanced-form-rendering). If you do make your own renderer for a UI kit or css framework then please consider submitting a pull request!
+
 
 ### Included Renderers
 
 Fieldset comes with a couple of basic renderes, a generic one that does not add any formatting or css and a Bootstrap3 based renderer that will build forms that are compatible with the Bootstrap CSS framework.
+
 
 ### 3rd party renderers
 

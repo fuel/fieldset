@@ -1,8 +1,7 @@
 {
 	"name": "fuelphp/fieldset",
-	"type": "library",
-	"description": "Form generation and building.",
-	"keywords": ["Fieldset", "Form", "Form builder"],
+	"description": "Form generation and building",
+	"keywords": ["fieldset", "form", "form builder"],
 	"homepage": "https://github.com/fuelphp/fieldset",
 	"license": "MIT",
 	"authors": [
@@ -16,7 +15,7 @@
 		"fuelphp/common": "~2.0"
 	},
 	"require-dev": {
-		"codeception/codeception": "1.8.*",
+		"codeception/codeception": "~2.0",
 		"codeception/mockery-module": "dev-master"
 	},
 	"suggest": {
@@ -27,5 +26,9 @@
 			"Fuel\\Fieldset\\": "src/"
 		}
 	},
-	"minimum-stability": "dev"
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.0-dev"
+		}
+	}
 }
