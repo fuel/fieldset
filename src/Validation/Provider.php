@@ -1,11 +1,11 @@
 <?php
 /**
- * @package   Fuel\Fieldset
- * @version   2.0
- * @author    Fuel Development Team
- * @license   MIT License
- * @copyright 2010 - 2013 Fuel Development Team
- * @link      http://fuelphp.com
+ * @package    Fuel\Fieldset
+ * @version    2.0
+ * @author     Fuel Development Team
+ * @license    MIT License
+ * @copyright  2010 - 2015 Fuel Development Team
+ * @link       http://fuelphp.com
  */
 
 namespace Fuel\Fieldset\Validation;
@@ -13,21 +13,37 @@ namespace Fuel\Fieldset\Validation;
 use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;
 use Fuel\Validation\RuleProvider\FromArray;
+use Fuel\Validation\ValidationAwareInterface;
 
 /**
  * Creates validation rules from fields
- *
- * @package Fuel\Fieldset\Validation
- * @author  Fuel Development Team
- *
- * @since 2.0
  */
-class Provider extends FromArray
+class Provider implements ValidationAwareInterface
 {
+	/**
+	 * @var FromArray
+	 */
+	protected $ruleProvider;
 
-	public function __construct()
+	/**
+	 * @param FromArray|null $ruleProvider
+	 */
+	public function __construct(FromArray $ruleProvider = null)
 	{
-		parent::__construct(true);
+		if (is_null($ruleProvider))
+		{
+			$ruleProvider = new FromArray(true);
+		}
+
+		$this->ruleProvider = $ruleProvider;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function populateValidator(Validator $validator)
+	{
+		return $this->ruleProvider->populateValidator($validator);
 	}
 
 	/**
@@ -35,11 +51,13 @@ class Provider extends FromArray
 	 *
 	 * @param Form|Fieldset|Input $element
 	 *
-	 * @return $this
+	 * @return self
 	 */
 	public function setData($element)
 	{
-		parent::setData($this->processRules($element));
+		$rules = $this->processRules($element);
+
+		$this->ruleProvider->setData($rules);
 
 		return $this;
 	}
@@ -56,7 +74,7 @@ class Provider extends FromArray
 		// If this is a container (Form or Fieldset) loop through each of the fields
 		if ($element instanceof Form or $element instanceof Fieldset)
 		{
-			$result = array();
+			$result = [];
 
 			foreach ($element as $field)
 			{
@@ -71,19 +89,18 @@ class Provider extends FromArray
 		if (isset($metaData['validation']))
 		{
 			$label = $element->getLabel();
-			if ($label === null)
+
+			if (is_null($label))
 			{
 				$label = $element->getName();
 			}
 
-			return array($element->getName() => [
+			return [$element->getName() => [
 				$this->ruleKey => $metaData['validation'],
 				$this->labelKey => $label,
-			]);
+			]];
 		}
 
-		return array($element->getName() => array());
+		return [$element->getName() => []];
 	}
-
-
 }
