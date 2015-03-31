@@ -14,6 +14,7 @@ use Fuel\Fieldset\Fieldset;
 use Fuel\Fieldset\Form;
 use Fuel\Validation\RuleProvider\FromArray;
 use Fuel\Validation\ValidationAwareInterface;
+use Fuel\Validation\Validator;
 
 /**
  * Creates validation rules from fields
