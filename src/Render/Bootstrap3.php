@@ -10,6 +10,8 @@
 
 namespace Fuel\Fieldset\Render;
 
+use Fuel\Fieldset\Input\Select;
+use Fuel\Fieldset\Input\Submit;
 use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Form;
 use Fuel\Common\Html;
@@ -21,7 +23,7 @@ use Fuel\Fieldset\Input\Radio;
 
 /**
  * Renders a form in the format required by bootstrap 3
- * 
+ *
  * @package Fuel\Fieldset\Render
  * @since   2.0
  * @author  Fuel Development Team
@@ -31,9 +33,9 @@ class Bootstrap3 extends Render
 
 	/**
 	 * @param InputElement|Select|ToggleGroup $element
-	 * 
+	 *
 	 * @return string
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	public function renderInput($element)
@@ -54,21 +56,21 @@ class Bootstrap3 extends Render
 		$element->setAttribute('id', 'form_'.$name);
 
 		$elementHtml = $element->render($this);
-		
+
 		$renderGroup = $element->getMeta('group', true);
 
 		$content = '';
-		
+
 		if ($renderGroup)
 		{
 			$content = '<div class="form-group">';
 		}
-		
+
 		if (trim($element->getLabel()) != '')
 		{
 			$content .= '<label for="'.$element->getAttribute('id').'">'.$element->getLabel().'</label>';
 		}
-		
+
 		$content .= $elementHtml;
 
 		if ($renderGroup)
@@ -103,13 +105,13 @@ class Bootstrap3 extends Render
 
 	/**
 	 * Renders a basic checkbox
-	 * 
+	 *
 	 * @param $checkbox Checkbox
-	 * 
+	 *
 	 * @return string
-	 * 
+	 *
 	 * @since 2.0
- 	 */ 
+ 	 */
 	public function renderCheckbox(Checkbox $checkbox)
 	{
 		$content = '<div class="checkbox"><label>';
@@ -121,12 +123,33 @@ class Bootstrap3 extends Render
 	}
 
 	/**
-	 * Renders a button
-	 * 
-	 * @param Button $button
-	 * 
+	 * Renders a submit with the appropriate classes.
+	 *
+	 * @param Submit $select
+	 *
 	 * @return string
-	 * 
+	 */
+	public function renderSubmit(Submit $select)
+	{
+		$attributes = $select->getAttributes();
+
+		if ( ! isset($attributes['class']))
+		{
+			$attributes['class'] = '';
+		}
+
+		$attributes['class'] .= ' btn btn-default';
+
+		return Html::tag('button', $attributes, $select->getValue());
+	}
+
+	/**
+	 * Renders a button
+	 *
+	 * @param Button $button
+	 *
+	 * @return string
+	 *
 	 * @since 2.0
 	 */
 	public function renderButton(Button $button)
