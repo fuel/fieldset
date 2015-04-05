@@ -14,6 +14,7 @@ use Fuel\Fieldset\Input\Select;
 use Fuel\Fieldset\Input\Submit;
 use Fuel\Fieldset\Render;
 use Fuel\Fieldset\Form;
+use Fuel\Fieldset\Fieldset;
 use Fuel\Common\Html;
 use Fuel\Fieldset\Input\Button;
 use Fuel\Fieldset\Input\Checkbox;
@@ -40,11 +41,12 @@ class Bootstrap3 extends Render
 	 */
 	public function renderInput($element)
 	{
-		if ($element instanceof Option ||
+		if ($element instanceof Fieldset ||
+		    $element instanceof Option ||
 			$element instanceof Optgroup ||
 			$element instanceof Radio )
 		{
-			return $element->render($this);;
+			return $element->render($this);
 		}
 
 		$element->setAttribute(
