@@ -97,8 +97,8 @@ class Provider implements ValidationAwareInterface
 			}
 
 			return [$element->getName() => [
-				$this->ruleKey => $metaData['validation'],
-				$this->labelKey => $label,
+				$this->ruleProvider->getRuleKey() => $metaData['validation'],
+				$this->ruleProvider->getLabelKey() => $label,
 			]];
 		}
 
